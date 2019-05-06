@@ -6,5 +6,7 @@ import by.popovich.last.exception.PersistentException;
 import java.util.List;
 
 public interface QueueDao extends DAO<Queue> {
-    List<Queue> readByWantedType(String wantedType) throws PersistentException;
+    List<Queue> read() throws PersistentException;
+
+    List<Queue> readByWantedType(Integer wantedType) throws PersistentException;
 }

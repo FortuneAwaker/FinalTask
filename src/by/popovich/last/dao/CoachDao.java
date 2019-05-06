@@ -6,11 +6,10 @@ import by.popovich.last.exception.PersistentException;
 import java.util.List;
 
 public interface CoachDao extends DAO<Coach> {
-    Coach readById(Integer id) throws PersistentException;
+    void updateCurrent(int numberOfCurrent,
+                       int coachId) throws PersistentException;
 
     List<Coach> read() throws PersistentException;
 
     List<Coach> readBySalary(int salary) throws PersistentException;
-
-    List<Coach> readByMaxClients(int maxClients) throws PersistentException;
 }

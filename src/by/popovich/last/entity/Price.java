@@ -1,16 +1,16 @@
 package by.popovich.last.entity;
 
 public class Price extends Entity {
-    private String typeOfExercise;
+    private int typeOfExercise;
     private int numberOfVisits;
     private int numberOfDays;
     private double price;
 
-    public String getTypeOfExercise() {
+    public int getTypeOfExercise() {
         return typeOfExercise;
     }
 
-    public void setTypeOfExercise(String typeOfExercise) {
+    public void setTypeOfExercise(int typeOfExercise) {
         this.typeOfExercise = typeOfExercise;
     }
 

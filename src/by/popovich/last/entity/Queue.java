@@ -3,7 +3,7 @@ package by.popovich.last.entity;
 import java.util.Objects;
 
 public class Queue extends Entity {
-    private String wantedType;
+    private Integer wantedType;
 
     @Override
     public boolean equals(Object o) {
@@ -19,11 +19,11 @@ public class Queue extends Entity {
         return Objects.hash(super.hashCode(), wantedType);
     }
 
-    public String getWantedType() {
+    public Integer getWantedType() {
         return wantedType;
     }
 
-    public void setWantedType(String wantedType) {
+    public void setWantedType(Integer wantedType) {
         this.wantedType = wantedType;
     }
 

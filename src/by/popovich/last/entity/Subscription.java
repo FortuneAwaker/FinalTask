@@ -1,6 +1,6 @@
 package by.popovich.last.entity;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.Objects;
 
 public class Subscription extends Entity {

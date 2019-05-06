@@ -1,4 +1,4 @@
-package by.popovich.last.pool;
+package by.popovich.last.dao.pool;
 
 import by.popovich.last.exception.PersistentException;
 
@@ -9,6 +9,8 @@ import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.locks.ReentrantLock;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,12 +23,15 @@ final public class ConnectionPool {
     private int maxSize;
     private int checkConnectionTimeout;
 
+    private ReentrantLock lock = new ReentrantLock();
+
     private BlockingQueue<PooledConnection> freeConnections = new LinkedBlockingQueue<>();
     private Set<PooledConnection> usedConnections = new ConcurrentSkipListSet<>();
 
     private ConnectionPool() {}
 
-    public synchronized Connection getConnection() throws PersistentException {
+    public Connection getConnection() throws PersistentException {
+        lock.lock();
         PooledConnection connection = null;
         while(connection == null) {
             try {
@@ -51,10 +56,12 @@ final public class ConnectionPool {
         }
         usedConnections.add(connection);
         LOGGER.debug(String.format("Connection was received from pool. Current pool size: %d used connections; %d free connection", usedConnections.size(), freeConnections.size()));
+        lock.unlock();
         return connection;
     }
 
-    synchronized void freeConnection(PooledConnection connection) {
+    void freeConnection(PooledConnection connection) {
+        lock.lock();
         try {
             if(connection.isValid(checkConnectionTimeout)) {
                 connection.clearWarnings();
@@ -69,9 +76,11 @@ final public class ConnectionPool {
                 connection.getConnection().close();
             } catch(SQLException e2) {}
         }
+        lock.unlock();
     }
 
-    public synchronized void init(String driverClass, String url, String user, String password, int startSize, int maxSize, int checkConnectionTimeout) throws PersistentException {
+    public void init(String driverClass, String url, String user, String password, int startSize, int maxSize, int checkConnectionTimeout) throws PersistentException {
+        lock.lock();
         try {
             destroy();
             Class.forName(driverClass);
@@ -87,6 +96,7 @@ final public class ConnectionPool {
             LOGGER.fatal("It is impossible to initialize connection pool", e);
             throw new PersistentException(e);
         }
+        lock.unlock();
     }
 
     private static ConnectionPool instance = new ConnectionPool();
@@ -99,7 +109,8 @@ final public class ConnectionPool {
         return new PooledConnection(DriverManager.getConnection(url, user, password));
     }
 
-    public synchronized void destroy() {
+    public void destroy() {
+        lock.lock();
         usedConnections.addAll(freeConnections);
         freeConnections.clear();
         for(PooledConnection connection : usedConnections) {
@@ -108,6 +119,7 @@ final public class ConnectionPool {
             } catch(SQLException e) {}
         }
         usedConnections.clear();
+        lock.unlock();
     }
 
     @Override

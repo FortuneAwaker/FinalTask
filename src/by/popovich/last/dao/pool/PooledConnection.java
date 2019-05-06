@@ -1,4 +1,4 @@
-package by.popovich.last.pool;
+package by.popovich.last.dao.pool;
 
 import java.sql.Array;
 import java.sql.Blob;
