@@ -93,12 +93,7 @@ public class QueueDaoImpl extends BaseDaoImpl implements QueueDao {
             statement.setInt(2, queue.getWantedType());
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) {
-                return resultSet.getInt(1);
-            } else {
-                LOGGER.error("Error");
-                throw new PersistentException();
-            }
+            return queue.getIdentity();
         } catch (SQLException e) {
             throw new PersistentException(e);
         } finally {

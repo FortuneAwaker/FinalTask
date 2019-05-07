@@ -52,9 +52,9 @@ public class PriceDaoImpl extends BaseDaoImpl implements PriceDao {
                 price.setTypeOfExercise(type);
                 price.setNumberOfVisits(resultSet
                         .getInt("number_of_visits"));
+                price.setPrice(resultSet.getDouble("price"));
                 price.setNumberOfDays(resultSet
                         .getInt("number_of_days"));
-                price.setPrice(resultSet.getDouble("price"));
                 prices.add(price);
             }
             return prices;
@@ -114,7 +114,7 @@ public class PriceDaoImpl extends BaseDaoImpl implements PriceDao {
             } else {
                 LOGGER.error("There is no autoincremented "
                         + "index after trying to"
-                        + " add record into table `users`");
+                        + " add record into table `price`");
                 throw new PersistentException();
             }
         } catch (SQLException e) {
@@ -130,10 +130,9 @@ public class PriceDaoImpl extends BaseDaoImpl implements PriceDao {
 
     @Override
     public Price read(Integer identity) throws PersistentException {
-        PreparedStatement statement = null;
         ResultSet resultSet = null;
-        try {
-            statement = connection.prepareStatement(READ_PRICE_BY_ID);
+        try (PreparedStatement statement = connection
+                .prepareStatement(READ_PRICE_BY_ID)) {
             statement.setInt(1, identity);
             resultSet = statement.executeQuery();
             Price price = null;
@@ -155,10 +154,6 @@ public class PriceDaoImpl extends BaseDaoImpl implements PriceDao {
             try {
                 assert resultSet != null;
                 resultSet.close();
-            } catch (SQLException | NullPointerException ignored) {
-            }
-            try {
-                statement.close();
             } catch (SQLException | NullPointerException ignored) {
             }
         }

@@ -6,7 +6,7 @@ import by.popovich.last.exception.PersistentException;
 import java.util.List;
 
 public interface GroupDao extends DAO<Group> {
-    Group readByCoachId(Integer id) throws PersistentException;
+    List<Group> readByCoachId(Integer id) throws PersistentException;
 
     List<Group> read() throws PersistentException;
 }

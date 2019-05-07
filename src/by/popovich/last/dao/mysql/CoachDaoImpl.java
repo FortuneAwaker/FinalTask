@@ -74,12 +74,12 @@ public class CoachDaoImpl extends BaseDaoImpl implements CoachDao {
     }
 
     @Override
-    public List<Coach> readBySalary(int salary) throws PersistentException {
+    public List<Coach> readBySalary(double salary) throws PersistentException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
             statement = connection.prepareStatement(READ_COACH_BY_SALARY);
-            statement.setInt(1, salary);
+            statement.setDouble(1, salary);
             resultSet = statement.executeQuery();
             Coach coach;
             ArrayList<Coach> coachs = new ArrayList<>();
@@ -90,7 +90,7 @@ public class CoachDaoImpl extends BaseDaoImpl implements CoachDao {
                         .getInt("max_clients"));
                 coach.setCurrentClients(resultSet
                         .getInt("current_clients"));
-                coach.setSalary(resultSet.getDouble(salary));
+                coach.setSalary(salary);
                 coachs.add(coach);
             }
             return coachs;
@@ -120,12 +120,7 @@ public class CoachDaoImpl extends BaseDaoImpl implements CoachDao {
             statement.setDouble(4, coach.getSalary());
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) {
-                return resultSet.getInt(1);
-            } else {
-                LOGGER.error("Unknown error in adding coach!");
-                throw new PersistentException();
-            }
+            return coach.getIdentity();
         } catch (SQLException e) {
             throw new PersistentException(e);
         } finally {
@@ -151,9 +146,9 @@ public class CoachDaoImpl extends BaseDaoImpl implements CoachDao {
                 coach.setIdentity(identity);
                 coach.setMaxClients(resultSet
                         .getInt("max_clients"));
+                coach.setSalary(resultSet.getDouble("salary"));
                 coach.setCurrentClients(resultSet
                         .getInt("current_clients"));
-                coach.setSalary(resultSet.getDouble("salary"));
             }
             return coach;
         } catch (SQLException e) {

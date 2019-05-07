@@ -34,22 +34,24 @@ public class GroupDaoImpl extends BaseDaoImpl implements GroupDao {
             + "`coach_id` = ?, `exercises_type` = ? WHERE `group_id` = ?";
 
     @Override
-    public Group readByCoachId(Integer identity) throws PersistentException {
+    public List<Group> readByCoachId(Integer identity) throws PersistentException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
             statement = connection.prepareStatement(READ_GROUP_BY_COACH_ID);
             statement.setInt(1, identity);
             resultSet = statement.executeQuery();
-            Group group = null;
-            if (resultSet.next()) {
+            Group group;
+            ArrayList<Group> groups = new ArrayList<>();
+            while (resultSet.next()) {
                 group = new Group();
                 group.setIdentity(resultSet.getInt("group_id"));
                 group.setTypeOfExercisesId(resultSet
                         .getInt("exercise_type"));
                 group.setCoachID(identity);
+                groups.add(group);
             }
-            return group;
+            return groups;
         } catch (SQLException e) {
             throw new PersistentException(e);
         } finally {
@@ -100,7 +102,7 @@ public class GroupDaoImpl extends BaseDaoImpl implements GroupDao {
             } else {
                 LOGGER.error("There is no autoincremented "
                         + "index after trying to"
-                        + " add record into table `users`");
+                        + " add record into table `groups`");
                 throw new PersistentException();
             }
         } catch (SQLException e) {

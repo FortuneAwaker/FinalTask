@@ -2,7 +2,7 @@ package by.popovich.last.entity;
 
 import java.sql.Blob;
 
-abstract public class Person extends Entity {
+public class Person extends Entity {
     private String surname;
     private String name;
     private String patronymic;

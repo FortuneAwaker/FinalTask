@@ -4,9 +4,15 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class Subscription extends Entity {
+    private static int count = 0;
+
     private Integer idOfGroup;
     private int leftVisits;
     private Date lastDay;
+
+    public Subscription() {
+        this.setIdentity(count++);
+    }
 
     @Override
     public boolean equals(Object o) {

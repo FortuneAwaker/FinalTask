@@ -64,7 +64,7 @@ public class ExerciseDaoImpl extends BaseDaoImpl implements ExerciseDao {
             } else {
                 LOGGER.error("There is no autoincremented "
                         + "index after trying to"
-                        + " add record into table `users`");
+                        + " add record into table `exercises`");
                 throw new PersistentException();
             }
         } catch(SQLException e) {

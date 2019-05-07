@@ -11,5 +11,5 @@ public interface CoachDao extends DAO<Coach> {
 
     List<Coach> read() throws PersistentException;
 
-    List<Coach> readBySalary(int salary) throws PersistentException;
+    List<Coach> readBySalary(double salary) throws PersistentException;
 }

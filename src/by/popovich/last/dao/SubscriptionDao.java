@@ -18,4 +18,7 @@ public interface SubscriptionDao extends DAO<Subscription> {
     List<Subscription> readSubscriptionsById(Integer identity)
             throws PersistentException;
 
+    void deleteSubscription(Integer id, Integer groupId)
+            throws PersistentException;
+
 }

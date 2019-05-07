@@ -5,9 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import by.popovich.last.exception.PersistentException;
-import org.apache.log4j.Logger;
 
-import exception.PersistentException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
