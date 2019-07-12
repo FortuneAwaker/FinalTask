@@ -13,7 +13,20 @@ public interface GroupService extends Service {
 
     List<Group> readGroupsByCoach(Integer coachId) throws PersistentException;
 
+    List<Group> readGroupsByTypeId(final int exercisesTypeId)
+            throws PersistentException;
+
+    List<Group> readGroupsByTypeName(final String exercisesTypeName)
+            throws PersistentException;
+
     void save(Group group) throws PersistentException;
 
     void delete(Integer identity) throws PersistentException;
+
+    void updateCurrentVisitors(final int numberOfCurrent,
+                               final int groupId) throws PersistentException;
+
+    void addVisitor(final int groupId) throws PersistentException;
+
+    void removeVisitor(final int groupId) throws PersistentException;
 }

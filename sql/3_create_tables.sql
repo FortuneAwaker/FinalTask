@@ -26,30 +26,19 @@ CREATE TABLE user_info
 ) ENGINE = INNODB
   DEFAULT CHARACTER SET utf8;
 
-CREATE TABLE `coach`
-(
-  `id`              INTEGER NOT NULL,
-  `max_clients`     int(11),
-  `current_clients` int(11),
-  `salary`          DOUBLE,
-  constraint COACH_ID FOREIGN KEY (`id`)
-    REFERENCES user_info (`user_id`)
-    ON UPDATE CASCADE
-    ON DELETE RESTRICT
-) ENGINE = INNODB
-  DEFAULT CHARACTER SET utf8;
-
 CREATE TABLE `groups`
 (
   `group_id`       INTEGER NOT NULL AUTO_INCREMENT,
   `coach_id`       INTEGER NOT NULL,
+  `max_clients`     int(11),
+  `current_clients` int(11),
   `exercises_type` INTEGER,
   constraint EXERCISE_TYPE FOREIGN KEY (`exercises_type`)
     REFERENCES `exercises` (`exercises_id`)
     ON UPDATE CASCADE
     ON DELETE RESTRICT,
   constraint COACH_OF_GROUP FOREIGN KEY (`coach_id`)
-    REFERENCES `coach` (`id`)
+    REFERENCES `users` (`id`)
     ON UPDATE CASCADE
     ON DELETE RESTRICT,
   constraint GROUP_ID PRIMARY KEY (`group_id`)
@@ -63,26 +52,11 @@ CREATE TABLE `subscription`
   `left_visits` int(11),
   `last_day`   date,
   constraint CLIENT_ID FOREIGN KEY (`id`)
-    REFERENCES user_info (`user_id`)
+    REFERENCES users (`id`)
     ON UPDATE CASCADE
     ON DELETE RESTRICT,
   constraint GROUP_OF_CLIENT FOREIGN KEY (`id_of_group`)
     REFERENCES `groups` (`group_id`)
-    ON UPDATE CASCADE
-    ON DELETE RESTRICT
-) ENGINE = INNODB
-  DEFAULT CHARACTER SET utf8;
-
-CREATE TABLE `queue`
-(
-  `waiter_id`   INTEGER NOT NULL,
-  `wanted_type` INTEGER NOT NULL,
-  constraint ID_OF_WAITER FOREIGN KEY (`waiter_id`)
-    REFERENCES `user_info` (`user_id`)
-    ON UPDATE CASCADE
-    ON DELETE RESTRICT,
-  constraint WAITING_TYPE FOREIGN KEY (`wanted_type`)
-    REFERENCES `exercises` (`exercises_id`)
     ON UPDATE CASCADE
     ON DELETE RESTRICT
 ) ENGINE = INNODB

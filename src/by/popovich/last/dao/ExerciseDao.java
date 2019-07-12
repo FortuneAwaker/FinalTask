@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface ExerciseDao extends DAO<Exercise> {
     List<Exercise> read() throws PersistentException;
+
+    Exercise readIdByName(String name) throws PersistentException;
 }

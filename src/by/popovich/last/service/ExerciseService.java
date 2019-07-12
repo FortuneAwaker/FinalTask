@@ -6,6 +6,8 @@ import by.popovich.last.exception.PersistentException;
 import java.util.List;
 
 public interface ExerciseService extends Service {
+    Exercise readIdByName(String name) throws PersistentException;
+
     Exercise readById(Integer identity) throws PersistentException;
 
     List<Exercise> readAll() throws PersistentException;

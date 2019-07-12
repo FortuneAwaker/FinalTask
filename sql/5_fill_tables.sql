@@ -1,3 +1,4 @@
+use sport_club;
 INSERT INTO `users` (`id`,
                      `login`,
                      `password`,
@@ -29,24 +30,16 @@ VALUES (2, "Иванов", "Иван", "Иванович", 375441234567),
   (9, "Степаненко", "Юлия", "Эдуардовна", 7788456),
   (10, "Комарова", "Елизавета", "Юрьевна", 2283224);
 
-INSERT INTO `coach` (`id`,
-                     `max_clients`,
-                     `current_clients`,
-                     `salary`
-)
-VALUES (6, 10, 3, 850),
-  (7, 5, 2, 750),
-  (9, 5, 2, 700),
-  (10, 3, 3, 750);
-
 INSERT INTO `groups` (`group_id`,
                       `coach_id` ,
-                      `exercises_type`
+                      `exercises_type`,
+                      `max_clients`,
+                      `current_clients`
 )
-VALUES (1, 6, 1),
-  (2, 7, 2),
-  (3, 9, 3),
-  (4, 10, 4);
+VALUES (1, 6, 1, 10, 3),
+  (2, 7, 2, 5, 2),
+  (3, 9, 3, 5, 2),
+  (4, 10, 4, 3, 3);
 
 INSERT INTO `subscription` (
   `id`,
@@ -65,13 +58,6 @@ VALUES #(2, 1, 3, "2019-05-20")
   (8, 1, 1 ,"2019-06-07"),
   (8, 2, 4, "2019-06-30"),
   (8, 3, 4, "2019-06-30");
-
-alter table user_info change column phone phone BIGINT;
-
-
-INSERT INTO `queue` (`waiter_id`,
-                     `wanted_type`)
-VALUES (8, 1);
 
 INSERT INTO `prices` (`id`,
                       `exercises_type`,

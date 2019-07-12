@@ -23,12 +23,10 @@ public class TransactionImpl implements Transaction {
             Class<? extends BaseDaoImpl>> classes = new ConcurrentHashMap<>();
 
     static {
-        classes.put(CoachDao.class, CoachDaoImpl.class);
         classes.put(ExerciseDao.class, ExerciseDaoImpl.class);
         classes.put(UserDao.class, UserDaoImpl.class);
         classes.put(GroupDao.class, GroupDaoImpl.class);
         classes.put(PriceDao.class, PriceDaoImpl.class);
-        classes.put(QueueDao.class, QueueDaoImpl.class);
         classes.put(SubscriptionDao.class, SubscriptionDaoImpl.class);
     }
 

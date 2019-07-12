@@ -19,12 +19,10 @@ public class ServiceFactoryImpl implements ServiceFactory {
             Class<? extends ServiceImpl>> SERVICES = new ConcurrentHashMap<>();
 
     static {
-        SERVICES.put(CoachService.class, CoachServiceImpl.class);
         SERVICES.put(ExerciseService.class, ExerciseServiceImpl.class);
         SERVICES.put(UserService.class, UserServiceImpl.class);
         SERVICES.put(GroupService.class, GroupServiceImpl.class);
         SERVICES.put(PriceService.class, PriceServiceImpl.class);
-        SERVICES.put(QueueService.class, QueueServiceImpl.class);
         SERVICES.put(SubscriptionService.class, SubscriptionServiceImpl.class);
         SERVICES.put(UserInfoService.class, UserInfoServiceImpl.class);
     }

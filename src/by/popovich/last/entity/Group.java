@@ -5,6 +5,8 @@ import java.util.Objects;
 public class Group extends Entity {
     private Integer coachID;
     private Integer typeOfExercisesId;
+    private int maxClients;
+    private int currentClients;
 
     @Override
     public boolean equals(Object o) {
@@ -37,11 +39,28 @@ public class Group extends Entity {
         this.typeOfExercisesId = typeOfExercisesId;
     }
 
+    public int getMaxClients() {
+        return maxClients;
+    }
+
+    public void setMaxClients(int maxClients) {
+        this.maxClients = maxClients;
+    }
+
+    public int getCurrentClients() {
+        return currentClients;
+    }
+
+    public void setCurrentClients(int currentClients) {
+        this.currentClients = currentClients;
+    }
+
     @Override
     public String toString() {
-        return "Group{" +
-                "coachID=" + coachID +
-                ", typeOfExercises='" + typeOfExercisesId + '\'' +
-                '}';
+        return  "groupID = " + getIdentity() +
+                ", coachID = " + coachID +
+                ", typeOfExercises = " + typeOfExercisesId +
+                ", current visitors = " + currentClients +
+                ", maximum visitors = " + maxClients;
     }
 }
