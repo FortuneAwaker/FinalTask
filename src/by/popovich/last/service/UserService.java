@@ -6,13 +6,13 @@ import by.popovich.last.exception.PersistentException;
 import java.util.List;
 
 public interface UserService extends Service {
-    List<User> findAll() throws PersistentException;
+    List<User> readAll() throws PersistentException;
 
-    User findByIdentity(Integer identity) throws PersistentException;
+    User readByIdentity(final Integer identity) throws PersistentException;
 
-    User findByLoginAndPassword(String login, String password) throws PersistentException;
+    User readByLoginAndPassword(final String login, final String password) throws PersistentException;
 
-    void save(User user) throws PersistentException;
+    void save(final User user) throws PersistentException;
 
-    void delete(Integer identity) throws PersistentException;
+    void delete(final Integer identity) throws PersistentException;
 }

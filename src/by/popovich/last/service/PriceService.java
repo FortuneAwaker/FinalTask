@@ -10,9 +10,11 @@ public interface PriceService extends Service {
 
     List<Price> readAll() throws PersistentException;
 
-    List<Price> readByExerciseType(Integer type) throws PersistentException;
+    List<Price> readByExerciseTypeId(final Integer type) throws PersistentException;
 
-    void save(Price price) throws PersistentException;
+    List<Price> readByExerciseTypeName(final String name) throws PersistentException;
 
-    void delete(Integer identity) throws PersistentException;
+    void save(final Price price) throws PersistentException;
+
+    void delete(final Integer identity) throws PersistentException;
 }

@@ -8,5 +8,5 @@ import java.util.List;
 public interface UserDao extends DAO<User> {
     User read(String login, String password) throws PersistentException;
 
-    List<User> read() throws PersistentException;
+    List<User> readAll() throws PersistentException;
 }

@@ -48,4 +48,15 @@ public class Person extends Entity {
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", phone=" + phone +
+                ", avatar=" + avatar +
+                '}';
+    }
 }

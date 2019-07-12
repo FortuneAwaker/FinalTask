@@ -20,23 +20,27 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
 
     private final String READ_TABLE = "SELECT * FROM `subscription`";
 
-    private final String READ_SUBSCRIPTIONS_BY_ID = "SELECT `id`,"
-            + " `id_of_group`, `left_visits`, `last_day` FROM subscription"
-            + " WHERE id = ?";
+    private final String READ_SUBSCRIPTIONS_BY_CLIENT_ID = "SELECT * FROM subscription"
+            + " WHERE `client_id` = ?";
 
-    private final String READ_SUBSCRIPTION_BY_GROUP_ID = "SELECT `id`, "
-            + "`id_of_group`, `left_visits`, `last_day` FROM subscription"
-            + " WHERE id_of_group = ?";
+    private final String READ_SUBSCRIPTION_BY_ID = "SELECT * FROM subscription"
+            + " WHERE `id` = ?";
+
+    private final String READ_SUBSCRIPTION_BY_GROUP_ID = "SELECT * FROM "
+            + "subscription WHERE `id_of_group` = ?";
 
     private final String READ_SUBSCRIPTION_BY_LAST_DAY
-            = "SELECT `id`, `id_of_group`, "
-            + "`left_visits`, `last_day` FROM subscription WHERE last_day = ?";
+            = "SELECT * FROM subscription WHERE last_day = ?";
 
     private final String ADD_SUBSCRIPTION = "INSERT INTO `subscription` "
-            + "(id, id_of_group, left_visits, last_day) VALUES (?, ?, ?, ?)";
+            + "(client_id, id_of_group, left_visits, last_day)"
+            + " VALUES (?, ?, ?, ?)";
+
+    private final String DELETE_BY_CLIENT_ID = "DELETE FROM "
+            + "`subscription` WHERE `client_id` = ? AND `id_of_group` = ?";
 
     private final String DELETE_BY_ID = "DELETE FROM "
-            + "`subscription` WHERE `id` = ? AND `id_of_group` = ?";
+            + "`subscription` WHERE `id` = ?";
 
     private final String UPDATE_SUBSCRIPTION = "UPDATE `subscription` SET "
             + "`left_visits` = ?, `last_day` = ?"
@@ -58,6 +62,8 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
                 subscription = new Subscription();
                 subscription.setIdentity(resultSet
                         .getInt("id"));
+                subscription.setClientId(resultSet
+                        .getInt("client_id"));
                 subscription.setIdOfGroup(groupId);
                 subscription.setLastDay(resultSet
                         .getDate("last_day"));
@@ -96,6 +102,8 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
                 subscription = new Subscription();
                 subscription.setIdentity(resultSet
                         .getInt("id"));
+                subscription.setClientId(resultSet
+                        .getInt("client_id"));
                 subscription.setIdOfGroup(resultSet
                         .getInt("id_of_group"));
                 subscription.setLastDay(lastDayOfSubscription);
@@ -119,7 +127,7 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
     }
 
     @Override
-    public List<Subscription> readSubscriptions() throws PersistentException {
+    public List<Subscription> readAll() throws PersistentException {
         try (PreparedStatement statement = connection
                 .prepareStatement(READ_TABLE);
              ResultSet resultSet = statement.executeQuery()) {
@@ -131,6 +139,8 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
                         .getInt("id"));
                 subscription.setIdOfGroup(resultSet
                         .getInt("id_of_group"));
+                subscription.setClientId(resultSet
+                        .getInt("client_id"));
                 subscription.setLeftVisits(resultSet
                         .getInt("left_visits"));
                 subscription.setLastDay(resultSet
@@ -144,25 +154,27 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
     }
 
     @Override
-    public List<Subscription> readSubscriptionsById(Integer identity)
+    public List<Subscription> readSubscriptionsByClientId(Integer identity)
             throws PersistentException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            statement = connection.prepareStatement(READ_SUBSCRIPTIONS_BY_ID);
+            statement = connection.prepareStatement(READ_SUBSCRIPTIONS_BY_CLIENT_ID);
             statement.setInt(1, identity);
             resultSet = statement.executeQuery();
             List<Subscription> subscriptions = new ArrayList<>();
             Subscription subscription;
             while (resultSet.next()) {
                 subscription = new Subscription();
-                subscription.setIdentity(identity);
+                subscription.setClientId(identity);
                 subscription.setIdOfGroup(resultSet
                         .getInt("id_of_group"));
                 subscription.setLastDay(resultSet
                         .getDate("last_day"));
                 subscription.setLeftVisits(resultSet
                         .getInt("left_visits"));
+                subscription.setIdentity(resultSet
+                        .getInt("id"));
                 subscriptions.add(subscription);
             }
             return subscriptions;
@@ -181,12 +193,12 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
     }
 
     @Override
-    public void deleteSubscription(Integer identity, Integer groupId)
+    public void deleteSubscription(Integer client_id, Integer groupId)
             throws PersistentException {
         try (PreparedStatement statement
-                     = connection.prepareStatement(DELETE_BY_ID)) {
+                     = connection.prepareStatement(DELETE_BY_CLIENT_ID)) {
             statement.setInt(2, groupId);
-            statement.setInt(1, identity);
+            statement.setInt(1, client_id);
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new PersistentException(e);
@@ -199,13 +211,21 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
         try (PreparedStatement statement
                      = connection.prepareStatement(ADD_SUBSCRIPTION,
                 Statement.RETURN_GENERATED_KEYS)) {
-            statement.setInt(1, subscription.getIdentity());
+            statement.setInt(1, subscription.getClientId());
             statement.setInt(2, subscription.getIdOfGroup());
             statement.setInt(3, subscription.getLeftVisits());
             statement.setDate(4, subscription.getLastDay());
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
-            return subscription.getIdentity();
+            System.out.println("created");
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            } else {
+                LOGGER.error("There is no autoincremented "
+                        + "index after trying to"
+                        + " add record into table `subscription`");
+                throw new PersistentException();
+            }
         } catch (SQLException e) {
             throw new PersistentException(e);
         } finally {
@@ -219,8 +239,38 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
 
     @Override
     public Subscription read(Integer identity) throws PersistentException {
-        LOGGER.warn("Method is not supported for one subscription!");
-        return null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(READ_SUBSCRIPTION_BY_ID);
+            statement.setInt(1, identity);
+            resultSet = statement.executeQuery();
+            Subscription subscription = null;
+            if (resultSet.next()) {
+                subscription = new Subscription();
+                subscription.setIdentity(identity);
+                subscription.setClientId(resultSet
+                        .getInt("client_id"));
+                subscription.setIdOfGroup(resultSet
+                        .getInt("id_of_group"));
+                subscription.setLastDay(resultSet
+                        .getDate("last_day"));
+                subscription.setLeftVisits(resultSet
+                        .getInt("left_visits"));
+            }
+            return subscription;
+        } catch (SQLException e) {
+            throw new PersistentException(e);
+        } finally {
+            try {
+                resultSet.close();
+            } catch (SQLException | NullPointerException ignored) {
+            }
+            try {
+                statement.close();
+            } catch (SQLException | NullPointerException ignored) {
+            }
+        }
     }
 
     @Override
@@ -231,6 +281,7 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
             statement.setDate(2, subscription.getLastDay());
             statement.setInt(3, subscription.getIdentity());
             statement.executeUpdate();
+            System.out.println("updated");
         } catch (SQLException e) {
             throw new PersistentException(e);
         }
@@ -238,6 +289,11 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
 
     @Override
     public void delete(Integer identity) throws PersistentException {
-        LOGGER.warn("Method is not supported by only id!");
-    }
+        try (PreparedStatement statement
+                     = connection.prepareStatement(DELETE_BY_ID)) {
+            statement.setInt(1, identity);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new PersistentException(e);
+        }    }
 }

@@ -2,13 +2,11 @@ package by.popovich.last;
 
 
 import by.popovich.last.dao.pool.ConnectionPool;
-import by.popovich.last.entity.Exercise;
-import by.popovich.last.entity.Group;
+import by.popovich.last.entity.*;
 import by.popovich.last.exception.PersistentException;
-import by.popovich.last.service.ExerciseServiceImpl;
-import by.popovich.last.service.GroupService;
-import by.popovich.last.service.GroupServiceImpl;
-import by.popovich.last.service.Service;
+import by.popovich.last.service.*;
+
+import java.sql.Date;
 
 public class Main {
     public static final String DB_DRIVER_CLASS = "com.mysql.jdbc.Driver";
@@ -25,17 +23,11 @@ public class Main {
         } catch (PersistentException e) {
             e.printStackTrace();
         }
-        GroupService service = new GroupServiceImpl();
+        UserService service = new UserServiceImpl();
         try {
             System.out.println(service.readAll());
-            System.out.println(service.readById(2));
-            System.out.println(service.readGroupsByCoach(7));
-            System.out.println(service.readGroupsByTypeId(2));
-            System.out.println(service.readGroupsByTypeName("Йога"));
-            service.addVisitor(1);
-            System.out.println(service.readById(1));
-            service.removeVisitor(1);
-            System.out.println(service.readById(1));
+            service.delete(16);
+            System.out.println(service.readAll());
         } catch (PersistentException e) {
             e.printStackTrace();
         }
@@ -50,3 +42,23 @@ public class Main {
 //        ex.setTypeOfExercises("Тренажёрка");
 //        ((ExerciseServiceImpl) service).save(ex);
 //        System.out.println(((ExerciseServiceImpl) service).readAll());
+
+
+
+
+//        System.out.println(service.readAll());
+//        System.out.println(service.readById(5));
+//        System.out.println(service.readByGroupId(3));
+//        System.out.println(service.readSubscriptionsByClientId(5));
+//        Date date = new Date(119, 5, 20);
+//        System.out.println(date);
+//        System.out.println(service.readByLastDay(date));
+//        Subscription subscription = new Subscription();
+//        subscription.setIdentity(15);
+//        subscription.setClientId(4);
+//        subscription.setLastDay(date);
+//        subscription.setLeftVisits(4);
+//        subscription.setIdOfGroup(2);
+//        service.save(subscription);
+//        service.deleteSubscription(4,2);
+//        System.out.println(service.readAll());

@@ -1,36 +1,47 @@
 package by.popovich.last.service;
 
 import by.popovich.last.dao.UserDao;
+import by.popovich.last.dao.mysql.UserDaoImpl;
+import by.popovich.last.dao.pool.ConnectionPool;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
 import java.util.Formatter;
 import java.util.List;
 
 public class UserServiceImpl extends ServiceImpl implements UserService {
     @Override
-    public List<User> findAll() throws PersistentException {
-        UserDao dao = transaction.createDao(UserDao.class);
-        return dao.read();
+    public List<User> readAll() throws PersistentException {
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        UserDao dao = new UserDaoImpl();
+        ((UserDaoImpl) dao).setConnection(connection);
+        return dao.readAll();
     }
 
     @Override
-    public User findByIdentity(Integer identity) throws PersistentException {
-        UserDao dao = transaction.createDao(UserDao.class);
+    public User readByIdentity(Integer identity) throws PersistentException {
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        UserDao dao = new UserDaoImpl();
+        ((UserDaoImpl) dao).setConnection(connection);
         return dao.read(identity);
     }
 
     @Override
-    public User findByLoginAndPassword(String login, String password) throws PersistentException {
-        UserDao dao = transaction.createDao(UserDao.class);
+    public User readByLoginAndPassword(String login, String password) throws PersistentException {
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        UserDao dao = new UserDaoImpl();
+        ((UserDaoImpl) dao).setConnection(connection);
         return dao.read(login, md5(password));
     }
 
     @Override
     public void save(User user) throws PersistentException {
-        UserDao dao = transaction.createDao(UserDao.class);
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        UserDao dao = new UserDaoImpl();
+        ((UserDaoImpl) dao).setConnection(connection);
         if(user.getIdentity() != null) {
             if(user.getPassword() != null) {
                 user.setPassword(md5(user.getPassword()));
@@ -40,14 +51,20 @@ public class UserServiceImpl extends ServiceImpl implements UserService {
             }
             dao.update(user);
         } else {
-            user.setPassword(md5(new String()));
+            if(user.getPassword() != null) {
+                user.setPassword(md5(user.getPassword()));
+            } else {
+                user.setPassword(md5(new String()));
+            }
             user.setIdentity(dao.create(user));
         }
     }
 
     @Override
     public void delete(Integer identity) throws PersistentException {
-        UserDao dao = transaction.createDao(UserDao.class);
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        UserDao dao = new UserDaoImpl();
+        ((UserDaoImpl) dao).setConnection(connection);
         dao.delete(identity);
     }
 

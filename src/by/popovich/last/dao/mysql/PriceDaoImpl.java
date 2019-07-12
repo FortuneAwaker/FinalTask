@@ -16,7 +16,7 @@ import java.util.List;
 public class PriceDaoImpl extends BaseDaoImpl implements PriceDao {
     private static Logger LOGGER = LogManager.getLogger(ExerciseDaoImpl.class);
 
-    private final String READ_TABLE = "SELECT * FROM `groups`";
+    private final String READ_TABLE = "SELECT * FROM `prices`";
 
     private final String READ_PRICE_BY_ID = "SELECT `exercises_type`,"
             + " `number_of_visits`, `number_of_days`, `price`"

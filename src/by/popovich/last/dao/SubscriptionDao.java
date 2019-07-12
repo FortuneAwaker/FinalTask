@@ -13,12 +13,12 @@ public interface SubscriptionDao extends DAO<Subscription> {
     List<Subscription> readByLastDay(Date lastDayOfSubscription)
             throws PersistentException;
 
-    List<Subscription> readSubscriptions() throws PersistentException;
+    List<Subscription> readAll() throws PersistentException;
 
-    List<Subscription> readSubscriptionsById(Integer identity)
+    List<Subscription> readSubscriptionsByClientId(final Integer clientId)
             throws PersistentException;
 
-    void deleteSubscription(Integer id, Integer groupId)
+    void deleteSubscription(Integer clientId, Integer groupId)
             throws PersistentException;
 
 }

@@ -16,7 +16,7 @@ CREATE TABLE user_info
   `surname`    VARCHAR(255) NOT NULL,
   `name`       VARCHAR(255) NOT NULL,
   `patronymic` VARCHAR(255) NOT NULL,
-  `phone`      BIGINT      NOT NULL,
+  `phone`      BIGINT       NOT NULL,
   `avatar`     BLOB,
   constraint ID_OF_USER FOREIGN KEY (`user_id`)
     REFERENCES `users` (`id`)
@@ -28,11 +28,11 @@ CREATE TABLE user_info
 
 CREATE TABLE `groups`
 (
-  `group_id`       INTEGER NOT NULL AUTO_INCREMENT,
-  `coach_id`       INTEGER NOT NULL,
+  `group_id`        INTEGER NOT NULL AUTO_INCREMENT,
+  `coach_id`        INTEGER NOT NULL,
   `max_clients`     int(11),
   `current_clients` int(11),
-  `exercises_type` INTEGER,
+  `exercises_type`  INTEGER,
   constraint EXERCISE_TYPE FOREIGN KEY (`exercises_type`)
     REFERENCES `exercises` (`exercises_id`)
     ON UPDATE CASCADE
@@ -47,12 +47,14 @@ CREATE TABLE `groups`
 
 CREATE TABLE `subscription`
 (
-  `id`          INTEGER NOT NULL,
-  `id_of_group`    INTEGER NOT NULL,
+  `id`          INTEGER NOT NULL AUTO_INCREMENT,
+  `client_id`   INTEGER,
+  `id_of_group` INTEGER,
   `left_visits` int(11),
-  `last_day`   date,
-  constraint CLIENT_ID FOREIGN KEY (`id`)
-    REFERENCES users (`id`)
+  `last_day`    date,
+  constraint SUB_ID PRIMARY KEY (`id`),
+  constraint SUB_CLIENT_ID FOREIGN KEY (`client_id`)
+    REFERENCES `users` (`id`)
     ON UPDATE CASCADE
     ON DELETE RESTRICT,
   constraint GROUP_OF_CLIENT FOREIGN KEY (`id_of_group`)
@@ -64,11 +66,11 @@ CREATE TABLE `subscription`
 
 CREATE TABLE `prices`
 (
-  `id` INTEGER NOT NULL,
-  `exercises_type`   INTEGER NOT NULL ,
+  `id`               INTEGER NOT NULL AUTO_INCREMENT,
+  `exercises_type`   INTEGER NOT NULL,
   `number_of_visits` TINYINT NOT NULL,
   `number_of_days`   INT     NOT NULL,
-  `price`            DOUBLE NOT NULL,
+  `price`            DOUBLE  NOT NULL,
   constraint TYPE FOREIGN KEY (`exercises_type`)
     REFERENCES `exercises` (`exercises_id`)
     ON UPDATE CASCADE

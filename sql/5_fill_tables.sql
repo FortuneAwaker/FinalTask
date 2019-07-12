@@ -42,7 +42,7 @@ VALUES (1, 6, 1, 10, 3),
   (4, 10, 4, 3, 3);
 
 INSERT INTO `subscription` (
-  `id`,
+  `client_id`,
   `id_of_group`,
   `left_visits`,
   `last_day`

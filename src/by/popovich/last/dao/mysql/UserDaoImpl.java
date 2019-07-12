@@ -20,20 +20,20 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
     private final String CREATE_USER = "INSERT INTO `users` "
             + "(`login`, `password`, `role`) VALUES (?, ?, ?)";
 
-    private final String READ_BY_ID = "SELECT `login`, `password`, "
-            + "`role` FROM `users` WHERE `identity` = ?";
+    private final String READ_BY_ID = "SELECT *"
+            + " FROM `users` WHERE `id` = ?";
 
     private final String UPDATE_USER_PARAMETERS = "UPDATE `users` SET "
-            + "`login` = ?, `password` = ?, `role` = ? WHERE `identity` = ?";
+            + "`login` = ?, `password` = ?, `role` = ? WHERE `id` = ?";
 
     private final String DELETE_USER_BY_ID = "DELETE FROM "
-            + "`users` WHERE `identity` = ?";
+            + "`users` WHERE `id` = ?";
 
-    private final String USER_BY_LOGIN_AND_PASSWORD = "SELECT `identity`,"
-            + " `role` FROM `users` WHERE `login` = ? AND `password` = ?";
+    private final String USER_BY_LOGIN_AND_PASSWORD = "SELECT *"
+            + " FROM `users` WHERE `login` = ? AND `password` = ?";
 
-    private final String READ_ALL_TABLE = "SELECT `identity`, `login`,"
-            + " `password`, `role` FROM `users` ORDER BY `login`";
+    private final String READ_ALL_TABLE = "SELECT *"
+            + " FROM `users` ORDER BY `login`";
 
     @Override
     public Integer create(User user) throws PersistentException {
@@ -132,7 +132,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
             User user = null;
             if(resultSet.next()) {
                 user = new User();
-                user.setIdentity(resultSet.getInt("identity"));
+                user.setIdentity(resultSet.getInt("id"));
                 user.setLogin(login);
                 user.setPassword(password);
                 user.setRole(Role.getByIdentity(resultSet
@@ -152,7 +152,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
     }
 
     @Override
-    public List<User> read() throws PersistentException {
+    public List<User> readAll() throws PersistentException {
         try (PreparedStatement statement = connection
                 .prepareStatement(READ_ALL_TABLE);
              ResultSet resultSet = statement.executeQuery()) {
@@ -160,7 +160,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
             User user = null;
             while (resultSet.next()) {
                 user = new User();
-                user.setIdentity(resultSet.getInt("identity"));
+                user.setIdentity(resultSet.getInt("id"));
                 user.setLogin(resultSet.getString("login"));
                 user.setPassword(resultSet.getString("password"));
                 user.setRole(Role.getByIdentity(

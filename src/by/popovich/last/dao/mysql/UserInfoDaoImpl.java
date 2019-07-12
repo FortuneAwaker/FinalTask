@@ -16,12 +16,12 @@ import java.util.List;
 public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
     private static Logger LOGGER = LogManager.getLogger(UserDaoImpl.class);
 
-    private final String CREATE_USER = "INSERT INTO `user_info` "
+    private final String ADD_USER_INFO = "INSERT INTO `user_info` "
             + "(`user_id`, `surname`, `name`, `patronymic`, `phone`)"
             + " VALUES (?, ?, ?, ?, ?)";
 
-    private final String READ_BY_ID = "SELECT `surname`, `name`, "
-            + "`patronymic`, `phone` FROM `user_info` WHERE `user_id` = ?";
+    private final String READ_BY_ID = "SELECT *"
+            + " FROM `user_info` WHERE `user_id` = ?";
 
     private final String UPDATE_USER_PARAMETERS = "UPDATE `user_info` SET "
             + "`surname` = ?, `name` = ?, "
@@ -37,7 +37,7 @@ public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            statement = connection.prepareStatement(CREATE_USER,
+            statement = connection.prepareStatement(ADD_USER_INFO,
                     Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, person.getIdentity());
             statement.setString(2, person.getSurname());
@@ -128,7 +128,7 @@ public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
             Person person = null;
             while (resultSet.next()) {
                 person = new Person();
-                person.setIdentity(resultSet.getInt("identity"));
+                person.setIdentity(resultSet.getInt("user_id"));
                 person.setName(resultSet.getString("name"));
                 person.setSurname(resultSet.getString("surname"));
                 person.setPatronymic(resultSet.getString("patronymic"));

@@ -4,15 +4,11 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class Subscription extends Entity {
-    private static int count = 0;
 
+    private int clientId;
     private Integer idOfGroup;
     private int leftVisits;
     private Date lastDay;
-
-    public Subscription() {
-        this.setIdentity(count++);
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -28,6 +24,14 @@ public class Subscription extends Entity {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), idOfGroup, leftVisits, lastDay);
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
     public Integer getIdOfGroup() {
@@ -56,10 +60,10 @@ public class Subscription extends Entity {
 
     @Override
     public String toString() {
-        return "Subscription{" +
-                "idOfGroup=" + idOfGroup +
-                ", leftVisits=" + leftVisits +
-                ", lastDay=" + lastDay +
-                '}';
+        return "id = " + getIdentity()
+                + ", clientId = " + clientId
+                + ", idOfGroup = " + idOfGroup
+                + ", leftVisits = " + leftVisits
+                + ", lastDay = " + lastDay;
     }
 }

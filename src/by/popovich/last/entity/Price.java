@@ -37,4 +37,13 @@ public class Price extends Entity {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "id = " + getIdentity()
+                + ", typeOfExerciseId = " + typeOfExercise
+                + ", numberOfVisits = " + numberOfVisits
+                + ", numberOfDays = " + numberOfDays
+                + ", price=" + price;
+    }
 }
