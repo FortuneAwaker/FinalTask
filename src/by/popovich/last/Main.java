@@ -6,9 +6,31 @@ import by.popovich.last.entity.*;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.*;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
+import java.util.Formatter;
 
 public class Main {
+    private static String md5(String string) {
+        MessageDigest digest;
+        try {
+            digest = MessageDigest.getInstance("md5");
+            digest.reset();
+            digest.update(string.getBytes());
+            byte hash[] = digest.digest();
+            Formatter formatter = new Formatter();
+            for(int i = 0; i < hash.length; i++) {
+                formatter.format("%02X", hash[i]);
+            }
+            String md5summ = formatter.toString();
+            formatter.close();
+            return md5summ;
+        } catch(NoSuchAlgorithmException e) {
+            return null;
+        }
+    }
+
     public static final String DB_DRIVER_CLASS = "com.mysql.jdbc.Driver";
     public static final String DB_URL = "jdbc:mysql://localhost:3306/sport_club?useUnicode=true&characterEncoding=UTF-8";
     public static final String DB_USER = "club_user";
@@ -23,14 +45,15 @@ public class Main {
         } catch (PersistentException e) {
             e.printStackTrace();
         }
-        UserService service = new UserServiceImpl();
-        try {
-            System.out.println(service.readAll());
-            service.delete(16);
-            System.out.println(service.readAll());
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
+        System.out.println(md5("qwerty"));
+        System.out.println(md5("tytyty"));
+        System.out.println(md5("ahalah"));
+        System.out.println(md5("angel7"));
+        System.out.println(md5("asdfgh"));
+        System.out.println(md5("hgfdsa"));
+        System.out.println(md5("waitForLove"));
+        System.out.println(md5("trainWell"));
+        System.out.println(md5("coolGirl"));
     }
 }
 //

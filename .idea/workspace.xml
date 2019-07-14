@@ -7,47 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1d330e0-7fb5-4f7a-8b8d-ea9d454c395d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab7d69a1-d73a-4010-9e85-e2d511ef6953.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ab7d69a1-d73a-4010-9e85-e2d511ef6953.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_17_bin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_17_bin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/3_create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/3_create_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task05Final_Database.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Task05Final_Database.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql/5_fill_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/5_fill_tables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/popovich/last/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/SubscriptionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/dao/SubscriptionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/PriceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/PriceDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/SubscriptionDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/SubscriptionDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/UserInfoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/UserInfoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/entity/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/Price.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/entity/Price.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/Subscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/entity/Subscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/PriceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/service/PriceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/PriceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/service/PriceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/SubscriptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/service/SubscriptionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/SubscriptionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/service/SubscriptionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/service/UserInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/UserInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/service/UserInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/SubscriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/SubscriptionDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/PriceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/PriceDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/SubscriptionDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/SubscriptionDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserInfoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserInfoDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Price.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Price.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Subscription.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Subscription.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/PriceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/PriceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/PriceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/PriceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/SubscriptionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/SubscriptionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/SubscriptionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/SubscriptionServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserInfoServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/ActionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/ActionManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,20 +53,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="sport_club@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="sport_club: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="user_info: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="sport_club@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="sport_club: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="sport_club@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="test: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
     </expand>
@@ -116,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/by/popovich/last/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+            <state relative-caret-position="527">
+              <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,64 +87,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://ab7d69a1-d73a-4010-9e85-e2d511ef6953/schema/sport_club/table/user_info">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/dao/UserInfoDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/dao/mysql/UserInfoDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1972">
-              <caret line="130" column="60" selection-start-line="130" selection-start-column="60" selection-end-line="130" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/service/UserInfoService.java">
+        <entry file="file://$PROJECT_DIR$/sql/5_fill_tables.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/service/UserInfoServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/entity/Person.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/service/SubscriptionServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="25" column="12" selection-start-line="25" selection-end-line="26" />
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -215,14 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/by/popovich/last/mysql/GroupDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/service/ServiceFactory.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/service/Service.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/QueueDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/dao/UserInfoDao.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/service/QueueService.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/service/QueueServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/CoachDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/dao/CoachDao.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/service/ServiceInvocationHandlerImpl.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/service/CoachService.java" />
@@ -251,7 +141,6 @@
         <option value="$PROJECT_DIR$/src/by/popovich/last/dao/SubscriptionDao.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/service/SubscriptionService.java" />
         <option value="$PROJECT_DIR$/sql/3_create_tables.sql" />
-        <option value="$PROJECT_DIR$/sql/5_fill_tables.sql" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/SubscriptionDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/service/SubscriptionServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/entity/Subscription.java" />
@@ -265,6 +154,15 @@
         <option value="$PROJECT_DIR$/src/by/popovich/last/service/UserInfoServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/entity/Person.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/controller/DIspatcherServlet.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/ActionManager.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/ActionManagerFactory.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/controller/DispatcherServlet.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/ActionManagerImpl.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/Action.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/AuthorizedUserAction.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/MenuItem.java" />
+        <option value="$PROJECT_DIR$/sql/5_fill_tables.sql" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/Main.java" />
       </list>
     </option>
@@ -290,6 +188,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -312,6 +211,20 @@
               <item name="Task05Final_Database" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="last" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Task05Final_Database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Task05Final_Database" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="last" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Task05Final_Database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Task05Final_Database" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="last" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Task05Final_Database" type="b2602c69:ProjectViewProjectNode" />
@@ -365,31 +278,30 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql&#10;mariadb" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562967433158" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563130465815" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="F:/FinalProject_LakesParadise_WebApplication" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/log4j-1.2.16.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\IdeaProjects\Task05Final_Database\web\WEB-INF\lib" />
       <recent name="F:\IdeaProjects\Task05Final_Database\src\by\popovich\last\service" />
       <recent name="F:\IdeaProjects\05_JavaST_2019_epamtraining\Task05Final_Database\lib" />
       <recent name="D:\IdeaProjects\05_JavaST_2019_epamtraining\Task05Final_Database\src" />
       <recent name="D:\IdeaProjects\05_JavaST_2019_epamtraining\Task05Final_Database\src\by\popovich\last" />
-      <recent name="D:\IdeaProjects\05_JavaST_2019_epamtraining\Task05Final_Database\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -546,18 +458,20 @@
       <workItem from="1562598697081" duration="670000" />
       <workItem from="1562771459160" duration="8691000" />
       <workItem from="1562842933424" duration="6019000" />
-      <workItem from="1562875453623" duration="11691000" />
+      <workItem from="1562875453623" duration="11818000" />
+      <workItem from="1563031401529" duration="1027000" />
+      <workItem from="1563126274239" duration="4025000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135806000" />
+    <option name="totallyTimeSpent" value="140985000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-7" width="1488" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28011206" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28851542" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -567,7 +481,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3297587" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3297587" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3297587" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3994638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -631,51 +545,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.17-bin.jar!/com/mysql/jdbc/ConnectionImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="2412" selection-start-line="2412" selection-end-line="2412" />
-          <folding>
-            <element signature="e#91912#91913#0" expanded="true" />
-            <element signature="e#91948#91949#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/entity/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#584#585#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/log4j-api-2.11.2.jar!/org/apache/logging/log4j/spi/AbstractLogger.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="1965" selection-start-line="1965" selection-end-line="1965" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ab7d69a1-d73a-4010-9e85-e2d511ef6953/schema/sport_club/table/exercises">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/entity/Exercise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
-          <folding>
-            <element signature="e#1197#1198#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/popovich/last/dao/mysql/ExerciseDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -735,31 +604,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/service/ServiceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/service/ServiceFactoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/popovich/last/dao/mysql/TransactionImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/dao/mysql/TransactionFactoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="17" column="25" selection-start-line="17" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -782,20 +630,6 @@
             <element signature="e#1277#1278#0" expanded="true" />
             <element signature="e#1314#1315#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/ActionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -875,13 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/5_fill_tables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sql/3_create_tables.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -958,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/popovich/last/service/UserInfoService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1007,6 +827,135 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/ActionManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/ActionManagerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="45" lean-forward="true" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/service/ServiceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/dao/mysql/TransactionFactoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/service/ServiceFactoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/controller/DispatcherServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="79" column="17" lean-forward="true" selection-start-line="79" selection-start-column="17" selection-end-line="79" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="109" column="24" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Action#0" />
+            <element signature="docComment;field#roles#0;class#Action#0" />
+            <element signature="docComment;field#authorisedUser#0;class#Action#0" />
+            <element signature="docComment;field#name#0;class#Action#0" />
+            <element signature="docComment;field#factory#0;class#Action#0" />
+            <element signature="docComment;class#Forward#0;class#Action#0" />
+            <element signature="docComment;field#forward#0;class#Forward#0;class#Action#0" />
+            <element signature="docComment;field#redirect#0;class#Forward#0;class#Action#0" />
+            <element signature="docComment;field#attributes#0;class#Forward#0;class#Action#0" />
+            <element signature="docComment;method#Forward#0;class#Forward#0;class#Action#0" />
+            <element signature="docComment;method#Forward#1;class#Forward#0;class#Action#0" />
+            <element signature="e#1405#1406#0" expanded="true" />
+            <element signature="e#1448#1449#0" expanded="true" />
+            <element signature="docComment;method#getForward#0;class#Forward#0;class#Action#0" />
+            <element signature="e#1837#1838#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
+            <element signature="docComment;method#setForward#0;class#Forward#0;class#Action#0" />
+            <element signature="docComment;method#isRedirect#0;class#Forward#0;class#Action#0" />
+            <element signature="e#2334#2335#0" expanded="true" />
+            <element signature="e#2373#2374#0" expanded="true" />
+            <element signature="docComment;method#setRedirect#0;class#Forward#0;class#Action#0" />
+            <element signature="e#2528#2529#0" expanded="true" />
+            <element signature="e#2569#2570#0" expanded="true" />
+            <element signature="e#2615#2616#0" expanded="true" />
+            <element signature="e#2643#2644#0" expanded="true" />
+            <element signature="e#2682#2683#0" expanded="true" />
+            <element signature="e#2719#2720#0" expanded="true" />
+            <element signature="e#2860#2861#0" expanded="true" />
+            <element signature="e#2887#2888#0" expanded="true" />
+            <element signature="e#2927#2928#0" expanded="true" />
+            <element signature="e#2959#2960#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/AuthorizedUserAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/MenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+          <folding>
+            <element signature="e#338#339#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#404#405#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="70" column="4" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/ActionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="das://ab7d69a1-d73a-4010-9e85-e2d511ef6953/schema/sport_club/table/users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1014,10 +963,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sql/5_fill_tables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/popovich/last/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+        <state relative-caret-position="527">
+          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

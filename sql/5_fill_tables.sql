@@ -4,14 +4,14 @@ INSERT INTO `users` (`id`,
                      `password`,
                      `role`)
 VALUES (2, "Castiel", "qwerty", 1),
-       (3, "Crowly", "tyty", 1),
+       (3, "Crowly", "tytyty", 1),
        (4, "Ravena", "ahalah", 1),
-       (5, "Jack", "angel", 1),
+       (5, "Jack", "angel7", 1),
        (6, "Sam", "asdfgh", 2),
        (7, "Dean", "hgfdsa", 2),
-       (8, "Waiter", "wait", 1),
-  (9, "BestCoach", "train", 2),
-  (10, "Lizzzka", "cool", 2);
+       (8, "Waiter", "waitForLove", 1),
+  (9, "BestCoach", "trainWell", 2),
+  (10, "Lizzzka", "coolGirl", 2);
 
 INSERT INTO `user_info` (`user_id`,
                          `surname`,
