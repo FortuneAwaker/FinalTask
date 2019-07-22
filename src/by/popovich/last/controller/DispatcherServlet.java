@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import by.popovich.last.action.Action;
 import by.popovich.last.action.ActionManager;
 import by.popovich.last.action.ActionManagerFactory;
+import by.popovich.last.action.Forward;
 import by.popovich.last.dao.mysql.TransactionFactoryImpl;
 import by.popovich.last.dao.pool.ConnectionPool;
 import by.popovich.last.exception.PersistentException;
@@ -32,9 +33,9 @@ public class DispatcherServlet extends HttpServlet {
     public static final String LOG_MESSAGE_FORMAT = "%n%d%n%p\t%C.%M:%L%n%m%n";
 
     public static final String DB_DRIVER_CLASS = "com.mysql.jdbc.Driver";
-    public static final String DB_URL = "jdbc:mysql://localhost:3306/library_db?useUnicode=true&characterEncoding=UTF-8";
-    public static final String DB_USER = "library_user";
-    public static final String DB_PASSWORD = "library_password";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/sport_club?useUnicode=true&characterEncoding=UTF-8";
+    public static final String DB_USER = "club_user";
+    public static final String DB_PASSWORD = "club_password";
     public static final int DB_POOL_START_SIZE = 10;
     public static final int DB_POOL_MAX_SIZE = 1000;
     public static final int DB_POOL_CHECK_CONNECTION_TIMEOUT = 0;
@@ -80,7 +81,7 @@ public class DispatcherServlet extends HttpServlet {
                 }
             }
             ActionManager actionManager = ActionManagerFactory.getManager(getFactory());
-            Action.Forward forward = actionManager.execute(action, request, response);
+            Forward forward = actionManager.execute(action, request, response);
             actionManager.close();
             if(session != null && forward != null && !forward.getAttributes().isEmpty()) {
                 session.setAttribute("redirectedData", forward.getAttributes());

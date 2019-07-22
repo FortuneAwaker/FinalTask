@@ -14,8 +14,8 @@ public class MenuItem implements Serializable {
         this.name = nameToSet;
     }
 
-    public void setUrl(String urlToSet) {
-        this.url = urlToSet;
+    public String getUrl() {
+        return url;
     }
 
     public String getName() {
