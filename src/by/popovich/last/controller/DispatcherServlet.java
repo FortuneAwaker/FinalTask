@@ -1,6 +1,7 @@
 package by.popovich.last.controller;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.jstl.core.Config;
 
 import by.popovich.last.action.Action;
 import by.popovich.last.action.ActionManager;
@@ -48,7 +50,7 @@ public class DispatcherServlet extends HttpServlet {
             root.addAppender(new ConsoleAppender(layout));
             root.setLevel(LOG_LEVEL);
             ConnectionPool.getInstance().init(DB_DRIVER_CLASS, DB_URL, DB_USER, DB_PASSWORD, DB_POOL_START_SIZE, DB_POOL_MAX_SIZE, DB_POOL_CHECK_CONNECTION_TIMEOUT);
-        } catch(PersistentException | IOException e) {
+        } catch (PersistentException | IOException e) {
             logger.error("It is impossible to initialize application", e);
             destroy();
         }
@@ -67,14 +69,14 @@ public class DispatcherServlet extends HttpServlet {
     }
 
     private void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        Action action = (Action)request.getAttribute("action");
+        Action action = (Action) request.getAttribute("action");
         try {
             HttpSession session = request.getSession(false);
-            if(session != null) {
+            if (session != null) {
                 @SuppressWarnings("unchecked")
-                Map<String, Object> attributes = (Map<String, Object>)session.getAttribute("redirectedData");
-                if(attributes != null) {
-                    for(String key : attributes.keySet()) {
+                Map<String, Object> attributes = (Map<String, Object>) session.getAttribute("redirectedData");
+                if (attributes != null) {
+                    for (String key : attributes.keySet()) {
                         request.setAttribute(key, attributes.get(key));
                     }
                     session.removeAttribute("redirectedData");
@@ -83,17 +85,17 @@ public class DispatcherServlet extends HttpServlet {
             ActionManager actionManager = ActionManagerFactory.getManager(getFactory());
             Forward forward = actionManager.execute(action, request, response);
             actionManager.close();
-            if(session != null && forward != null && !forward.getAttributes().isEmpty()) {
+            if (session != null && forward != null && !forward.getAttributes().isEmpty()) {
                 session.setAttribute("redirectedData", forward.getAttributes());
             }
             String requestedUri = request.getRequestURI();
-            if(forward != null && forward.isRedirect()) {
+            if (forward != null && forward.isRedirect()) {
                 String redirectedUri = request.getContextPath() + forward.getForward();
                 logger.debug(String.format("Request for URI \"%s\" id redirected to URI \"%s\"", requestedUri, redirectedUri));
                 response.sendRedirect(redirectedUri);
             } else {
                 String jspPage;
-                if(forward != null) {
+                if (forward != null) {
                     jspPage = forward.getForward();
                 } else {
                     jspPage = action.getName() + ".jsp";
@@ -102,7 +104,7 @@ public class DispatcherServlet extends HttpServlet {
                 logger.debug(String.format("Request for URI \"%s\" is forwarded to JSP \"%s\"", requestedUri, jspPage));
                 getServletContext().getRequestDispatcher(jspPage).forward(request, response);
             }
-        } catch(PersistentException e) {
+        } catch (PersistentException e) {
             logger.error("It is impossible to process request", e);
             request.setAttribute("error", "Ошибка обработки данных");
             getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);

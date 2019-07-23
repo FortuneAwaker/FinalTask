@@ -1,9 +1,6 @@
 package by.popovich.last.controller;
 
-import by.popovich.last.action.Action;
-import by.popovich.last.action.LoginAction;
-import by.popovich.last.action.LogoutAction;
-import by.popovich.last.action.MainAction;
+import by.popovich.last.action.*;
 import by.popovich.last.action.menu.ShowCoachesAction;
 import by.popovich.last.action.menu.ShowExercisesAction;
 import org.apache.log4j.Logger;
@@ -24,6 +21,7 @@ public class ActionFilter implements Filter {
         actions.put("/index", MainAction.class);
         actions.put("/login", LoginAction.class);
         actions.put("/logout", LogoutAction.class);
+        actions.put("/changeLanguage", ChangeLanguageAction.class);
 
         actions.put("/menu/exercises", ShowExercisesAction.class);
         actions.put("/menu/coaches", ShowCoachesAction.class);
@@ -47,6 +45,7 @@ public class ActionFilter implements Filter {
             } else {
                 actionName = uri;
             }
+            logger.debug(actionName);
             Class<? extends Action> actionClass = actions.get(actionName);
             try {
                 Action action = actionClass.newInstance();

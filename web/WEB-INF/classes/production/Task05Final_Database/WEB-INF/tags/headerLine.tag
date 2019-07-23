@@ -7,8 +7,12 @@
     <div id="left-container">
         <a id="logo-name" style="text-decoration: none" href="/index.jsp"><p>
             SportClub</p></a>
-        <%--<img id="logo-img" src="../img/logo.png"--%>
-        <%--alt="logo">--%>
+        <img id="logo-img" src="../img/logo.png"
+        alt="logo">
+        <p class="language">Язык</p>
+        <a class="language" href="/changeLanguage.html?lang=ru">RU</a>
+        <a class="language" href="/changeLanguage.html?lang=by">BY</a>
+        <a class="language" href="/changeLanguage.html?lang=en">EN</a>
     </div>
     <div id="right-container">
         <div class="log-in-out">
@@ -19,8 +23,7 @@
                 </c:when>
                 <c:otherwise>
                     <c:out value="Hello, ${userInfo.name}"/>
-                    <c:url value="/logout.html" var="logoutUrl"/>
-                    <LI><A href="${logoutUrl}">выход</A></LI>
+                    <LI><A href="/logout.html">выход</A></LI>
                 </c:otherwise>
             </c:choose>
         </div>
