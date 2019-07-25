@@ -22,6 +22,7 @@ public class ActionFilter implements Filter {
         actions.put("/login", LoginAction.class);
         actions.put("/logout", LogoutAction.class);
         actions.put("/changeLanguage", ChangeLanguageAction.class);
+        actions.put("/register", RegistrationAction.class);
 
         actions.put("/menu/exercises", ShowExercisesAction.class);
         actions.put("/menu/coaches", ShowCoachesAction.class);
