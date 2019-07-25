@@ -47,6 +47,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
             if(resultSet.next()) {
+                LOGGER.info("User was created!");
                 return resultSet.getInt(1);
             } else {
                 LOGGER.error("There is no autoincremented index after trying to" +

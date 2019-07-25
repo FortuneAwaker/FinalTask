@@ -62,8 +62,7 @@ public class RegistrationAction extends Action {
                         session.setAttribute("userInfo", person);
                         session.setAttribute("authorizedUser", newUser);
                         session.setAttribute("menu", menu);
-                        return new Forward("/index.jsp",
-                                false);
+                        return new Forward("/index.html");
                     } catch (PersistentException e) {
                         logger.info("Error of adding user info");
                         request.setAttribute("message",

@@ -12,7 +12,17 @@
 <HEAD>
 	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<TITLE>SportClub - ${title}</TITLE>
-	<LINK rel="stylesheet" type="text/css" href="../css/style.css">
+	<LINK rel="stylesheet" type="text/css" href="/css/style.css">
+	<SCRIPT type="text/javascript" src="/js/main.js"></SCRIPT>
+	<c:if test="${not empty message}">
+		<SCRIPT type="text/javascript">
+			startMessage = "${message}";
+		</SCRIPT>
+	</c:if>
+	<c:if test="${not empty validator}">
+		<SCRIPT type="text/javascript" src="/js/validator.js"></SCRIPT>
+		<SCRIPT type="text/javascript" src="/js/${validator}"></SCRIPT>
+	</c:if>
 </HEAD>
 <BODY>
 <u:headerLine/>
