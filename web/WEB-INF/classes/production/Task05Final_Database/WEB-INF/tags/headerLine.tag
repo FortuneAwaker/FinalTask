@@ -28,8 +28,8 @@
         <div class="log-in-out">
             <c:choose>
                 <c:when test="${sessionScope.authorizedUser == null}">
-                    <a href="../jsp/login.jsp" id="log">${LogIn}</a>
-                    <a href="../jsp/register.jsp" id="log">${Register}</a>
+                    <a href="/login.html?todo=false" id="log">${LogIn}</a>
+                    <a href="/register.html?todo=false" id="log">${Register}</a>
                 </c:when>
                 <c:otherwise>
                     <c:out value="${hello}, ${userInfo.name}"/>

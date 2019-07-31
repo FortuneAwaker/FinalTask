@@ -13,8 +13,10 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.jstl.core.Config;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ShowCoachesAction extends Action {
     /**
@@ -25,6 +27,15 @@ public class ShowCoachesAction extends Action {
 
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+        HttpSession session = request.getSession(true);
+        String lang = (String) session.getAttribute("lang");
+        if (lang == null) {
+            lang = "ru";
+            session.setAttribute("lang", lang);
+        }
+        request.setAttribute("lang", lang);
+        Locale locale = new Locale(lang);
+        Config.set(request, Config.FMT_LOCALE, locale);
         UserService service = serviceFactory.getService(UserService.class);
         UserInfoService infoService = serviceFactory.getService((UserInfoService.class));
         List<Person> coaches = new ArrayList<>();
@@ -36,7 +47,6 @@ public class ShowCoachesAction extends Action {
         }
 
         if (coaches != null) {
-            HttpSession session = request.getSession(true);
             if (request.getAttribute("listOfCoaches") == null) {
                 request.setAttribute("listOfCoaches", coaches);
                 LOGGER.info("List of coaches was shown successfully");
