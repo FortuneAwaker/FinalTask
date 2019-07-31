@@ -2,51 +2,29 @@
 <%@taglib prefix="tag" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <title>SportClub</title>
-</head>
-<body>
-<header class="header">
-    <div class="logo">
-        <ul>
-            <li>
-                <p>SportClub</p>
-            </li>
-            <li>
-                <img src="../img/logo.png"
-                     alt="logo">
-            </li>
-            <li>
-                <img src="../img/logo.png"
-                     alt="logo2">
-            </li>
-        </ul>
+<fmt:setBundle basename="properties.club"/>
+
+<tag:html title="Главная" message="${message}">
+    <body>
+    <h2 style="text-align: center; color: purple"><fmt:message key="hello_on_main_page"/></h2>
+    <div class="post">
+        <div class="post_img"><img alt="Photo on main page"
+                                   style="object-position: 50% 0;"
+                                   src="../../img/motivation.jpg">
+        </div>
+        <div class="post_description">
+            <h4><fmt:message key="post1_description"></fmt:message></h4>
+        </div>
     </div>
-    <div class="log_in_out">
-        <c:choose>
-            <c:when test="${sessionScope.user == null}">
-                <a href="${pageContext.request.contextPath}/jsp/">LogIn</a>
-                <a href="${pageContext.request.contextPath}/jsp/register.jsp">SighUp</a>
-            </c:when>
-            <c:otherwise>
-                <a href="${pageContext.request.contextPath}/controller?command=logout">LogOut</a>
-            </c:otherwise>
-        </c:choose>
+    <div class="post">
+        <div class="post_img">
+            <img alt="Photo on main page"
+                 style="object-position: 50% 0; height: 400px;"
+                 src="../../img/bMipYRFqfjI.jpg">
+        </div>
+        <div class="post_description">
+            <h4><fmt:message key="post2_description"/></h4>
+        </div>
     </div>
-</header>
-<div>
-    <ul>
-        <c:forEach items="${menu}" var="item">
-            <c:url value="${item.url}" var="itemUrl"/>
-            <li class="item"><A href="${itemUrl}">${item.name}</A></li>
-        </c:forEach>
-    </ul>
-</div>
-<!--tag:headerLine/-->
-<h1>Приветствуем вас!</h1>
-<footer class="footer">
-    Alexander Popovich
-</footer>
-</body>
-</html>
+    </body>
+</tag:html>

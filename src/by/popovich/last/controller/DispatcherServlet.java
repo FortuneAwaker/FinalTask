@@ -83,6 +83,7 @@ public class DispatcherServlet extends HttpServlet {
                 }
             }
             ActionManager actionManager = ActionManagerFactory.getManager(getFactory());
+            logger.info(action.getName());
             Forward forward = actionManager.execute(action, request, response);
             actionManager.close();
             if (session != null && forward != null && !forward.getAttributes().isEmpty()) {

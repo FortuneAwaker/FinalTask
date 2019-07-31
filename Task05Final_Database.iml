@@ -35,6 +35,10 @@
         <webroots>
           <root url="file://$MODULE_DIR$/out/artifacts/Task05Final_Database_war_exploded/WEB-INF/classes" relative="/" />
         </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src" />
+          <root url="file://$MODULE_DIR$/web" />
+        </sourceRoots>
       </configuration>
     </facet>
   </component>
@@ -43,6 +47,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/web" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

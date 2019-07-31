@@ -183,10 +183,84 @@ header #logo-img:hover {
     font-size: 1em;
 }
 
+
+.post_ex{
+    background: limegreen;
+    display: block;
+    margin: auto;
+    margin-top: 40pt;
+}
+
+.post_reference {
+    height: 20px;
+    margin-top: 30px;
+    color: rgb(27, 0, 80);
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1em;
+}
+
 footer {
     text-align: right;
     font-family: Georgia, serif;
     color: darkred;
     font-size: 25px;
     background: aqua;
+}
+
+#confirm-message {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(21, 42, 21, 0.75);
+    z-index: 1;
+}
+
+#confirm-message DIV {
+    position: fixed;
+    background: coral;
+    border: 1px solid #373;
+    height: 38%;
+    width: 38%;
+    top: 31%;
+    left: 31%;
+    padding: 20px;
+}
+
+#confirm-message BUTTON {
+    min-width: 150px;
+}
+
+#confirm-message P {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 70px;
+    font-weight: bold;
+}
+
+#confirm-message FORM {
+    position: absolute;
+    bottom: 20px;
+}
+
+#page BUTTON, #confirm-message BUTTON {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    line-height: 30px;
+    margin: 20px 20px 0 0;
+    background: aquamarine;
+    border-radius: 30px;
+    color: blue;
+    font-family: 'Montserrat', cursive;    padding: 0 20px;
+}
+
+#page BUTTON:hover, #confirm-message BUTTON:hover {
+    cursor: pointer;
+    background: aquamarine;
+}
+
+#page BUTTON[disabled], #page BUTTON[disabled]:hover {
+    background: #ABA;
 }
