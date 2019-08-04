@@ -1,22 +1,25 @@
-<%@page language="java" contentType="text/html; charset=UTF-8"
-        pageEncoding="UTF-8" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib tagdir="/WEB-INF/tags" prefix="u" %>
-<u:html title="Упражнения">
-    <table border="1" width="80%" cellpadding="15">
-    <thead>
-    <th><c:out value="name"/> </th>
-    <th><c:out value="surname"/></th>
-    <th><c:out value="patronymic"/></th>
-    <th><c:out value="phone"/></th>
-    </thead>
-          <c:forEach items="${listOfCoaches}" var="coach">
-              <tr>
-              <td><c:out value="${ coach.name }"/></td>
-              <td><c:out value="${ coach.surname }"/></td>
-              <td><c:out value="${ coach.patronymic }"/></td>
-              <td><c:out value="${ coach.phone }"/></td>
-              </tr>
-          </c:forEach>
-    </table>
-</u:html>
+    <%@page language="java" contentType="text/html; charset=UTF-8"
+            pageEncoding="UTF-8" %>
+        <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <%@taglib prefix="tag" tagdir="/WEB-INF/tags" %>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+        <fmt:setBundle basename="properties.club"/>
+
+        <tag:html title="Тренеры">
+            <c:forEach items="${listOfCoaches}" var="coach">
+                <div class="post">
+                <div class="post_img">
+                <img alt="Coach avatar"
+                style="object-position: 50% 0;"
+                src="${coach.avatar}">
+                </div>
+                <div class="post_description">
+                <span>${coach.name}<br>${ coach.surname }<br>
+                ${ coach.patronymic }<br>${ coach.phone }<br>
+                </span>
+                <a href="/coach/groups.jsp?coachId=${coach.identity}">
+                <fmt:message key="to_groups"/></a>
+                </div>
+                </div>
+            </c:forEach>
+        </tag:html>

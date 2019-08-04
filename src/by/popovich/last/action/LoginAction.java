@@ -21,19 +21,6 @@ public class LoginAction extends Action {
 
     private static Map<Role, List<MenuItem>> menu = new ConcurrentHashMap<>();
 
-    static {
-        menu.put(Role.COACH, new ArrayList<>(Arrays.asList(
-                new MenuItem("/index.html", "Мои группы")
-        )));
-        menu.put(Role.ADMINISTRATOR, new ArrayList<>(Arrays.asList(
-
-        )));
-        menu.put(Role.CLIENT, new ArrayList<>(Arrays.asList(
-                new MenuItem("/index.html", "Мои группы")
-
-        )));
-    }
-
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession(true);
@@ -45,7 +32,33 @@ public class LoginAction extends Action {
         request.setAttribute("lang", lang);
         Locale locale = new Locale(lang);
         Config.set(request, Config.FMT_LOCALE, locale);
+        Locale.setDefault(locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("properties.club");
+        menu.put(Role.COACH, new ArrayList<>(Arrays.asList(
+                new MenuItem("/coach/groups.html",
+                        bundle.getString("my_groups_word")),
+                new MenuItem("/authorizedUser/profile.html",
+                        bundle.getString("profile_word"))
+        )));
+        menu.put(Role.ADMINISTRATOR, new ArrayList<>(Arrays.asList(
+                new MenuItem("/admin/allUsers.html",
+                        bundle.getString("all_users_word")),
+                new MenuItem("/authorizedUser/profile.html",
+                        bundle.getString("profile_word"))
+        )));
+        menu.put(Role.CLIENT, new ArrayList<>(Arrays.asList(
+                new MenuItem("/client/groups.html",
+                        bundle.getString("my_groups_word")),
+                new MenuItem("/authorizedUser/profile.html",
+                        bundle.getString("profile_word")),
+                new MenuItem("/mySubscriptions.html",
+                        bundle.getString("my_subscriptions"))
+
+        )));
         String todo = request.getParameter("todo");
+        if (todo == null) {
+            todo = "true";
+        }
         if (!todo.equals("false")) {
             String login = request.getParameter("login");
             String password = request.getParameter("password");

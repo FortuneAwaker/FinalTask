@@ -14,18 +14,12 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class RegistrationAction extends Action {
     private static Logger logger = Logger.getLogger(LoginAction.class);
 
     private static ArrayList<MenuItem> menu = new ArrayList<>();
-
-    static {
-        menu.add(new MenuItem("/editProfile.html",
-                        "Профиль"));
-        menu.add(new MenuItem("/mySubscriptions.html",
-                "Подписки"));
-    }
 
     @Override
     public Forward executeAction(HttpServletRequest request,
@@ -40,7 +34,20 @@ public class RegistrationAction extends Action {
         Locale locale = new Locale(lang);
         Config.set(request, Config.FMT_LOCALE, locale);
         String todo = request.getParameter("todo");
+        if (todo == null) {
+            todo = "true";
+        }
         if (!todo.equals("false")) {
+            if (menu.isEmpty()) {
+                Locale.setDefault(locale);
+                ResourceBundle bundle = ResourceBundle.getBundle("properties.club");
+                menu.add(new MenuItem("/client/groups.html",
+                        bundle.getString("my_groups_word")));
+                menu.add(new MenuItem("/authorizedUser/profile.html",
+                        bundle.getString("profile_word")));
+                menu.add(new MenuItem("/mySubscriptions.html",
+                        bundle.getString("my_subscriptions")));
+            }
             String login = request.getParameter("login");
             String password = request.getParameter("password");
             String repeatPassword = request.getParameter("repeat");
@@ -77,6 +84,7 @@ public class RegistrationAction extends Action {
                             infoService.addInfo(person);
                             session.setAttribute("userInfo", person);
                             session.setAttribute("authorizedUser", newUser);
+                            session.removeAttribute("menu");
                             session.setAttribute("menu", menu);
                             return new Forward("/index.html");
                         } catch (PersistentException e) {

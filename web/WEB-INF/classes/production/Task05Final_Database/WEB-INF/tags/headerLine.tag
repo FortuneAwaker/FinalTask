@@ -10,6 +10,7 @@
 <fmt:message key="exercises_word" var="Exercises"/>
 <fmt:message key="coaches_word" var="Coaches"/>
 <fmt:message key="prices_word" var="Prices"/>
+<fmt:message key="to_groups" var="to_groups"/>
 
 
 <body>
@@ -19,7 +20,7 @@
             SportClub</p></a>
         <img id="logo-img" src="../img/logo.png"
              alt="logo">
-        <p class="language"><fmt:message key="language_word"></fmt:message></p>
+        <p class="language"><fmt:message key="language_word"/></p>
         <a class="language" href="/changeLanguage.html?lang=ru">RU</a>
         <a class="language" href="/changeLanguage.html?lang=be">BY</a>
         <a class="language" href="/changeLanguage.html?lang=en">EN</a>
@@ -33,7 +34,7 @@
                 </c:when>
                 <c:otherwise>
                     <c:out value="${hello}, ${userInfo.name}"/>
-                    <LI><A href="/logout.html">${LogOut}</A></LI>
+                    <A href="/logout.html" style="padding-left: 10px">${LogOut}</A>
                 </c:otherwise>
             </c:choose>
         </div>

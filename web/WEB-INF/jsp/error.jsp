@@ -16,7 +16,7 @@
         <c:when test="${not empty pageContext.errorData.requestURI}">
             <H2>${requested_page} ${pageContext.errorData.requestURI} ${not_found}</H2>
         </c:when>
-        <<c:otherwise><fmt:message key="unexpected_error"/></c:otherwise>
+        <c:otherwise><fmt:message key="unexpected_error"/></c:otherwise>
     </c:choose>
     <c:url value="/index.html" var="mainUrl"/>
     <A href="${mainUrl}"><fmt:message key="to_main_words"/></A>
