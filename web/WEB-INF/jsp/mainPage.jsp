@@ -6,7 +6,7 @@
 
 <tag:html title="Главная" message="${message}">
     <body>
-    <h2 style="text-align: center; color: purple"><fmt:message key="hello_on_main_page"/></h2>
+    <h1 style="text-align: center; color: purple"><fmt:message key="hello_on_main_page"/></h1>
     <div class="post">
         <div class="post_img"><img alt="Photo on main page"
                                    style="object-position: 50% 0;"

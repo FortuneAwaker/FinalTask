@@ -47,6 +47,6 @@
     </c:forEach>
     <A class="menu-member" href="/menu/exercises.html">${Exercises}</A>
     <A class="menu-member" href="/menu/coaches.html">${Coaches}</A>
-    <A class="menu-member" href="/menu/tickets.html">${Prices}</A>
+    <A class="menu-member" href="/menu/prices.html">${Prices}</A>
 </div>
 </body>

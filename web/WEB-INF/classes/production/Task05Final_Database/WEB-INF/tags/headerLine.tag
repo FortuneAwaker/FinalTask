@@ -33,7 +33,7 @@
                     <a href="/register.html?todo=false" id="log">${Register}</a>
                 </c:when>
                 <c:otherwise>
-                    <c:out value="${hello}, ${userInfo.name}"/>
+                    <c:out value="${hello}, ${userInfo.name}!"/>
                     <A href="/logout.html" style="padding-left: 10px">${LogOut}</A>
                 </c:otherwise>
             </c:choose>
@@ -47,6 +47,6 @@
     </c:forEach>
     <A class="menu-member" href="/menu/exercises.html">${Exercises}</A>
     <A class="menu-member" href="/menu/coaches.html">${Coaches}</A>
-    <A class="menu-member" href="/menu/tickets.html">${Prices}</A>
+    <A class="menu-member" href="/menu/prices.html">${Prices}</A>
 </div>
 </body>

@@ -4,7 +4,16 @@ public class Price extends Entity {
     private int typeOfExercise;
     private int numberOfVisits;
     private int numberOfDays;
+    private String nameOfExercise;
     private double price;
+
+    public String getNameOfExercise() {
+        return nameOfExercise;
+    }
+
+    public void setNameOfExercise(String nameOfExercise) {
+        this.nameOfExercise = nameOfExercise;
+    }
 
     public int getTypeOfExercise() {
         return typeOfExercise;

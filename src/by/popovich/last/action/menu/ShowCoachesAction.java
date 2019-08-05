@@ -3,6 +3,7 @@ package by.popovich.last.action.menu;
 import by.popovich.last.action.Action;
 import by.popovich.last.action.Forward;
 import by.popovich.last.entity.Person;
+import by.popovich.last.entity.Role;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.UserInfoService;
@@ -23,11 +24,12 @@ public class ShowCoachesAction extends Action {
      * Logger for creation notes to some appender.
      */
     private static final Logger LOGGER
-            = LogManager.getLogger(ShowExercisesAction.class);
+            = LogManager.getLogger(ShowCoachesAction.class);
 
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession(true);
+        String coachIdStr = request.getParameter("coachId");
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
             lang = "ru";
@@ -39,10 +41,20 @@ public class ShowCoachesAction extends Action {
         UserService service = serviceFactory.getService(UserService.class);
         UserInfoService infoService = serviceFactory.getService((UserInfoService.class));
         List<Person> coaches = new ArrayList<>();
-        for (User user:service.readAll()
-             ) {
-            if (user.getRole().getIdentity() == 1) {
-                coaches.add(infoService.readById(user.getIdentity()));
+        if (coachIdStr == null) {
+            for (User user : service.readAll()
+            ) {
+                if (user.getRole().equals(Role.COACH)) {
+                    coaches.add(infoService.readById(user.getIdentity()));
+                }
+            }
+        } else {
+            Integer coachId = Integer.parseInt(coachIdStr);
+            if (service.readByIdentity(coachId)
+                    .getRole().equals(Role.COACH)) {
+                LOGGER.info(infoService.readById(coachId));
+                coaches.add(infoService.readById(coachId));
+
             }
         }
 
@@ -51,6 +63,9 @@ public class ShowCoachesAction extends Action {
                 request.setAttribute("listOfCoaches", coaches);
                 LOGGER.info("List of coaches was shown successfully");
             }
+        } else {
+            request.setAttribute("message", "Лист тренеров пуст");
+            return null;
         }
         return new Forward("/menu/coaches.jsp", false);
     }

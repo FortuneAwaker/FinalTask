@@ -1,9 +1,11 @@
 package by.popovich.last.controller;
 
 import by.popovich.last.action.*;
+import by.popovich.last.action.authorizedUser.LogoutAction;
 import by.popovich.last.action.menu.ShowCoachesAction;
 import by.popovich.last.action.menu.ShowExercisesAction;
-import by.popovich.last.action.menu.ShowGroupsByExercise;
+import by.popovich.last.action.authorizedUser.ShowGroupsByExercise;
+import by.popovich.last.action.menu.ShowTicketsAction;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
@@ -27,6 +29,8 @@ public class ActionFilter implements Filter {
 
         actions.put("/menu/exercises", ShowExercisesAction.class);
         actions.put("/menu/coaches", ShowCoachesAction.class);
+        actions.put("/menu/prices", ShowTicketsAction.class);
+
         actions.put("/authorized_user/groupsByExercise", ShowGroupsByExercise.class);
 
     }

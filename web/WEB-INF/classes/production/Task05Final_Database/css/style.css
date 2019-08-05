@@ -104,6 +104,18 @@ header #logo-img:hover {
     cursor: pointer;
 }
 
+.table {
+    background-color: orange;
+    border-color: yellow;
+    color: darkblue;
+    font-size: 20px;
+    font-family: "Georgia", sans-serif;
+}
+
+.table-cell {
+    min-height: 40px;
+}
+
 #menu-items {
     background-color: darkred;
     width: 100%;
