@@ -33,8 +33,8 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
             = "SELECT * FROM subscription WHERE last_day = ?";
 
     private final String ADD_SUBSCRIPTION = "INSERT INTO `subscription` "
-            + "(client_id, id_of_group, left_visits, last_day)"
-            + " VALUES (?, ?, ?, ?)";
+            + "(client_id, id_of_group, left_visits, last_day, payment)"
+            + " VALUES (?, ?, ?, ?, ?)";
 
     private final String DELETE_BY_CLIENT_ID = "DELETE FROM "
             + "`subscription` WHERE `client_id` = ? AND `id_of_group` = ?";
@@ -43,7 +43,7 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
             + "`subscription` WHERE `id` = ?";
 
     private final String UPDATE_SUBSCRIPTION = "UPDATE `subscription` SET "
-            + "`left_visits` = ?, `last_day` = ?"
+            + "`left_visits` = ?, `last_day` = ?, `payment` = ?"
             + " WHERE `id` = ?";
 
     @Override
@@ -69,6 +69,8 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
                         .getDate("last_day"));
                 subscription.setLeftVisits(resultSet
                         .getInt("left_visits"));
+                subscription.setPayment(resultSet
+                        .getDouble("payment"));
                 subscriptions.add(subscription);
             }
             return subscriptions;
@@ -109,6 +111,8 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
                 subscription.setLastDay(lastDayOfSubscription);
                 subscription.setLeftVisits(resultSet
                         .getInt("left_visits"));
+                subscription.setPayment(resultSet
+                        .getDouble("payment"));
                 subscriptions.add(subscription);
             }
             return subscriptions;
@@ -145,6 +149,8 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
                         .getInt("left_visits"));
                 subscription.setLastDay(resultSet
                         .getDate("last_day"));
+                subscription.setPayment(resultSet
+                        .getDouble("payment"));
                 subscriptions.add(subscription);
             }
             return subscriptions;
@@ -175,6 +181,8 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
                         .getInt("left_visits"));
                 subscription.setIdentity(resultSet
                         .getInt("id"));
+                subscription.setPayment(resultSet
+                        .getDouble("payment"));
                 subscriptions.add(subscription);
             }
             return subscriptions;
@@ -215,6 +223,7 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
             statement.setInt(2, subscription.getIdOfGroup());
             statement.setInt(3, subscription.getLeftVisits());
             statement.setDate(4, subscription.getLastDay());
+            statement.setDouble(5, subscription.getPayment());
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
             System.out.println("created");
@@ -257,6 +266,8 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
                         .getDate("last_day"));
                 subscription.setLeftVisits(resultSet
                         .getInt("left_visits"));
+                subscription.setPayment(resultSet
+                        .getDouble("payment"));
             }
             return subscription;
         } catch (SQLException e) {
@@ -279,7 +290,8 @@ public class SubscriptionDaoImpl extends BaseDaoImpl
                 .prepareStatement(UPDATE_SUBSCRIPTION)) {
             statement.setInt(1, subscription.getLeftVisits());
             statement.setDate(2, subscription.getLastDay());
-            statement.setInt(3, subscription.getIdentity());
+            statement.setDouble(3, subscription.getPayment());
+            statement.setInt(4, subscription.getIdentity());
             statement.executeUpdate();
             System.out.println("updated");
         } catch (SQLException e) {

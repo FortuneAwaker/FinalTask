@@ -41,8 +41,7 @@
                 <c:choose>
                     <c:when test="${sessionScope.authorizedUser != null}">
                         <a
-                        href="/authorized_user/subscribeFromPrice.html?price=${price.identity}
-                        ">${subscribe}</a>
+                        href="/authorized_user/subscribe.html?priceId=${price.identity}">${subscribe}</a>
                     </c:when>
                     <c:otherwise>
                         <c:out value="${to_see_login}"/>

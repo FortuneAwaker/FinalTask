@@ -9,6 +9,15 @@ public class Subscription extends Entity {
     private Integer idOfGroup;
     private int leftVisits;
     private Date lastDay;
+    private double payment;
+
+    public double getPayment() {
+        return payment;
+    }
+
+    public void setPayment(double payment) {
+        this.payment = payment;
+    }
 
     @Override
     public boolean equals(Object o) {

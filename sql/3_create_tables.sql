@@ -86,3 +86,6 @@ CREATE TABLE `exercises`
   constraint EXERCISE_ID PRIMARY KEY (`exercises_id`)
 ) ENGINE = INNODB
   DEFAULT CHARACTER SET utf8;
+
+alter table subscription
+  add payment double null;

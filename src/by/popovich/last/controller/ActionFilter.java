@@ -2,6 +2,7 @@ package by.popovich.last.controller;
 
 import by.popovich.last.action.*;
 import by.popovich.last.action.authorizedUser.LogoutAction;
+import by.popovich.last.action.authorizedUser.SubscribeAction;
 import by.popovich.last.action.menu.ShowCoachesAction;
 import by.popovich.last.action.menu.ShowExercisesAction;
 import by.popovich.last.action.authorizedUser.ShowGroupsByExercise;
@@ -10,6 +11,7 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -32,6 +34,7 @@ public class ActionFilter implements Filter {
         actions.put("/menu/prices", ShowTicketsAction.class);
 
         actions.put("/authorized_user/groupsByExercise", ShowGroupsByExercise.class);
+        actions.put("/authorized_user/subscribe", SubscribeAction.class);
 
     }
 
@@ -53,6 +56,15 @@ public class ActionFilter implements Filter {
                 actionName = uri;
             }
             logger.debug(actionName);
+            if (!actionName.equals("/authorized_user/subscribe")) {
+                HttpSession session = ((HttpServletRequest) request).getSession(true);
+                if (session.getAttribute("priceId") != null) {
+                    session.removeAttribute("priceId");
+                }
+                if (session.getAttribute("groupId") != null) {
+                    session.removeAttribute("groupId");
+                }
+            }
             Class<? extends Action> actionClass = actions.get(actionName);
             try {
                 Action action = actionClass.newInstance();

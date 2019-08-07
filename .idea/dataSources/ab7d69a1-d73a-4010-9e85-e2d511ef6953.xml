@@ -13319,120 +13319,125 @@ usergroup</ColNames>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="2530" parent="431" name="SUB_CLIENT_ID">
+    <column id="2530" parent="431" name="payment">
+      <Position>6</Position>
+      <DataType>double|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="2531" parent="431" name="SUB_CLIENT_ID">
       <ColNames>client_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="2531" parent="431" name="GROUP_OF_CLIENT">
+    <index id="2532" parent="431" name="GROUP_OF_CLIENT">
       <ColNames>id_of_group</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="2532" parent="431" name="PRIMARY">
+    <key id="2533" parent="431" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="2533" parent="431" name="SUB_CLIENT_ID">
+    <foreign-key id="2534" parent="431" name="SUB_CLIENT_ID">
       <ColNames>client_id</ColNames>
       <RefSchemaName>sport_club</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="2534" parent="431" name="GROUP_OF_CLIENT">
+    <foreign-key id="2535" parent="431" name="GROUP_OF_CLIENT">
       <ColNames>id_of_group</ColNames>
       <RefSchemaName>sport_club</RefSchemaName>
       <RefTableName>groups</RefTableName>
       <RefColNames>group_id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="2535" parent="432" name="user_id">
+    <column id="2536" parent="432" name="user_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="2536" parent="432" name="surname">
+    <column id="2537" parent="432" name="surname">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="2537" parent="432" name="name">
+    <column id="2538" parent="432" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="2538" parent="432" name="patronymic">
+    <column id="2539" parent="432" name="patronymic">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="2539" parent="432" name="phone">
+    <column id="2540" parent="432" name="phone">
       <Position>5</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="2540" parent="432" name="avatar">
+    <column id="2541" parent="432" name="avatar">
       <Position>6</Position>
       <DataType>blob|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="2541" parent="432" name="ID_OF_USER">
+    <index id="2542" parent="432" name="ID_OF_USER">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="2542" parent="432" name="PRIMARY">
+    <key id="2543" parent="432" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>phone</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="2543" parent="432" name="ID_OF_USER">
+    <foreign-key id="2544" parent="432" name="ID_OF_USER">
       <ColNames>user_id</ColNames>
       <RefSchemaName>sport_club</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="2544" parent="433" name="id">
+    <column id="2545" parent="433" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="2545" parent="433" name="login">
+    <column id="2546" parent="433" name="login">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="2546" parent="433" name="password">
+    <column id="2547" parent="433" name="password">
       <Position>3</Position>
       <DataType>char(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="2547" parent="433" name="role">
+    <column id="2548" parent="433" name="role">
       <Position>4</Position>
       <DataType>tinyint(4)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="2548" parent="433" name="login">
+    <index id="2549" parent="433" name="login">
       <ColNames>login</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="2549" parent="433" name="PRIMARY">
+    <key id="2550" parent="433" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="2550" parent="433" name="login">
+    <key id="2551" parent="433" name="login">
       <ColNames>login</ColNames>
       <UnderlyingIndexName>login</UnderlyingIndexName>
     </key>
