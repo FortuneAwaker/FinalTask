@@ -45,6 +45,7 @@ public class ActionFilter implements Filter {
         actions.put("/coach/addGroup", AddGroupAction.class);
         actions.put("/coach/deleteGroup", DeleteGroupAction.class);
         actions.put("/coach/editGroup", EditGroupAction.class);
+        actions.put("/coach/notifyVisit", NotifyVisitAction.class);
 
     }
 

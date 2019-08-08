@@ -31,6 +31,11 @@
                 <fmt:message key="last_day"/>: ${sub.lastDay}
             </div>
             <div class="post_reference">
+                <a href="/coach/notifyVisit.html?subId=${sub.identity}">
+                    Отметить посещение.
+                </a>
+            </div>
+            <div class="post_reference">
                 <a href="/coach/deleteSubscribe.html?subId=${sub.identity}">
                     Удалить подписку.
                 </a>
