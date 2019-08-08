@@ -37,21 +37,21 @@ public class LoginAction extends Action {
         menu.put(Role.COACH, new ArrayList<>(Arrays.asList(
                 new MenuItem("/coach/groups.html",
                         bundle.getString("my_groups_word")),
-                new MenuItem("/authorizedUser/profile.html",
+                new MenuItem("/authorized_user/profile.html",
                         bundle.getString("profile_word"))
         )));
         menu.put(Role.ADMINISTRATOR, new ArrayList<>(Arrays.asList(
                 new MenuItem("/admin/allUsers.html",
                         bundle.getString("all_users_word")),
-                new MenuItem("/authorizedUser/profile.html",
+                new MenuItem("/authorized_user/profile.html",
                         bundle.getString("profile_word"))
         )));
         menu.put(Role.CLIENT, new ArrayList<>(Arrays.asList(
-                new MenuItem("/client/groups.html",
-                        bundle.getString("my_groups_word")),
-                new MenuItem("/authorizedUser/profile.html",
+//                new MenuItem("/authorized_user/groups.html",
+//                        bundle.getString("my_groups_word")),
+                new MenuItem("/authorized_user/profile.html",
                         bundle.getString("profile_word")),
-                new MenuItem("/mySubscriptions.html",
+                new MenuItem("/authorized_user/mySubscriptions.html",
                         bundle.getString("my_subscriptions"))
 
         )));

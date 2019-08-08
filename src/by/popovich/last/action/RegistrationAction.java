@@ -41,11 +41,11 @@ public class RegistrationAction extends Action {
             if (menu.isEmpty()) {
                 Locale.setDefault(locale);
                 ResourceBundle bundle = ResourceBundle.getBundle("properties.club");
-                menu.add(new MenuItem("/client/groups.html",
-                        bundle.getString("my_groups_word")));
-                menu.add(new MenuItem("/authorizedUser/profile.html",
+//                menu.add(new MenuItem("/authorized_user/groups.html",
+//                        bundle.getString("my_groups_word")));
+                menu.add(new MenuItem("/authorized_user/profile.html",
                         bundle.getString("profile_word")));
-                menu.add(new MenuItem("/mySubscriptions.html",
+                menu.add(new MenuItem("/authorized_user/mySubscriptions.html",
                         bundle.getString("my_subscriptions")));
             }
             String login = request.getParameter("login");

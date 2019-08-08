@@ -10,6 +10,24 @@ public class Subscription extends Entity {
     private int leftVisits;
     private Date lastDay;
     private double payment;
+    private String typeOfExercise;
+    private int coachId;
+
+    public int getCoachId() {
+        return coachId;
+    }
+
+    public void setCoachId(int coachId) {
+        this.coachId = coachId;
+    }
+
+    public String getTypeOfExercise() {
+        return typeOfExercise;
+    }
+
+    public void setTypeOfExercise(String typeOfExercise) {
+        this.typeOfExercise = typeOfExercise;
+    }
 
     public double getPayment() {
         return payment;
