@@ -4,6 +4,7 @@ import by.popovich.last.action.*;
 import by.popovich.last.action.authorizedUser.LogoutAction;
 import by.popovich.last.action.authorizedUser.ShowSubscribtionsAction;
 import by.popovich.last.action.authorizedUser.SubscribeAction;
+import by.popovich.last.action.coach.DeleteSubscriptionAction;
 import by.popovich.last.action.coach.ShowGroupsOfCoach;
 import by.popovich.last.action.coach.ShowMembersOfGroup;
 import by.popovich.last.action.menu.ShowCoachesAction;
@@ -42,6 +43,7 @@ public class ActionFilter implements Filter {
 
         actions.put("/coach/groups", ShowGroupsOfCoach.class);
         actions.put("/coach/membersOfGroup", ShowMembersOfGroup.class);
+        actions.put("/coach/deleteSubscribe", DeleteSubscriptionAction.class);
 
     }
 
