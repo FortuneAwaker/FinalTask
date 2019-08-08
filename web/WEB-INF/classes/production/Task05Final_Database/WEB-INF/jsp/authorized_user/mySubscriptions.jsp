@@ -6,7 +6,7 @@
 <fmt:setBundle basename="properties.club"/>
 
 <u:html title="Подписки">
-    <h2>Мои подписки:</h2>
+    <h2 align="center">Мои подписки:</h2>
     <c:choose>
         <c:when test="${listOfSubscriptions != null}">
             <c:forEach var="subscription" items="${listOfSubscriptions}">

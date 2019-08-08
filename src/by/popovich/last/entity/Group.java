@@ -7,6 +7,15 @@ public class Group extends Entity {
     private Integer typeOfExercisesId;
     private int maxClients;
     private int currentClients;
+    private String typeOfExercises;
+
+    public String getTypeOfExercises() {
+        return typeOfExercises;
+    }
+
+    public void setTypeOfExercises(String typeOfExercises) {
+        this.typeOfExercises = typeOfExercises;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -17,7 +17,7 @@
                 <span>${coach.name}<br>${ coach.surname }<br>
                 ${ coach.patronymic }<br>${ coach.phone }<br>
                 </span>
-                <a href="/coach/groups.jsp?coachId=${coach.identity}">
+                <a href="/coach/groups.html?coachId=${coach.identity}">
                 <fmt:message key="to_groups"/></a>
                 </div>
                 </div>
