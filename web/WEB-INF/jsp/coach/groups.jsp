@@ -9,6 +9,9 @@
 <fmt:message key="subscribe_word" var="subscribe"/>
 
 <u:html title="Группы">
+    <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">Мои группы
+    </h2>
     <c:choose>
         <c:when test="${coachIdFromRequest != null}">
             <c:forEach var="group" items="${listOfGroups}">
@@ -39,7 +42,7 @@
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <a href="/coach/addGroup.html">Добавить группу</a>
+            <h2 align="center"><a href="/coach/addGroup.html?todo=false">Добавить группу</a></h2>
             <c:forEach var="group" items="${listOfGroups}">
                 <div class="post_ex">
                     <h3 align="center" style="margin-bottom: 15px;
