@@ -12,6 +12,15 @@ public class Subscription extends Entity {
     private double payment;
     private String typeOfExercise;
     private int coachId;
+    private Person userInfo;
+
+    public Person getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(Person userInfo) {
+        this.userInfo = userInfo;
+    }
 
     public int getCoachId() {
         return coachId;

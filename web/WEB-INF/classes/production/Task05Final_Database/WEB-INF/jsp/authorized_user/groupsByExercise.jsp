@@ -6,7 +6,7 @@
 <fmt:setBundle basename="properties.club"/>
 
 <u:html title="Группы">
-    <h2>Группы по запросу:</h2>
+    <h2 align="center">Группы по запросу:</h2>
     <c:forEach var="group" items="${groupsByExercise}">
         <div class="post_ex">
             <h3 align="center" style="margin-bottom: 15px;
