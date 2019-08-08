@@ -53,7 +53,6 @@ public class AddGroupAction extends AuthorizedUserAction {
         }
         if (!todo.equals("false")) {
             String exerciseId = request.getParameter("chosenExercise");
-            logger.info(exerciseId);
             String numberOfClientsString = request.getParameter("numberOfClients");
             if (numberOfClientsString != null
                     && exerciseId != null) {

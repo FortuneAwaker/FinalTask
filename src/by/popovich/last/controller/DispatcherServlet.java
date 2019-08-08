@@ -38,8 +38,8 @@ public class DispatcherServlet extends HttpServlet {
     public static final String DB_URL = "jdbc:mysql://localhost:3306/sport_club?useUnicode=true&characterEncoding=UTF-8";
     public static final String DB_USER = "club_user";
     public static final String DB_PASSWORD = "club_password";
-    public static final int DB_POOL_START_SIZE = 10;
-    public static final int DB_POOL_MAX_SIZE = 1000;
+    public static final int DB_POOL_START_SIZE = 20;
+    public static final int DB_POOL_MAX_SIZE = 2000;
     public static final int DB_POOL_CHECK_CONNECTION_TIMEOUT = 0;
 
     public void init() {

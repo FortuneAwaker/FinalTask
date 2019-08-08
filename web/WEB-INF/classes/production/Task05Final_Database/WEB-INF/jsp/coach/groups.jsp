@@ -58,6 +58,11 @@
                         </a>
                     </div>
                     <div class="post_reference">
+                        <a href="/coach/editGroup.html?todo=false&groupId=${group.identity}">
+                            Редактировать группу
+                        </a>
+                    </div>
+                    <div class="post_reference">
                         <a href="/coach/deleteGroup.html?groupId=${group.identity}">
                             Удалить группу
                         </a>
