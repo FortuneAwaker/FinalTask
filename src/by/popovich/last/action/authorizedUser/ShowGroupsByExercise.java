@@ -4,6 +4,7 @@ import by.popovich.last.action.AuthorizedUserAction;
 import by.popovich.last.action.ChangeLanguageAction;
 import by.popovich.last.action.Forward;
 import by.popovich.last.entity.Group;
+import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.GroupService;
 import org.apache.log4j.Logger;
@@ -20,8 +21,9 @@ public class ShowGroupsByExercise extends AuthorizedUserAction {
 
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
-        HttpSession session = request.getSession(true);
-        if (session.getAttribute("authorizedUser") != null) {
+        HttpSession session = request.getSession();
+        User currentUser = (User) session.getAttribute("authorizedUser");
+        if (currentUser != null) {
             String lang = (String) session.getAttribute("lang");
             if (lang == null) {
                 lang = "ru";
@@ -45,8 +47,9 @@ public class ShowGroupsByExercise extends AuthorizedUserAction {
             }
         } else {
             request.setAttribute("message", "Нужно войти, чтобы просматривать эту страницу!");
-            return new Forward("/index.html", false);
+            return new Forward("/index.html");
         }
-        return null;
+        request.setAttribute("message", "Нужно войти, чтобы просматривать эту страницу!");
+        return new Forward("/index.html");
     }
 }

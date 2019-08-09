@@ -74,6 +74,8 @@ public class EditPriceAction extends AuthorizedUserAction {
                     request.setAttribute("message", "Недопустимая для действия роль");
                     return new Forward("/index.jsp", false);
                 }
+            } else {
+                request.setAttribute("message", "Недопустимое действие");
             }
         }
         return null;

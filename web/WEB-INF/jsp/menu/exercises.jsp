@@ -11,15 +11,46 @@
 
         <u:html title="Упражнения">
             <h1 align="center">${our_exercises}</h1>
+            <c:choose>
+                <c:when test="${sessionScope.authorizedUser.role.identity == 0}">
+                    <h2 align="center" style="margin-top: 20px">
+                    <a href="/admin/addExercise.html?todo=false">Добавить
+                    упражнение</a>
+                    </h2>
+                </c:when>
+            </c:choose>
             <c:forEach items="${listOfExercises}" var="execise">
                 <div class="post_ex">
                 <h2>${execise.typeOfExercises}</h2>
                 <c:choose>
-                    <c:when test="${sessionScope.authorizedUser != null}">
+                    <c:when test="${sessionScope.authorizedUser.role.identity != 0}">
+                        <div class="post_reference">
                         <a
                         href="/authorized_user/groupsByExercise.html?exercise=${execise.typeOfExercises}
                         "
-                        class="post_reference">${go_to_groups}</a>
+                        >${go_to_groups}</a>
+                        </div>
+                    </c:when>
+                    <c:when test="${sessionScope.authorizedUser.role.identity == 0}">
+                        <div class="post_reference">
+                        <a
+                        href="/authorized_user/groupsByExercise.html?exercise=${execise.typeOfExercises}
+                        ">${go_to_groups}</a>
+                        </div>
+                        <div class="post_reference">
+                        <a
+                        href="/admin/editExercise.html?exerciseId=${execise.identity}
+                        &todo=false">
+                        Редактировать упражнение
+                        </a>
+                        </div>
+                        <div class="post_reference">
+                        <a
+                        href="/admin/deleteExercise.html?exerciseId=${execise.identity}
+                        ">
+                        Удалить упражнение
+                        </a>
+                        </div>
                     </c:when>
                     <c:otherwise>
                         <h5 class="post_reference">${to_see_login}</h5>
