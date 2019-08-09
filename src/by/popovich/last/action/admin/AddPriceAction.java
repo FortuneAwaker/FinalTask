@@ -1,16 +1,12 @@
-package by.popovich.last.action.coach;
+package by.popovich.last.action.admin;
 
 import by.popovich.last.action.AuthorizedUserAction;
 import by.popovich.last.action.Forward;
-import by.popovich.last.action.LoginAction;
-import by.popovich.last.entity.Exercise;
-import by.popovich.last.entity.Group;
-import by.popovich.last.entity.Role;
-import by.popovich.last.entity.User;
+import by.popovich.last.entity.*;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
-import org.apache.log4j.Logger;
+import by.popovich.last.service.PriceService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,10 +15,7 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.List;
 import java.util.Locale;
 
-public class AddGroupAction extends AuthorizedUserAction {
-    private static Logger logger = Logger.getLogger(AddGroupAction.class);
-
-
+public class AddPriceAction extends AuthorizedUserAction {
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession(true);
@@ -43,7 +36,7 @@ public class AddGroupAction extends AuthorizedUserAction {
         if (todo == null) {
             todo = "true";
         }
-        if (currentUser.getRole().equals(Role.COACH)) {
+        if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
             ExerciseService service = serviceFactory.getService(ExerciseService.class);
             List<Exercise> exercises = service.readAll();
             session.setAttribute("exercisesToChoose", exercises);
@@ -53,30 +46,28 @@ public class AddGroupAction extends AuthorizedUserAction {
         }
         if (!todo.equals("false")) {
             String exerciseId = request.getParameter("chosenExercise");
-            String numberOfClientsString = request.getParameter("numberOfClients");
-            if (numberOfClientsString != null
-                    && exerciseId != null) {
+            String numberOfVisitsString = request.getParameter("numberOfVisits");
+            String numberOfDaysString = request.getParameter("numberOfDays");
+            String numberOfMoneyString = request.getParameter("money");
+            if (numberOfDaysString != null && numberOfMoneyString != null
+                    && exerciseId != null && numberOfMoneyString != null) {
                 ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);
-                GroupService service = serviceFactory.getService(GroupService.class);
+                PriceService service = serviceFactory.getService(PriceService.class);
                 Exercise exercise = exerciseService.readById(Integer.parseInt(exerciseId));
-                Group groupToAdd = new Group();
+                Price priceToAdd = new Price();
                 if (exercise != null) {
-                    groupToAdd.setTypeOfExercisesId(exercise.getIdentity());
-                    groupToAdd.setTypeOfExercises(exercise.getTypeOfExercises());
+                    priceToAdd.setNameOfExercise(exercise.getTypeOfExercises());
+                    priceToAdd.setTypeOfExercise(exercise.getIdentity());
                 } else {
                     request.setAttribute("message", "Ошибка получения упражнения!");
                     return null;
                 }
-                groupToAdd.setCurrentClients(0);
-                Integer numberOfClients = Integer.parseInt(numberOfClientsString);
-                if (numberOfClients <= 0) {
-                    request.setAttribute("message", "Неверное значение числа клиентов!");
-                }
-                groupToAdd.setMaxClients(numberOfClients);
-                groupToAdd.setCoachID(currentUser.getIdentity());
+                priceToAdd.setNumberOfVisits(Integer.parseInt(numberOfVisitsString));
+                priceToAdd.setNumberOfDays(Integer.parseInt(numberOfDaysString));
+                priceToAdd.setPrice(Double.parseDouble(numberOfMoneyString));
                 try {
-                    service.save(groupToAdd);
-                    request.setAttribute("message", "Новая группа была создана!");
+                    service.save(priceToAdd);
+                    request.setAttribute("message", "Новая расценка была создана!");
                     return new Forward("/index.jsp", false);
                 } catch (PersistentException e) {
                     request.setAttribute("message", "Ошибка создания группы!");

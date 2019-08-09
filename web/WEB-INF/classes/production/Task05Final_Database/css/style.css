@@ -105,6 +105,7 @@ header #logo-img:hover {
 }
 
 .table {
+    margin-top: 30px;
     background-color: orange;
     border-color: yellow;
     color: darkblue;

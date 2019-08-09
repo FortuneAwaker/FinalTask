@@ -1,5 +1,6 @@
+use sport_club;
 INSERT INTO `users` (
-  `identity`,
+  `id`,
   `login`,
   `password`,
   `role`

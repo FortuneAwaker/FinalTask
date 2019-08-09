@@ -18,6 +18,11 @@
             <h1 align="center" style="margin-bottom: 30px;
             color: purple; font-family: 'Montserrat', cursive">${our_prices}
             </h1>
+            <c:choose>
+                <c:when test="${sessionScope.authorizedUser.role.identity == 0}">
+                    <h2 align="center"><a href="/admin/addPrice.html?todo=false">Добавить расценку</a></h2>
+                </c:when>
+            </c:choose>
             <table border="1" width="100%" cellpadding="15" class="table">
             <thead>
             <th>${exercisesKey}</th>
@@ -39,7 +44,16 @@
                     value="${ price.price }$"/></td>
                 <td class="table-cell">
                 <c:choose>
-                    <c:when test="${sessionScope.authorizedUser != null}">
+                    <c:when test="${sessionScope.authorizedUser.role.identity == 0}">
+                        <a
+                        href="/admin/editPrice.html?priceId=${price.identity}&todo=false">Редактировать</a><br>
+                        <a
+                        href="/admin/deletePrice.html?priceId=${price.identity}">Удалить</a>
+                    </c:when>
+                    <c:when test="${sessionScope.authorizedUser.role.identity == 1}">
+                        Действия над ценами выполняются админом.
+                    </c:when>
+                    <c:when test="${sessionScope.authorizedUser.role.identity == 2}">
                         <a
                         href="/authorized_user/subscribe.html?priceId=${price.identity}">${subscribe}</a>
                     </c:when>

@@ -1,6 +1,9 @@
 package by.popovich.last.controller;
 
 import by.popovich.last.action.*;
+import by.popovich.last.action.admin.AddPriceAction;
+import by.popovich.last.action.admin.DeletePriceAction;
+import by.popovich.last.action.admin.EditPriceAction;
 import by.popovich.last.action.authorizedUser.LogoutAction;
 import by.popovich.last.action.authorizedUser.ShowSubscribtionsAction;
 import by.popovich.last.action.authorizedUser.SubscribeAction;
@@ -46,6 +49,10 @@ public class ActionFilter implements Filter {
         actions.put("/coach/deleteGroup", DeleteGroupAction.class);
         actions.put("/coach/editGroup", EditGroupAction.class);
         actions.put("/coach/notifyVisit", NotifyVisitAction.class);
+
+        actions.put("/admin/addPrice", AddPriceAction.class);
+        actions.put("/admin/editPrice", EditPriceAction.class);
+        actions.put("/admin/deletePrice", DeletePriceAction.class);
 
     }
 

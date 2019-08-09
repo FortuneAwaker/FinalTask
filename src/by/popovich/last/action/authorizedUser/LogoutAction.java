@@ -17,7 +17,7 @@ public class LogoutAction extends AuthorizedUserAction {
 
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
-        HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession();
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
             lang = "ru";
@@ -26,8 +26,8 @@ public class LogoutAction extends AuthorizedUserAction {
         request.setAttribute("lang", lang);
         Locale locale = new Locale(lang);
         Config.set(request, Config.FMT_LOCALE, locale);
-        User user = (User) request.getSession(false).getAttribute("authorizedUser");
-        logger.info(String.format("user \"%s\" is logged out", user.getLogin()));
+        User currentUser = (User) session.getAttribute("authorizedUser");
+        logger.info(String.format("user \"%s\" is logged out", currentUser.getLogin()));
         request.getSession(false).invalidate();
         return new Forward("/index.html");
     }
