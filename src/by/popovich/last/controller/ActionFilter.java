@@ -57,6 +57,8 @@ public class ActionFilter implements Filter {
         actions.put("/admin/allSubscriptions", ShowAllSubscriptions.class);
         actions.put("/admin/allGroups", ShowAllGroups.class);
         actions.put("/admin/allUsers", ShowAllUsers.class);
+        actions.put("/admin/deleteUser", DeleteUserAction.class);
+        actions.put("/admin/changeRole", ChangeRoleAction.class);
 
     }
 
