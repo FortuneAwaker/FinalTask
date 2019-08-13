@@ -35,6 +35,10 @@ public class ShowSubscribtionsAction extends AuthorizedUserAction {
         session.setAttribute("lang", lang);
         Config.set(request, Config.FMT_LOCALE, locale);
         User currentUser = (User) session.getAttribute("authorizedUser");
+        if (currentUser == null) {
+            request.setAttribute("message", "Войдите в аккаунт!");
+            return new Forward("/index.jsp", false);
+        }
         if (currentUser.getRole().equals(Role.CLIENT)) {
             int clientId = currentUser.getIdentity();
             SubscriptionService service = serviceFactory.getService(SubscriptionService.class);

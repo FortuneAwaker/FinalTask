@@ -38,6 +38,7 @@ public class ActionFilter implements Filter {
         actions.put("/authorized_user/mySubscriptions", ShowSubscribtionsAction.class);
         actions.put("/authorized_user/profile", ShowProfileAction.class);
         actions.put("/authorized_user/saveProfile", SaveProfileAction.class);
+        actions.put("/authorized_user/changePassword", ChangePasswordAction.class);
 
         actions.put("/coach/groups", ShowGroupsOfCoach.class);
         actions.put("/coach/membersOfGroup", ShowMembersOfGroup.class);

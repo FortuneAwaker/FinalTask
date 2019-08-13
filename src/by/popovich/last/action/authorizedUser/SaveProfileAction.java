@@ -7,6 +7,7 @@ import by.popovich.last.entity.Person;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.UserInfoService;
+import by.popovich.last.validator.Validator;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -48,6 +49,18 @@ public class SaveProfileAction extends AuthorizedUserAction {
             String patro = request.getParameter("patro");
             String phoneString = request.getParameter("phone");
             InputStream is = null;
+            Validator validator = new Validator();
+            if (!(validator.validateStringData(name,
+                    4, 25)
+                    && validator.validateStringData(
+                            surname, 4, 25)
+                    && validator.validateStringData(
+                            patro, 4, 25)
+                    && validator.validateNumber(
+                            phoneString, 7, 12))) {
+                request.setAttribute("message", "Некорректные данные");
+                return null;
+            }
             try {
                 Part filePart = request.getPart("avatar");
                 if (filePart != null) {

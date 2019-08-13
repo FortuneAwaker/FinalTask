@@ -6,6 +6,7 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.UserInfoService;
 import by.popovich.last.service.UserService;
+import by.popovich.last.validator.Validator;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -65,6 +66,22 @@ public class RegistrationAction extends Action {
             if (login != null && password != null && repeatPassword != null
                     && name != null && surname != null
                     && patro != null && phone != null) {
+                Validator validator = new Validator();
+                if (!(validator.validateStringData(name,
+                        4, 25)
+                        && validator.validateStringData(
+                        surname, 4, 25)
+                        && validator.validateStringData(
+                        patro, 4, 25)
+                        && validator.validateNumber(
+                        phoneString, 7, 12)
+                        && validator.validateLoginOrPassword(
+                                password, 6, 25)
+                        && validator.validateLoginOrPassword(
+                                login, 6, 25))) {
+                    request.setAttribute("message", "Некорректные данные");
+                    return null;
+                }
                 if (password.equals(repeatPassword)) {
                     newUser.setRole(Role.CLIENT);
                     newUser.setLogin(login);

@@ -14,7 +14,9 @@
           onsubmit="return validateRegistrationInfo(this)">
         <label for="nameOfExercise">Name of exercise</label>
         <input type="text" id="nameOfExercise" name="nameOfExercise"
-               required>
+               required
+               title="Only Latin letters, minimum 4 maximum 25"
+               pattern="[A-Z][a-z]+" maxlength="25" minlength="4">
         <BUTTON type="submit">Редактировать упражнение!</BUTTON>
     </form>
 </u:html>

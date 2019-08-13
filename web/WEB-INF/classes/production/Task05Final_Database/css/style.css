@@ -180,8 +180,8 @@ header #logo-img:hover {
 }
 
 .post_img img{
-    width: 150px;
-    height: 250px;
+    width: 500px;
+    height: 500px;
     margin: 0pt;
     object-fit: contain;
 }

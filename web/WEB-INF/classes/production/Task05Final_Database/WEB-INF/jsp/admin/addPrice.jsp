@@ -20,14 +20,23 @@ text-align: center">${exercise.typeOfExercises}</label>
                    id="chosenExercise" value="${exercise.identity}" required>
         </c:forEach>
         <label for="numberOfVisits">Number of visits</label>
-        <input type="number" id="numberOfVisits" name="numberOfVisits"
-               required>
+        <input type="text" id="numberOfVisits" name="numberOfVisits"
+               required
+               pattern="[0-9]+"
+               title="Only numbers, maximum 3"
+               maxlength="3" minlength="1">
         <label for="numberOfDays">Number of days</label>
-        <input type="number" id="numberOfDays" name="numberOfDays"
-               required>
+        <input type="text" id="numberOfDays" name="numberOfDays"
+               required
+               pattern="[0-9]+"
+               title="Only numbers, maximum 3"
+               maxlength="3" minlength="1">
         <label for="money">Amount of money</label>
-        <input type="number" id="money" name="money"
-               required>
+        <input type="text" id="money" name="money"
+               required
+               pattern="[0-9]+"
+               title="Only numbers, maximum 6"
+               maxlength="6" minlength="1">
         <BUTTON type="submit">Добавить цену!</BUTTON>
     </form>
 </u:html>

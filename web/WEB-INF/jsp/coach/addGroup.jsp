@@ -20,8 +20,11 @@ text-align: center">${exercise.typeOfExercises}</label>
                    id="chosenExercise" value="${exercise.identity}" required>
         </c:forEach>
         <label for="numberOfClients">Number of clients</label>
-        <input type="number" id="numberOfClients" name="numberOfClients"
-               required>
+        <input type="text" id="numberOfClients" name="numberOfClients"
+               required
+               pattern="[0-9]+"
+               title="Only numbers, maximum 3"
+               maxlength="3" minlength="1">
         <BUTTON type="submit">Добавить группу!</BUTTON>
     </form>
 </u:html>
