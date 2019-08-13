@@ -6,6 +6,7 @@ import by.popovich.last.exception.PersistentException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,12 +26,15 @@ public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
 
     private final String UPDATE_USER_PARAMETERS = "UPDATE `user_info` SET "
             + "`surname` = ?, `name` = ?, "
-            + "  `patronymic` = ?,`phone` = ? WHERE `user_id` = ?";
+            + "  `patronymic` = ?,`phone` = ?,`avatar` = ? WHERE `user_id` = ?";
 
     private final String DELETE_USER_BY_ID = "DELETE FROM "
             + "`user_info` WHERE `user_id` = ?";
 
     private final String READ_ALL_TABLE = "SELECT * FROM `user_info`";
+
+    private final String READ_IMAGE_BY_USER_ID = "SELECT `avatar` FROM `user_info`"
+            + " WHERE `user_id` = ?";
 
     @Override
     public Integer create(Person person) throws PersistentException {
@@ -94,14 +98,20 @@ public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
     }
 
     @Override
-    public void update(Person person) throws PersistentException {
+    public void update(Person entity) throws PersistentException {
+
+    }
+
+    @Override
+    public void update(Person person, InputStream is) throws PersistentException {
         try (PreparedStatement statement = connection
                 .prepareStatement(UPDATE_USER_PARAMETERS)) {
             statement.setString(1, person.getSurname());
             statement.setString(2, person.getName());
             statement.setString(3, person.getPatronymic());
             statement.setLong(4, person.getPhone());
-            statement.setInt(5, person.getIdentity());
+            statement.setObject(5, is);
+            statement.setInt(6, person.getIdentity());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new PersistentException(e);
@@ -136,6 +146,22 @@ public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
                 persons.add(person);
             }
             return persons;
+        } catch (SQLException e) {
+            throw new PersistentException(e);
+        }
+    }
+
+    @Override
+    public byte[] readImage(Integer userId) throws PersistentException {
+        try (PreparedStatement statement
+                     = connection.prepareStatement(READ_IMAGE_BY_USER_ID)) {
+            statement.setInt(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                byte byteArray[] = resultSet.getBytes(1);
+                return byteArray;
+            }
+            return null;
         } catch (SQLException e) {
             throw new PersistentException(e);
         }

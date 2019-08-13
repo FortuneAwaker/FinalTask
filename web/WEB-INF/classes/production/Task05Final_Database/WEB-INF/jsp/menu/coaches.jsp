@@ -11,7 +11,7 @@
                 <div class="post_img">
                 <img alt="Coach avatar"
                 style="object-position: 50% 0;"
-                src="${coach.avatar}">
+                src="data:image/jpeg;base64,${coach.avatar}">
                 </div>
                 <div class="post_description">
                 <span>${coach.name}<br>${ coach.surname }<br>

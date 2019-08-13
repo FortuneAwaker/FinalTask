@@ -7,7 +7,7 @@ public class Person extends Entity {
     private String name;
     private String patronymic;
     private long phone;
-    private Blob avatar;
+    private String avatar;
 
     public long getPhone() {
         return phone;
@@ -17,11 +17,11 @@ public class Person extends Entity {
         this.phone = phone;
     }
 
-    public Blob getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Blob avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 

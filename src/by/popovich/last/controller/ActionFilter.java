@@ -2,13 +2,10 @@ package by.popovich.last.controller;
 
 import by.popovich.last.action.*;
 import by.popovich.last.action.admin.*;
-import by.popovich.last.action.authorizedUser.LogoutAction;
-import by.popovich.last.action.authorizedUser.ShowSubscribtionsAction;
-import by.popovich.last.action.authorizedUser.SubscribeAction;
+import by.popovich.last.action.authorizedUser.*;
 import by.popovich.last.action.coach.*;
 import by.popovich.last.action.menu.ShowCoachesAction;
 import by.popovich.last.action.menu.ShowExercisesAction;
-import by.popovich.last.action.authorizedUser.ShowGroupsByExercise;
 import by.popovich.last.action.menu.ShowTicketsAction;
 import org.apache.log4j.Logger;
 
@@ -39,6 +36,8 @@ public class ActionFilter implements Filter {
         actions.put("/authorized_user/groupsByExercise", ShowGroupsByExercise.class);
         actions.put("/authorized_user/subscribe", SubscribeAction.class);
         actions.put("/authorized_user/mySubscriptions", ShowSubscribtionsAction.class);
+        actions.put("/authorized_user/profile", ShowProfileAction.class);
+        actions.put("/authorized_user/saveProfile", SaveProfileAction.class);
 
         actions.put("/coach/groups", ShowGroupsOfCoach.class);
         actions.put("/coach/membersOfGroup", ShowMembersOfGroup.class);

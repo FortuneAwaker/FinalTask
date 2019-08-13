@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Locale;
 
@@ -45,16 +46,26 @@ public class ShowCoachesAction extends Action {
             for (User user : service.readAll()
             ) {
                 if (user.getRole().equals(Role.COACH)) {
-                    coaches.add(infoService.readById(user.getIdentity()));
+                    Person coach  = infoService.readById(user.getIdentity());
+                    byte [] image = infoService.readImage(coach.getIdentity());
+                    if (image != null) {
+                        String encode = Base64.getEncoder().encodeToString(image);
+                        coach.setAvatar(encode);
+                    }
+                    coaches.add(coach);
                 }
             }
         } else {
             Integer coachId = Integer.parseInt(coachIdStr);
             if (service.readByIdentity(coachId)
                     .getRole().equals(Role.COACH)) {
-                LOGGER.info(infoService.readById(coachId));
-                coaches.add(infoService.readById(coachId));
-
+                Person coach = infoService.readById(coachId);
+                byte [] image = infoService.readImage(coachId);
+                if (image != null) {
+                    String encode = Base64.getEncoder().encodeToString(image);
+                    coach.setAvatar(encode);
+                }
+                coaches.add(coach);
             }
         }
 
