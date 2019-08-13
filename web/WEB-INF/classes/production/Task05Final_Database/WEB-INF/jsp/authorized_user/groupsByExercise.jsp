@@ -7,25 +7,32 @@
 
 <u:html title="Группы">
     <h2 align="center">Группы по запросу:</h2>
-    <c:forEach var="group" items="${groupsByExercise}">
-        <div class="post_ex">
-            <h3 align="center" style="margin-bottom: 15px;
+    <c:choose>
+        <c:when test="${groupsByExercise != null}">
+            <c:forEach var="group" items="${groupsByExercise}">
+                <div class="post_ex">
+                    <h3 align="center" style="margin-bottom: 15px;
             color: purple; font-family: 'Montserrat', cursive">${exerciseName}
-            </h3>
-            <div class="post_reference">
-                <a href="/menu/coaches.html?coachId=${group.coachID}">
-                    <fmt:message key="coach_information"/>
-                </a>
-            </div>
-            <div class="post_reference">
-                <fmt:message key="current_and_maximum_numbers"/> -
-                    ${group.currentClients}/${group.maxClients}
-            </div>
-            <div class="post_reference">
-                <a href="/authorized_user/subscribe.html?groupId=${group.identity}">
-                    <fmt:message key="subscribe_word"/>
-                </a>
-            </div>
-        </div>
-    </c:forEach>
+                    </h3>
+                    <div class="post_reference">
+                        <a href="/menu/coaches.html?coachId=${group.coachID}">
+                            <fmt:message key="coach_information"/>
+                        </a>
+                    </div>
+                    <div class="post_reference">
+                        <fmt:message key="current_and_maximum_numbers"/> -
+                            ${group.currentClients}/${group.maxClients}
+                    </div>
+                    <div class="post_reference">
+                        <a href="/authorized_user/subscribe.html?groupId=${group.identity}">
+                            <fmt:message key="subscribe_word"/>
+                        </a>
+                    </div>
+                </div>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <h3>Список пуст!</h3>
+        </c:otherwise>
+    </c:choose>
 </u:html>

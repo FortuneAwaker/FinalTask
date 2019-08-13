@@ -58,7 +58,9 @@ public class ShowCoachesAction extends Action {
         } else {
             Integer coachId = Integer.parseInt(coachIdStr);
             if (service.readByIdentity(coachId)
-                    .getRole().equals(Role.COACH)) {
+                    .getRole().equals(Role.COACH)
+            || service.readByIdentity(coachId)
+                    .getRole().equals(Role.ADMINISTRATOR)) {
                 Person coach = infoService.readById(coachId);
                 byte [] image = infoService.readImage(coachId);
                 if (image != null) {

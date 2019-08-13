@@ -8,6 +8,25 @@ public class Person extends Entity {
     private String patronymic;
     private long phone;
     private String avatar;
+    private String login;
+    private Role role;
+
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
     public long getPhone() {
         return phone;

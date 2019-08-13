@@ -49,7 +49,6 @@ public class ShowGroupsByExercise extends AuthorizedUserAction {
             request.setAttribute("message", "Нужно войти, чтобы просматривать эту страницу!");
             return new Forward("/index.html");
         }
-        request.setAttribute("message", "Нужно войти, чтобы просматривать эту страницу!");
         return new Forward("/index.html");
     }
 }

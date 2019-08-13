@@ -49,7 +49,7 @@ public class ChangePasswordAction extends AuthorizedUserAction {
             if (password != null && repeatPassword != null) {
                 Validator validator = new Validator();
                 if (!validator.validateLoginOrPassword(password,
-                        6 , 25)) {
+                        6, 25)) {
                     request.setAttribute("message", "Некорректные данные");
                     return null;
                 }
@@ -67,15 +67,15 @@ public class ChangePasswordAction extends AuthorizedUserAction {
                                 "Ошибка добавления информации"
                                         + " о пользователе");
                     }
+                } else {
+                    request.setAttribute("message", "Пароли не совпадают!");
+                    logger.info("Passwords are not equal!");
                 }
             } else {
-                request.setAttribute("message", "Пароли не совпадают!");
-                logger.info("Passwords are not equal!");
+                request.setAttribute("message",
+                        "Не полностью заполнены необходимые поля");
+                logger.info("Fields are not filled!");
             }
-        } else {
-            request.setAttribute("message",
-                    "Не полностью заполнены необходимые поля");
-            logger.info("Fields are not filled!");
         }
         return null;
     }

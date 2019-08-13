@@ -44,11 +44,13 @@ public class LoginAction extends Action {
                 new MenuItem("/admin/allUsers.html",
                         bundle.getString("all_users_word")),
                 new MenuItem("/authorized_user/profile.html",
-                        bundle.getString("profile_word"))
+                        bundle.getString("profile_word")),
+                new MenuItem("/admin/allSubscriptions.html",
+                        bundle.getString("subscription_word")),
+                new MenuItem("/admin/allGroups.html",
+                        bundle.getString("all_groups_word"))
         )));
         menu.put(Role.CLIENT, new ArrayList<>(Arrays.asList(
-//                new MenuItem("/authorized_user/groups.html",
-//                        bundle.getString("my_groups_word")),
                 new MenuItem("/authorized_user/profile.html",
                         bundle.getString("profile_word")),
                 new MenuItem("/authorized_user/mySubscriptions.html",

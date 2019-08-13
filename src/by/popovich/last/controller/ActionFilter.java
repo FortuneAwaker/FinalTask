@@ -54,6 +54,9 @@ public class ActionFilter implements Filter {
         actions.put("/admin/addExercise", AddExerciseAction.class);
         actions.put("/admin/editExercise", EditExerciseAction.class);
         actions.put("/admin/deleteExercise", DeleteExerciseAction.class);
+        actions.put("/admin/allSubscriptions", ShowAllSubscriptions.class);
+        actions.put("/admin/allGroups", ShowAllGroups.class);
+        actions.put("/admin/allUsers", ShowAllUsers.class);
 
     }
 
