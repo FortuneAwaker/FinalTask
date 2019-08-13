@@ -18,7 +18,7 @@ public class DeletePriceAction extends AuthorizedUserAction {
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
-        String lang = request.getParameter("lang");
+        String lang = (String) session.getAttribute("lang");
         if (lang == null) {
             lang = "ru";
         }

@@ -23,7 +23,7 @@ public class ShowProfileAction extends AuthorizedUserAction {
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
-        String lang = request.getParameter("lang");
+        String lang = (String) session.getAttribute("lang");
         if (lang == null) {
             lang = "ru";
         }
@@ -37,7 +37,7 @@ public class ShowProfileAction extends AuthorizedUserAction {
             return new Forward("/index.jsp", false);
         }
         UserInfoService infoService = serviceFactory.getService(UserInfoService.class);
-        byte [] image = infoService.readImage(currentUser.getIdentity());
+        byte[] image = infoService.readImage(currentUser.getIdentity());
         if (image != null) {
             String encode = Base64.getEncoder().encodeToString(image);
             request.setAttribute("image", encode);
