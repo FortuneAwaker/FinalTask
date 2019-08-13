@@ -9,6 +9,7 @@ import by.popovich.last.exception.PersistentException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Formatter;
 import java.util.List;
 
@@ -18,7 +19,13 @@ public class UserServiceImpl extends ServiceImpl implements UserService {
         Connection connection = ConnectionPool.getInstance().getConnection();
         UserDao dao = new UserDaoImpl();
         ((UserDaoImpl) dao).setConnection(connection);
-        return dao.readAll();
+        List<User> users = dao.readAll();
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
     @Override
@@ -26,7 +33,13 @@ public class UserServiceImpl extends ServiceImpl implements UserService {
         Connection connection = ConnectionPool.getInstance().getConnection();
         UserDao dao = new UserDaoImpl();
         ((UserDaoImpl) dao).setConnection(connection);
-        return dao.read(identity);
+        User user = ((UserDaoImpl) dao).read(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
     @Override
@@ -34,7 +47,13 @@ public class UserServiceImpl extends ServiceImpl implements UserService {
         Connection connection = ConnectionPool.getInstance().getConnection();
         UserDao dao = new UserDaoImpl();
         ((UserDaoImpl) dao).setConnection(connection);
-        return dao.read(login, md5(password));
+        User user = dao.read(login, md5(password));
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
     @Override
@@ -58,6 +77,11 @@ public class UserServiceImpl extends ServiceImpl implements UserService {
             }
             user.setIdentity(dao.create(user));
         }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -66,6 +90,11 @@ public class UserServiceImpl extends ServiceImpl implements UserService {
         UserDao dao = new UserDaoImpl();
         ((UserDaoImpl) dao).setConnection(connection);
         dao.delete(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private String md5(String string) {

@@ -8,6 +8,7 @@ import by.popovich.last.exception.PersistentException;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.List;
 
 public class SubscriptionServiceImpl extends ServiceImpl
@@ -18,7 +19,13 @@ public class SubscriptionServiceImpl extends ServiceImpl
         Connection connection = ConnectionPool.getInstance().getConnection();
         SubscriptionDao dao = new SubscriptionDaoImpl();
         ((SubscriptionDaoImpl) dao).setConnection(connection);
-        return dao.readAll();
+        List<Subscription> subscriptions = dao.readAll();
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return subscriptions;
     }
 
     @Override
@@ -32,6 +39,11 @@ public class SubscriptionServiceImpl extends ServiceImpl
         } else {
             subscription.setIdentity(dao.create(subscription));
         }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -40,6 +52,11 @@ public class SubscriptionServiceImpl extends ServiceImpl
         SubscriptionDao dao = new SubscriptionDaoImpl();
         ((SubscriptionDaoImpl) dao).setConnection(connection);
         dao.delete(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -47,7 +64,13 @@ public class SubscriptionServiceImpl extends ServiceImpl
         Connection connection = ConnectionPool.getInstance().getConnection();
         SubscriptionDao dao = new SubscriptionDaoImpl();
         ((SubscriptionDaoImpl) dao).setConnection(connection);
-        return dao.readByGroupId(groupId);
+        List<Subscription> subscriptions = dao.readByGroupId(groupId);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return subscriptions;
     }
 
     @Override
@@ -55,7 +78,13 @@ public class SubscriptionServiceImpl extends ServiceImpl
         Connection connection = ConnectionPool.getInstance().getConnection();
         SubscriptionDao dao = new SubscriptionDaoImpl();
         ((SubscriptionDaoImpl) dao).setConnection(connection);
-        return dao.readByLastDay(lastDayOfSubscription);
+        List<Subscription> subscriptions = dao.readByLastDay(lastDayOfSubscription);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return subscriptions;
     }
 
     @Override
@@ -63,7 +92,13 @@ public class SubscriptionServiceImpl extends ServiceImpl
         Connection connection = ConnectionPool.getInstance().getConnection();
         SubscriptionDao dao = new SubscriptionDaoImpl();
         ((SubscriptionDaoImpl) dao).setConnection(connection);
-        return dao.readSubscriptionsByClientId(clientId);
+        List<Subscription> subscriptions = dao.readSubscriptionsByClientId(clientId);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return subscriptions;
     }
 
     @Override
@@ -72,6 +107,11 @@ public class SubscriptionServiceImpl extends ServiceImpl
         SubscriptionDao dao = new SubscriptionDaoImpl();
         ((SubscriptionDaoImpl) dao).setConnection(connection);
         dao.deleteSubscription(clientId, groupId);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -79,6 +119,12 @@ public class SubscriptionServiceImpl extends ServiceImpl
         Connection connection = ConnectionPool.getInstance().getConnection();
         SubscriptionDao dao = new SubscriptionDaoImpl();
         ((SubscriptionDaoImpl) dao).setConnection(connection);
-        return dao.read(id);
+        Subscription subscription = dao.read(id);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return subscription;
     }
 }

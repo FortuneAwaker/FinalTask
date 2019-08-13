@@ -7,6 +7,7 @@ import by.popovich.last.entity.Exercise;
 import by.popovich.last.exception.PersistentException;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class ExerciseServiceImpl extends ServiceImpl
@@ -16,7 +17,13 @@ public class ExerciseServiceImpl extends ServiceImpl
         Connection connection = ConnectionPool.getInstance().getConnection();
         ExerciseDaoImpl dao = new ExerciseDaoImpl();
         dao.setConnection(connection);
-        return dao.readIdByName(name);
+        Exercise exercise = dao.readIdByName(name);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exercise;
     }
 
     @Override
@@ -24,7 +31,13 @@ public class ExerciseServiceImpl extends ServiceImpl
         Connection connection = ConnectionPool.getInstance().getConnection();
         ExerciseDaoImpl dao = new ExerciseDaoImpl();
         dao.setConnection(connection);
-        return dao.read(identity);
+        Exercise exercise = dao.read(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exercise;
     }
 
     @Override
@@ -32,7 +45,13 @@ public class ExerciseServiceImpl extends ServiceImpl
         Connection connection = ConnectionPool.getInstance().getConnection();
         ExerciseDaoImpl dao = new ExerciseDaoImpl();
         dao.setConnection(connection);
-        return dao.read();
+        List<Exercise> exercises = dao.read();
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exercises;
     }
 
     @Override
@@ -45,6 +64,11 @@ public class ExerciseServiceImpl extends ServiceImpl
         } else {
             exercise.setIdentity(dao.create(exercise));
         }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -53,5 +77,10 @@ public class ExerciseServiceImpl extends ServiceImpl
         ExerciseDaoImpl dao = new ExerciseDaoImpl();
         dao.setConnection(connection);
         dao.delete(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

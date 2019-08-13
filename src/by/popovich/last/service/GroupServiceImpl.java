@@ -9,6 +9,7 @@ import by.popovich.last.entity.Group;
 import by.popovich.last.exception.PersistentException;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class GroupServiceImpl extends ServiceImpl implements GroupService {
@@ -17,7 +18,13 @@ public class GroupServiceImpl extends ServiceImpl implements GroupService {
         Connection connection = ConnectionPool.getInstance().getConnection();
         GroupDaoImpl dao = new GroupDaoImpl();
         dao.setConnection(connection);
-        return dao.read(identity);
+        Group group = dao.read(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return group;
     }
 
     @Override
@@ -25,7 +32,13 @@ public class GroupServiceImpl extends ServiceImpl implements GroupService {
         Connection connection = ConnectionPool.getInstance().getConnection();
         GroupDaoImpl dao = new GroupDaoImpl();
         dao.setConnection(connection);
-        return dao.read();
+        List<Group> groups = dao.read();
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return groups;
     }
 
     @Override
@@ -34,7 +47,13 @@ public class GroupServiceImpl extends ServiceImpl implements GroupService {
         Connection connection = ConnectionPool.getInstance().getConnection();
         GroupDaoImpl dao = new GroupDaoImpl();
         dao.setConnection(connection);
-        return dao.readByCoachId(coachId);
+        List<Group> groups = dao.readByCoachId(coachId);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return groups;
     }
 
     @Override
@@ -42,7 +61,13 @@ public class GroupServiceImpl extends ServiceImpl implements GroupService {
         Connection connection = ConnectionPool.getInstance().getConnection();
         GroupDaoImpl dao = new GroupDaoImpl();
         dao.setConnection(connection);
-        return dao.readGroupsByType(exercisesTypeId);
+        List<Group> groups = dao.readGroupsByType(exercisesTypeId);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return groups;
     }
 
     @Override
@@ -53,7 +78,13 @@ public class GroupServiceImpl extends ServiceImpl implements GroupService {
         exerciseDao.setConnection(connection);
         groupDao.setConnection(connection);
         Exercise exercise = exerciseDao.readIdByName(exercisesTypeName);
-        return groupDao.readGroupsByType(exercise.getIdentity());
+        List<Group> groups = groupDao.readGroupsByType(exercise.getIdentity());
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return groups;
     }
 
     @Override
@@ -66,6 +97,11 @@ public class GroupServiceImpl extends ServiceImpl implements GroupService {
         } else {
             group.setIdentity(dao.create(group));
         }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -74,6 +110,11 @@ public class GroupServiceImpl extends ServiceImpl implements GroupService {
         GroupDaoImpl dao = new GroupDaoImpl();
         dao.setConnection(connection);
         dao.delete(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -83,6 +124,11 @@ public class GroupServiceImpl extends ServiceImpl implements GroupService {
         GroupDaoImpl dao = new GroupDaoImpl();
         dao.setConnection(connection);
         dao.updateCurrent(numberOfCurrent, groupId);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -91,6 +137,11 @@ public class GroupServiceImpl extends ServiceImpl implements GroupService {
         GroupDaoImpl dao = new GroupDaoImpl();
         dao.setConnection(connection);
         dao.addVisitor(groupId);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -99,6 +150,11 @@ public class GroupServiceImpl extends ServiceImpl implements GroupService {
         GroupDaoImpl dao = new GroupDaoImpl();
         dao.setConnection(connection);
         dao.removeVisitor(groupId);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

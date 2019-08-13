@@ -10,6 +10,7 @@ import by.popovich.last.entity.Price;
 import by.popovich.last.exception.PersistentException;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class PriceServiceImpl extends ServiceImpl implements PriceService {
@@ -18,7 +19,13 @@ public class PriceServiceImpl extends ServiceImpl implements PriceService {
         Connection connection = ConnectionPool.getInstance().getConnection();
         PriceDao dao = new PriceDaoImpl();
         ((PriceDaoImpl) dao).setConnection(connection);
-        return dao.read(identity);
+        Price price = ((PriceDaoImpl) dao).read(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return price;
     }
 
     @Override
@@ -26,7 +33,13 @@ public class PriceServiceImpl extends ServiceImpl implements PriceService {
         Connection connection = ConnectionPool.getInstance().getConnection();
         PriceDao dao = new PriceDaoImpl();
         ((PriceDaoImpl) dao).setConnection(connection);
-        return dao.read();
+        List<Price> prices = dao.read();
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return prices;
     }
 
     @Override
@@ -35,7 +48,13 @@ public class PriceServiceImpl extends ServiceImpl implements PriceService {
         Connection connection = ConnectionPool.getInstance().getConnection();
         PriceDao dao = new PriceDaoImpl();
         ((PriceDaoImpl) dao).setConnection(connection);
-        return dao.readByExerciseType(type);
+        List<Price> prices = dao.readByExerciseType(type);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return prices;
     }
 
     @Override
@@ -45,9 +64,14 @@ public class PriceServiceImpl extends ServiceImpl implements PriceService {
         ((PriceDaoImpl) dao).setConnection(connection);
         ExerciseDao exerciseDao = new ExerciseDaoImpl();
         ((ExerciseDaoImpl) exerciseDao).setConnection(connection);
-        Exercise exercise = new Exercise();
-        exercise = exerciseDao.readIdByName(name);
-        return dao.readByExerciseType(exercise.getIdentity());
+        Exercise exercise = exerciseDao.readIdByName(name);
+        List<Price> prices = dao.readByExerciseType(exercise.getIdentity());
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return prices;
     }
 
     @Override
@@ -60,6 +84,11 @@ public class PriceServiceImpl extends ServiceImpl implements PriceService {
         } else {
             price.setIdentity(dao.create(price));
         }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -68,5 +97,10 @@ public class PriceServiceImpl extends ServiceImpl implements PriceService {
         PriceDao dao = new PriceDaoImpl();
         ((PriceDaoImpl) dao).setConnection(connection);
         dao.delete(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

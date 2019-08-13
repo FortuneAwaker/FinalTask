@@ -7,6 +7,7 @@ import by.popovich.last.entity.Person;
 import by.popovich.last.exception.PersistentException;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserInfoServiceImpl extends ServiceImpl
@@ -16,7 +17,13 @@ public class UserInfoServiceImpl extends ServiceImpl
         Connection connection = ConnectionPool.getInstance().getConnection();
         UserInfoDao dao = new UserInfoDaoImpl();
         ((UserInfoDaoImpl) dao).setConnection(connection);
-        return dao.read(identity);
+        Person person = ((UserInfoDaoImpl) dao).read(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return person;
     }
 
     @Override
@@ -24,7 +31,13 @@ public class UserInfoServiceImpl extends ServiceImpl
         Connection connection = ConnectionPool.getInstance().getConnection();
         UserInfoDao dao = new UserInfoDaoImpl();
         ((UserInfoDaoImpl) dao).setConnection(connection);
-        return dao.read();
+        List<Person> people = dao.read();
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return people;
     }
 
     @Override
@@ -33,6 +46,11 @@ public class UserInfoServiceImpl extends ServiceImpl
         UserInfoDao dao = new UserInfoDaoImpl();
         ((UserInfoDaoImpl) dao).setConnection(connection);
         dao.create(person);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -41,6 +59,11 @@ public class UserInfoServiceImpl extends ServiceImpl
         UserInfoDao dao = new UserInfoDaoImpl();
         ((UserInfoDaoImpl) dao).setConnection(connection);
         dao.update(person);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -49,5 +72,10 @@ public class UserInfoServiceImpl extends ServiceImpl
         UserInfoDao dao = new UserInfoDaoImpl();
         ((UserInfoDaoImpl) dao).setConnection(connection);
         dao.delete(identity);
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

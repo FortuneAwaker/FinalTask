@@ -45,6 +45,12 @@ public class Main {
         } catch (PersistentException e) {
             e.printStackTrace();
         }
+        ExerciseService service = new ExerciseServiceImpl();
+        try {
+            System.out.println(service.readIdByName("Фитнес"));
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
         System.out.println(md5("qwerty"));
         System.out.println(md5("tytyty"));
         System.out.println(md5("ahalah"));
