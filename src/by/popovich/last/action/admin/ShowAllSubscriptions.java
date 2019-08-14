@@ -46,6 +46,8 @@ public class ShowAllSubscriptions extends AuthorizedUserAction {
                 List<Subscription> subs = service.readAll();
                 for (Subscription sub: subs
                      ) {
+                    sub.setCoachId(
+                            groupService.readById(sub.getIdOfGroup()).getCoachID());
                     Exercise exercise = exerciseService.readById(
                             groupService.readById(sub.getIdOfGroup()).getTypeOfExercisesId()
                     );

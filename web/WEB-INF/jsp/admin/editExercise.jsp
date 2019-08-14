@@ -23,7 +23,7 @@
         <input type="text" id="nameOfExercise" name="nameOfExercise"
                required
                title="${string_pattern}"
-               pattern="[A-Z][a-z]+" maxlength="15" minlength="3">
+               pattern="[A-Z][a-z\s]+" maxlength="15" minlength="3">
         <BUTTON type="submit">${edit}!</BUTTON>
     </form>
 </u:html>

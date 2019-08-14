@@ -18,7 +18,7 @@
     </h2>
     <form action="/coach/editGroup.html?groupId=${idOfGroupToEdit}" method="post">
         <label for="numberOfClients">${number_of_clients}</label>
-        <input type="number" id="numberOfClients" name="numberOfClients"
+        <input type="text" id="numberOfClients" name="numberOfClients"
                required
                pattern="[0-9]+"
                title="${number_pattern} 3"

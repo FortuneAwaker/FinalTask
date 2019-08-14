@@ -44,11 +44,17 @@ public class DeleteExerciseAction extends AuthorizedUserAction {
             Integer exerciseIdNumber = Integer.parseInt(exerciseIdFromRequest);
             if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
                 ExerciseService service = serviceFactory.getService(ExerciseService.class);
-                try {
-                    service.delete(exerciseIdNumber);
-                    LOGGER.info("Упражнение удалено!");
-                    request.setAttribute("message", "Упражнение удалено!");
-                } catch (PersistentException e) {
+                PriceService ps = serviceFactory.getService(PriceService.class);
+                if (ps.readById(exerciseIdNumber) == null) {
+                    try {
+                        service.delete(exerciseIdNumber);
+                        LOGGER.info("Упражнение удалено!");
+                        request.setAttribute("message", "Упражнение удалено!");
+                    } catch (PersistentException e) {
+                        LOGGER.info("Невозможно удалить, существуют связи!");
+                        request.setAttribute("message", "Невозможно удалить, существуют связи!");
+                    }
+                } else {
                     LOGGER.info("Невозможно удалить, существуют связи!");
                     request.setAttribute("message", "Невозможно удалить, существуют связи!");
                 }
