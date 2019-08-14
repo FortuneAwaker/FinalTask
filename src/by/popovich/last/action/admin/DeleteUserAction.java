@@ -2,14 +2,15 @@ package by.popovich.last.action.admin;
 
 import by.popovich.last.action.AuthorizedUserAction;
 import by.popovich.last.action.Forward;
-import by.popovich.last.controller.ActionFilter;
 import by.popovich.last.entity.Group;
 import by.popovich.last.entity.Role;
 import by.popovich.last.entity.Subscription;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.*;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +20,10 @@ import java.util.List;
 import java.util.Locale;
 
 public class DeleteUserAction extends AuthorizedUserAction {
-    private static Logger logger = Logger.getLogger(DeleteUserAction.class);
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(DeleteUserAction.class);
 
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
@@ -60,13 +64,16 @@ public class DeleteUserAction extends AuthorizedUserAction {
                     subService.delete(s.getIdentity());
                 }
                 service.delete(userId);
+                LOGGER.info("Пользователь удалён!");
                 request.setAttribute("message", "Пользователь удалён!");
             } else {
-                request.setAttribute("message", "Недопустимая для действия роль");
+                LOGGER.info("Недопустимая для действия роль!");
+                request.setAttribute("message", "Недопустимая для действия роль!");
                 return new Forward("/index.jsp", false);
             }
         } else {
-            request.setAttribute("message", "Недопустимое действие");
+            LOGGER.info("Недопустимое действие!");
+            request.setAttribute("message", "Недопустимое действие!");
         }
         return new Forward("/admin/allUsers.html");
     }

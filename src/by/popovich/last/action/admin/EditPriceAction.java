@@ -8,6 +8,8 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.PriceService;
 import by.popovich.last.validator.Validator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +18,11 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
 public class EditPriceAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(EditPriceAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession(true);
@@ -57,7 +64,8 @@ public class EditPriceAction extends AuthorizedUserAction {
                                 amountOfMoneyString, 1, 6)
                                 && validator.validateNumber(
                                 numberOfVisitsString, 1, 3))) {
-                            request.setAttribute("message", "Некорректные данные");
+                            LOGGER.info("Некорректные данные!");
+                            request.setAttribute("message", "Некорректные данные!");
                             return null;
                         }
                         Integer numberOfVisits = Integer.parseInt(numberOfVisitsString);
@@ -67,6 +75,7 @@ public class EditPriceAction extends AuthorizedUserAction {
                         Price priceToEdit = service.readById(priceIdNumber);
                         if (numberOfDays <= 0 && numberOfVisits <= 0
                                 && amountOfMoney <= 0) {
+                            LOGGER.info("Неверные параметры!");
                             request.setAttribute("message",
                                     "Неверные параметры!");
                         } else {
@@ -74,19 +83,23 @@ public class EditPriceAction extends AuthorizedUserAction {
                             priceToEdit.setNumberOfVisits(numberOfVisits);
                             priceToEdit.setPrice(amountOfMoney);
                             service.save(priceToEdit);
+                            LOGGER.info("Расценка была изменена!");
                             request.setAttribute("message", "Расценка была изменена!");
                             return new Forward("/index.jsp", false);
                         }
                     } else {
-                        request.setAttribute("message", "Недопустимое действие");
+                        LOGGER.info("Недопустимое действие!");
+                        request.setAttribute("message", "Недопустимое действие!");
                         return new Forward("/index.jsp", false);
                     }
                 } else {
-                    request.setAttribute("message", "Недопустимая для действия роль");
+                    LOGGER.info("Недопустимая для действия роль!");
+                    request.setAttribute("message", "Недопустимая для действия роль!");
                     return new Forward("/index.jsp", false);
                 }
             } else {
-                request.setAttribute("message", "Недопустимое действие");
+                LOGGER.info("Недопустимое действие!");
+                request.setAttribute("message", "Недопустимое действие!");
             }
         }
         return null;

@@ -4,7 +4,8 @@ import by.popovich.last.controller.DispatcherServlet;
 import by.popovich.last.entity.Role;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,10 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ChangeLanguageAction extends Action {
-    private static Logger logger = Logger.getLogger(ChangeLanguageAction.class);
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(ChangeLanguageAction.class);
 
     private static Map<Role, List<MenuItem>> menu = new ConcurrentHashMap<>();
 
@@ -30,6 +34,7 @@ public class ChangeLanguageAction extends Action {
         request.setAttribute("lang", lang);
         session.setAttribute("lang", lang);
         Config.set(request, Config.FMT_LOCALE, locale);
+        LOGGER.info("Язык был установлен как " + lang);
         User currentUser = (User)session.getAttribute("authorizedUser");
         if (currentUser != null) {
             Locale.setDefault(locale);

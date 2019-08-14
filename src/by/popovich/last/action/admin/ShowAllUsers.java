@@ -10,6 +10,8 @@ import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.SubscriptionService;
 import by.popovich.last.service.UserInfoService;
 import by.popovich.last.service.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +22,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class ShowAllUsers extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(ShowAllUsers.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
@@ -58,12 +65,15 @@ public class ShowAllUsers extends AuthorizedUserAction {
                     session.setAttribute("allUsers", allUsers);
                     return new Forward("/admin/allUsers.jsp", false);
                 } else {
+                    LOGGER.info("Пользователи не найдены!");
                     request.setAttribute("message", "Пользователи не найдены!");
                 }
             } else {
+                LOGGER.info("Нужны права администратора!");
                 request.setAttribute("message", "Нужны права администратора!");
             }
         } else {
+            LOGGER.info("Нужно войти, чтобы просматривать эту страницу!");
             request.setAttribute("message", "Нужно войти, чтобы просматривать эту страницу!");
             return new Forward("/index.html");
         }

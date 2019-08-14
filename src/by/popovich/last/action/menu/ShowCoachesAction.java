@@ -74,10 +74,11 @@ public class ShowCoachesAction extends Action {
         if (coaches != null) {
             if (request.getAttribute("listOfCoaches") == null) {
                 request.setAttribute("listOfCoaches", coaches);
-                LOGGER.info("List of coaches was shown successfully");
+                LOGGER.info("Список тренеров был успешно показан.");
             }
         } else {
-            request.setAttribute("message", "Лист тренеров пуст");
+            LOGGER.info("Список тренеров пуст.");
+            request.setAttribute("message", "Список тренеров пуст.");
             return null;
         }
         return new Forward("/menu/coaches.jsp", false);

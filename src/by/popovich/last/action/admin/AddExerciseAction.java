@@ -8,6 +8,8 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.validator.Validator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +18,11 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
 public class AddExerciseAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(AddExerciseAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession(true);
@@ -37,6 +44,7 @@ public class AddExerciseAction extends AuthorizedUserAction {
             todo = "true";
         }
         if (!currentUser.getRole().equals(Role.ADMINISTRATOR)) {
+            LOGGER.info("Недопустимая для действия роль");
             request.setAttribute("message", "Недопустимая для действия роль");
             return new Forward("/index.jsp", false);
         }
@@ -46,6 +54,7 @@ public class AddExerciseAction extends AuthorizedUserAction {
                 Validator validator = new Validator();
                 if (!(validator.validateStringData(nameOfExerciseString,
                         3, 15))) {
+                    LOGGER.info("Некорректные данные");
                     request.setAttribute("message", "Некорректные данные");
                     return null;
                 }
@@ -54,9 +63,11 @@ public class AddExerciseAction extends AuthorizedUserAction {
                 exerciseToAdd.setTypeOfExercises(nameOfExerciseString);
                 try {
                     service.save(exerciseToAdd);
+                    LOGGER.info("Новое упражнение было добавлено!");
                     request.setAttribute("message", "Новое упражнение было добавлено!");
                     return new Forward("/index.jsp", false);
                 } catch (PersistentException e) {
+                    LOGGER.info("Ошибка создания упражнения!");
                     request.setAttribute("message", "Ошибка создания упражнения!");
                 }
             } else {

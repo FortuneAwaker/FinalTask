@@ -8,6 +8,8 @@ import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
 import by.popovich.last.service.SubscriptionService;
 import by.popovich.last.service.UserInfoService;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +20,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class ShowMembersOfGroup extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(ShowMembersOfGroup.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
@@ -58,13 +65,14 @@ public class ShowMembersOfGroup extends AuthorizedUserAction {
                                         .getTypeOfExercises());
                     }
                     session.setAttribute("subscriptionsList", subs);
+                    LOGGER.info("Посетители группы были показаны!");
                     return new Forward("/coach/membersOfGroup.jsp", false);
                 } else {
-                    request.setAttribute("message", "Недопустимое действие");
+                    request.setAttribute("message", "Недопустимое действие!");
                     return new Forward("/index.jsp", false);
                 }
             } else {
-                request.setAttribute("message", "Недопустимая для действия роль");
+                request.setAttribute("message", "Недопустимая для действия роль!");
                 return new Forward("/index.jsp", false);
             }
         }

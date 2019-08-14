@@ -2,15 +2,11 @@ package by.popovich.last.action.authorizedUser;
 
 import by.popovich.last.action.AuthorizedUserAction;
 import by.popovich.last.action.Forward;
-import by.popovich.last.action.MenuItem;
-import by.popovich.last.entity.Person;
-import by.popovich.last.entity.Role;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
-import by.popovich.last.service.UserInfoService;
 import by.popovich.last.service.UserService;
-import by.popovich.last.service.UserServiceImpl;
 import by.popovich.last.validator.Validator;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,10 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class ChangePasswordAction extends AuthorizedUserAction {
-    private static Logger logger = Logger.getLogger(LogoutAction.class);
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(ChangePasswordAction.class);
 
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
@@ -50,7 +48,8 @@ public class ChangePasswordAction extends AuthorizedUserAction {
                 Validator validator = new Validator();
                 if (!validator.validateLoginOrPassword(password,
                         6, 15)) {
-                    request.setAttribute("message", "Некорректные данные");
+                    LOGGER.info("Некорректные данные!");
+                    request.setAttribute("message", "Некорректные данные!");
                     return null;
                 }
                 if (password.equals(repeatPassword)) {
@@ -62,19 +61,18 @@ public class ChangePasswordAction extends AuthorizedUserAction {
                         session.setAttribute("authorizedUser", user);
                         return new Forward("/index.html");
                     } catch (PersistentException e) {
-                        logger.info("Error of changing password");
+                        LOGGER.info("Ошибка смены пароля!");
                         request.setAttribute("message",
-                                "Ошибка добавления информации"
-                                        + " о пользователе");
+                                "Ошибка смены пароля!");
                     }
                 } else {
                     request.setAttribute("message", "Пароли не совпадают!");
-                    logger.info("Passwords are not equal!");
+                    LOGGER.info("Пароли не совпадают!");
                 }
             } else {
                 request.setAttribute("message",
-                        "Не полностью заполнены необходимые поля");
-                logger.info("Fields are not filled!");
+                        "Не полностью заполнены необходимые поля!");
+                LOGGER.info("Не полностью заполнены необходимые поля!");
             }
         }
         return null;

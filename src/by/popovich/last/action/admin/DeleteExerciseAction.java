@@ -7,6 +7,8 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.PriceService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +17,11 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
 public class DeleteExerciseAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(DeleteExerciseAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
@@ -39,15 +46,19 @@ public class DeleteExerciseAction extends AuthorizedUserAction {
                 ExerciseService service = serviceFactory.getService(ExerciseService.class);
                 try {
                     service.delete(exerciseIdNumber);
+                    LOGGER.info("Упражнение удалено!");
                     request.setAttribute("message", "Упражнение удалено!");
                 } catch (PersistentException e) {
+                    LOGGER.info("Невозможно удалить, существуют связи!");
                     request.setAttribute("message", "Невозможно удалить, существуют связи!");
                 }
             } else {
+                LOGGER.info("Недопустимая для действия роль");
                 request.setAttribute("message", "Недопустимая для действия роль");
                 return new Forward("/index.jsp", false);
             }
         } else {
+            LOGGER.info("Недопустимое действие");
             request.setAttribute("message", "Недопустимое действие");
         }
         return new Forward("/index.jsp", false);

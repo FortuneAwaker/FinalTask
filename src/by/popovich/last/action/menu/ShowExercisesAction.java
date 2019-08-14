@@ -38,7 +38,7 @@ public class ShowExercisesAction extends Action {
         if (exercises != null) {
             if (request.getAttribute("listOfExercises") == null) {
                 request.setAttribute("listOfExercises", exercises);
-                LOGGER.info("List of exercises was shown successfully");
+                LOGGER.info("Список упражнений был успешно показан!");
             }
         }
         return new Forward("/menu/exercises.jsp", false);

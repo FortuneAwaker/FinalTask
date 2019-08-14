@@ -6,6 +6,8 @@ import by.popovich.last.entity.Role;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.PriceService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +16,11 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
 public class DeletePriceAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(DeletePriceAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
@@ -37,13 +44,16 @@ public class DeletePriceAction extends AuthorizedUserAction {
             if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
                 PriceService service = serviceFactory.getService(PriceService.class);
                 service.delete(priceIdNumber);
+                LOGGER.info("Расценка удалена!");
                 request.setAttribute("message", "Расценка удалена!");
             } else {
-                request.setAttribute("message", "Недопустимая для действия роль");
+                LOGGER.info("Недопустимая для действия роль!");
+                request.setAttribute("message", "Недопустимая для действия роль!");
                 return new Forward("/index.jsp", false);
             }
         } else {
-            request.setAttribute("message", "Недопустимое действие");
+            LOGGER.info("Недопустимое действие!");
+            request.setAttribute("message", "Недопустимое действие!");
         }
         return new Forward("/index.jsp", false);
     }

@@ -10,6 +10,8 @@ import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
 import by.popovich.last.validator.Validator;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +21,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class EditGroupAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(EditGroupAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession(true);
@@ -52,7 +59,8 @@ public class EditGroupAction extends AuthorizedUserAction {
                         Validator validator = new Validator();
                         if (!(validator.validateNumber(
                                 numberOfClientsString, 1, 3))) {
-                            request.setAttribute("message", "Некорректные данные");
+                            LOGGER.info("Некорректные данные!");
+                            request.setAttribute("message", "Некорректные данные!");
                             return null;
                         }
                         Integer numberOfClients = Integer.parseInt(numberOfClientsString);
@@ -65,15 +73,16 @@ public class EditGroupAction extends AuthorizedUserAction {
                         } else {
                             groupToEdit.setMaxClients(numberOfClients);
                             service.save(groupToEdit);
+                            LOGGER.info("Группа была изменена!");
                             request.setAttribute("message", "Группа была изменена!");
                             return new Forward("/index.jsp", false);
                         }
                     } else {
-                        request.setAttribute("message", "Недопустимое действие");
+                        request.setAttribute("message", "Недопустимое действие!");
                         return new Forward("/index.jsp", false);
                     }
                 } else {
-                    request.setAttribute("message", "Недопустимая для действия роль");
+                    request.setAttribute("message", "Недопустимая для действия роль!");
                     return new Forward("/index.jsp", false);
                 }
             }

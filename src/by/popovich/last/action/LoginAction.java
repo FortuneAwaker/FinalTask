@@ -7,6 +7,7 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.UserInfoService;
 import by.popovich.last.service.UserService;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,10 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class LoginAction extends Action {
-    private static Logger logger = Logger.getLogger(LoginAction.class);
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(LoginAction.class);
 
     private static Map<Role, List<MenuItem>> menu = new ConcurrentHashMap<>();
 
@@ -75,11 +79,11 @@ public class LoginAction extends Action {
                     }
                     session.setAttribute("authorizedUser", user);
                     session.setAttribute("menu", menu.get(user.getRole()));
-                    logger.info(String.format("user \"%s\" is logged in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
+                    LOGGER.info(String.format("user \"%s\" is logged in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
                     return new Forward("/index.html");
                 } else {
                     request.setAttribute("message", "Имя пользователя или пароль не опознанны");
-                    logger.info(String.format("user \"%s\" unsuccessfully tried to log in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
+                    LOGGER.info(String.format("user \"%s\" unsuccessfully tried to log in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
                 }
             }
         }

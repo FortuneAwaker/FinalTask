@@ -8,6 +8,8 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class ShowGroupsOfCoach extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(ShowGroupsOfCoach.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
@@ -45,7 +52,7 @@ public class ShowGroupsOfCoach extends AuthorizedUserAction {
             if (currentUser.getRole().equals(Role.COACH)) {
                 groupList = service.readGroupsByCoach(currentUser.getIdentity());
             } else {
-                request.setAttribute("message", "Недопустимая для действия роль");
+                request.setAttribute("message", "Недопустимая для действия роль!");
                 return new Forward("/index.jsp", false);
             }
         }
@@ -55,6 +62,7 @@ public class ShowGroupsOfCoach extends AuthorizedUserAction {
             group.setTypeOfExercises(exerciseService.readById(
                     group.getTypeOfExercisesId()).getTypeOfExercises());
         }
+        LOGGER.info("Группы тренера были показаны!");
         session.setAttribute("listOfGroups", groupList);
         return new Forward("/coach/groups.jsp", false);
     }

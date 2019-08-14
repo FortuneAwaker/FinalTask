@@ -8,6 +8,8 @@ import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
 import by.popovich.last.service.PriceService;
 import by.popovich.last.validator.Validator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class AddPriceAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(AddPriceAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession(true);
@@ -59,6 +66,7 @@ public class AddPriceAction extends AuthorizedUserAction {
                         numberOfMoneyString, 1, 6)
                 && validator.validateNumber(
                         numberOfVisitsString, 1, 3))) {
+                    LOGGER.info("Некорректные данные");
                     request.setAttribute("message", "Некорректные данные");
                     return null;
                 }
@@ -70,6 +78,7 @@ public class AddPriceAction extends AuthorizedUserAction {
                     priceToAdd.setNameOfExercise(exercise.getTypeOfExercises());
                     priceToAdd.setTypeOfExercise(exercise.getIdentity());
                 } else {
+                    LOGGER.info("Ошибка получения упражнения!");
                     request.setAttribute("message", "Ошибка получения упражнения!");
                     return null;
                 }
@@ -78,6 +87,7 @@ public class AddPriceAction extends AuthorizedUserAction {
                 priceToAdd.setPrice(Double.parseDouble(numberOfMoneyString));
                 try {
                     service.save(priceToAdd);
+                    LOGGER.info("Новая расценка была создана!");
                     request.setAttribute("message", "Новая расценка была создана!");
                     return new Forward("/index.jsp", false);
                 } catch (PersistentException e) {

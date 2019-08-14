@@ -9,6 +9,8 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +20,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class ShowAllGroups extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(ShowAllGroups.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
@@ -45,12 +52,15 @@ public class ShowAllGroups extends AuthorizedUserAction {
                     session.setAttribute("allGroups", groups);
                     return new Forward("/admin/allGroups.jsp", false);
                 } else {
+                    LOGGER.info("Группы не найдены!");
                     request.setAttribute("message", "Группы не найдены!");
                 }
             } else {
+                LOGGER.info("Нужны права администратора!");
                 request.setAttribute("message", "Нужны права администратора!");
             }
         } else {
+            LOGGER.info("Нужно войти, чтобы просматривать эту страницу!");
             request.setAttribute("message", "Нужно войти, чтобы просматривать эту страницу!");
             return new Forward("/index.html");
         }

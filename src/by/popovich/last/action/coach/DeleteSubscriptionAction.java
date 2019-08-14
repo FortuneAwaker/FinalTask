@@ -9,6 +9,8 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.GroupService;
 import by.popovich.last.service.SubscriptionService;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,11 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
 public class DeleteSubscriptionAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(DeleteSubscriptionAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
@@ -48,6 +55,7 @@ public class DeleteSubscriptionAction extends AuthorizedUserAction {
                 if (group.getCoachID().equals(currentUser.getIdentity())) {
                     service.delete(subIdNumber);
                     groupService.removeVisitor(groupId);
+                    LOGGER.info("Подписка удалена.");
                     request.setAttribute("message", "Подписка удалена.");
                 }
             } else {

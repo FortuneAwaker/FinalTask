@@ -8,6 +8,8 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.validator.Validator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +18,11 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
 public class EditExerciseAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(EditExerciseAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession(true);
@@ -49,25 +56,30 @@ public class EditExerciseAction extends AuthorizedUserAction {
                         Validator validator = new Validator();
                         if (!(validator.validateStringData(nameOfExerciseString,
                                 3, 15))) {
-                            request.setAttribute("message", "Некорректные данные");
+                            LOGGER.info("Некорректные данные!");
+                            request.setAttribute("message", "Некорректные данные!");
                             return null;
                         }
                         ExerciseService service = serviceFactory.getService(ExerciseService.class);
                         Exercise exerciseToEdit = service.readById(exerciseIdNumber);
                         exerciseToEdit.setTypeOfExercises(nameOfExerciseString);
                         service.save(exerciseToEdit);
+                        LOGGER.info("Упражнение было изменено!");
                         request.setAttribute("message", "Упражнение было изменено!");
                         return new Forward("/index.jsp", false);
                     } else {
-                        request.setAttribute("message", "Недопустимое действие");
+                        LOGGER.info("Недопустимое действие!");
+                        request.setAttribute("message", "Недопустимое действие!");
                         return new Forward("/index.jsp", false);
                     }
                 } else {
-                    request.setAttribute("message", "Недопустимая для действия роль");
+                    LOGGER.info("Недопустимая для действия роль!");
+                    request.setAttribute("message", "Недопустимая для действия роль!");
                     return new Forward("/index.jsp", false);
                 }
             } else {
-                request.setAttribute("message", "Недопустимое действие");
+                LOGGER.info("Недопустимое действие!");
+                request.setAttribute("message", "Недопустимое действие!");
             }
         }
         return null;

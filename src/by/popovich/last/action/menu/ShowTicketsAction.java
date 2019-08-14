@@ -24,7 +24,7 @@ public class ShowTicketsAction extends Action {
      * Logger for creation notes to some appender.
      */
     private static final Logger LOGGER
-            = LogManager.getLogger(ShowExercisesAction.class);
+            = LogManager.getLogger(ShowTicketsAction.class);
 
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
@@ -71,7 +71,7 @@ public class ShowTicketsAction extends Action {
         if (prices != null) {
             if (request.getAttribute("listOfPrices") == null) {
                 request.setAttribute("listOfPrices", prices);
-                LOGGER.info("List of prices was shown successfully");
+                LOGGER.info("Список цен был успешно показан!");
             }
         }
         return new Forward("/menu/prices.jsp", false);

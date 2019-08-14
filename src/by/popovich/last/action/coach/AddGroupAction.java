@@ -11,6 +11,7 @@ import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
 import by.popovich.last.validator.Validator;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,10 @@ import java.util.List;
 import java.util.Locale;
 
 public class AddGroupAction extends AuthorizedUserAction {
-    private static Logger logger = Logger.getLogger(AddGroupAction.class);
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(AddGroupAction.class);
 
 
     @Override
@@ -49,7 +53,8 @@ public class AddGroupAction extends AuthorizedUserAction {
             List<Exercise> exercises = service.readAll();
             session.setAttribute("exercisesToChoose", exercises);
         } else {
-            request.setAttribute("message", "Недопустимая для действия роль");
+            LOGGER.info("Недопустимая для действия роль!");
+            request.setAttribute("message", "Недопустимая для действия роль!");
             return new Forward("/index.jsp", false);
         }
         if (!todo.equals("false")) {
@@ -60,7 +65,8 @@ public class AddGroupAction extends AuthorizedUserAction {
                 Validator validator = new Validator();
                 if (!(validator.validateNumber(
                         numberOfClientsString, 1, 3))) {
-                    request.setAttribute("message", "Некорректные данные");
+                    LOGGER.info("Некорректные данные!");
+                    request.setAttribute("message", "Некорректные данные!");
                     return null;
                 }
                 ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);
@@ -71,21 +77,25 @@ public class AddGroupAction extends AuthorizedUserAction {
                     groupToAdd.setTypeOfExercisesId(exercise.getIdentity());
                     groupToAdd.setTypeOfExercises(exercise.getTypeOfExercises());
                 } else {
+                    LOGGER.info("Ошибка получения упражнения!");
                     request.setAttribute("message", "Ошибка получения упражнения!");
                     return null;
                 }
                 groupToAdd.setCurrentClients(0);
                 Integer numberOfClients = Integer.parseInt(numberOfClientsString);
                 if (numberOfClients <= 0) {
+                    LOGGER.info("Неверное значение числа клиентов!");
                     request.setAttribute("message", "Неверное значение числа клиентов!");
                 }
                 groupToAdd.setMaxClients(numberOfClients);
                 groupToAdd.setCoachID(currentUser.getIdentity());
                 try {
                     service.save(groupToAdd);
+                    LOGGER.info("Новая группа была создана!");
                     request.setAttribute("message", "Новая группа была создана!");
                     return new Forward("/index.jsp", false);
                 } catch (PersistentException e) {
+                    LOGGER.info("Ошибка создания группы!");
                     request.setAttribute("message", "Ошибка создания группы!");
                 }
             }

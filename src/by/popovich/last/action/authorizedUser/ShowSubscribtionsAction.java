@@ -1,7 +1,6 @@
 package by.popovich.last.action.authorizedUser;
 
 import by.popovich.last.action.AuthorizedUserAction;
-import by.popovich.last.action.ChangeLanguageAction;
 import by.popovich.last.action.Forward;
 import by.popovich.last.entity.Role;
 import by.popovich.last.entity.Subscription;
@@ -18,9 +17,11 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.List;
 import java.util.Locale;
+import org.apache.log4j.LogManager;
 
 public class ShowSubscribtionsAction extends AuthorizedUserAction {
-    private static Logger logger = Logger.getLogger(ShowSubscribtionsAction.class);
+
+    private static Logger LOGGER = LogManager.getLogger(ShowSubscribtionsAction.class);
 
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
@@ -58,7 +59,7 @@ public class ShowSubscribtionsAction extends AuthorizedUserAction {
                         subscription.getIdOfGroup()).getCoachID());
             }
             session.setAttribute("listOfSubscriptions", subscriptions);
-            logger.info("Подписки были показаны пользователю");
+            LOGGER.info("Подписки были показаны пользователю!");
             return new Forward(
                     "/authorized_user/mySubscriptions.jsp",
                     false);

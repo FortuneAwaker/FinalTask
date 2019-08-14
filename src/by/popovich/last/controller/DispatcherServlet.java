@@ -1,7 +1,6 @@
 package by.popovich.last.controller;
 
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.jsp.jstl.core.Config;
 
 import by.popovich.last.action.Action;
 import by.popovich.last.action.ActionManager;
@@ -21,16 +19,14 @@ import by.popovich.last.dao.pool.ConnectionPool;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ServiceFactory;
 import by.popovich.last.service.ServiceFactoryImpl;
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.FileAppender;
-import org.apache.log4j.Layout;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
+import org.apache.log4j.*;
 
 @MultipartConfig(maxFileSize = 16177215)
 public class DispatcherServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(DispatcherServlet.class);
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(DispatcherServlet.class);
 
     public static final String LOG_FILE_NAME = "log.txt";
     public static final Level LOG_LEVEL = Level.ALL;
@@ -53,7 +49,7 @@ public class DispatcherServlet extends HttpServlet {
             root.setLevel(LOG_LEVEL);
             ConnectionPool.getInstance().init(DB_DRIVER_CLASS, DB_URL, DB_USER, DB_PASSWORD, DB_POOL_START_SIZE, DB_POOL_MAX_SIZE, DB_POOL_CHECK_CONNECTION_TIMEOUT);
         } catch (PersistentException | IOException e) {
-            logger.error("It is impossible to initialize application", e);
+            LOGGER.error("It is impossible to initialize application", e);
             destroy();
         }
     }
@@ -85,7 +81,7 @@ public class DispatcherServlet extends HttpServlet {
                 }
             }
             ActionManager actionManager = ActionManagerFactory.getManager(getFactory());
-            logger.info(action.getName());
+            LOGGER.info(action.getName());
             Forward forward = actionManager.execute(action, request, response);
             actionManager.close();
             if (session != null && forward != null && !forward.getAttributes().isEmpty()) {
@@ -94,7 +90,9 @@ public class DispatcherServlet extends HttpServlet {
             String requestedUri = request.getRequestURI();
             if (forward != null && forward.isRedirect()) {
                 String redirectedUri = request.getContextPath() + forward.getForward();
-                logger.debug(String.format("Request for URI \"%s\" id redirected to URI \"%s\"", requestedUri, redirectedUri));
+                LOGGER.debug(String.format(
+                        "Request for URI \"%s\" id redirected to URI \"%s\"",
+                        requestedUri, redirectedUri));
                 response.sendRedirect(redirectedUri);
             } else {
                 String jspPage;
@@ -104,11 +102,13 @@ public class DispatcherServlet extends HttpServlet {
                     jspPage = action.getName() + ".jsp";
                 }
                 jspPage = "/WEB-INF/jsp" + jspPage;
-                logger.debug(String.format("Request for URI \"%s\" is forwarded to JSP \"%s\"", requestedUri, jspPage));
+                LOGGER.debug(String.format(
+                        "Request for URI \"%s\" is forwarded to JSP \"%s\"",
+                        requestedUri, jspPage));
                 getServletContext().getRequestDispatcher(jspPage).forward(request, response);
             }
         } catch (PersistentException e) {
-            logger.error("It is impossible to process request", e);
+            LOGGER.error("It is impossible to process request", e);
             request.setAttribute("error", "Ошибка обработки данных");
             getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
         }

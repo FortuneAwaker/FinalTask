@@ -9,6 +9,7 @@ import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
 import by.popovich.last.service.PriceService;
 import by.popovich.last.service.SubscriptionService;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class SubscribeAction extends AuthorizedUserAction {
-    private static Logger logger = Logger.getLogger(DispatcherServlet.class);
+    private static Logger LOGGER = LogManager.getLogger(DispatcherServlet.class);
 
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
@@ -42,7 +43,7 @@ public class SubscribeAction extends AuthorizedUserAction {
         if (currentUser.getRole().equals(Role.CLIENT)) {
             String priceId = request.getParameter("priceId");
             String groupId = request.getParameter("groupId");
-            logger.info("groupId = " + groupId + ", priceId = " + priceId);
+            LOGGER.info("groupId = " + groupId + ", priceId = " + priceId);
             if (priceId == null && groupId != null) {
                 GroupService service = serviceFactory.getService(GroupService.class);
                 Integer groupIdNumber = Integer.parseInt(groupId);
@@ -76,6 +77,7 @@ public class SubscribeAction extends AuthorizedUserAction {
                             if (session.getAttribute("groupsOfPrice") != null) {
                                 session.removeAttribute("groupsOfPrice");
                             }
+                            LOGGER.info("Подписка оформлена успешно!");
                             request.setAttribute("message", "Подписка оформлена успешно!");
                         } catch (PersistentException e) {
                             request.setAttribute("message", "Вы уже состоите в этой группе!");
@@ -117,6 +119,7 @@ public class SubscribeAction extends AuthorizedUserAction {
                                 session.removeAttribute("pricesOfGroup");
                                 session.removeAttribute("wantedExercise");
                             }
+                            LOGGER.info("Подписка оформлена успешно!");
                             request.setAttribute("message", "Подписка оформлена успешно!");
                         } catch (PersistentException e) {
                             request.setAttribute("message", "Вы уже состоите в этой группе!");

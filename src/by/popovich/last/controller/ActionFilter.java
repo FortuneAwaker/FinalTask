@@ -7,6 +7,7 @@ import by.popovich.last.action.coach.*;
 import by.popovich.last.action.menu.ShowCoachesAction;
 import by.popovich.last.action.menu.ShowExercisesAction;
 import by.popovich.last.action.menu.ShowTicketsAction;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
@@ -17,7 +18,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ActionFilter implements Filter {
-    private static Logger logger = Logger.getLogger(ActionFilter.class);
+    private static Logger LOGGER = LogManager.getLogger(ActionFilter.class);
 
     private static Map<String, Class<? extends Action>> actions = new ConcurrentHashMap<>();
 
@@ -71,7 +72,8 @@ public class ActionFilter implements Filter {
         if(request instanceof HttpServletRequest) {
             HttpServletRequest httpRequest = (HttpServletRequest)request;
             String uri = httpRequest.getRequestURI();
-            logger.debug(String.format("Starting of processing of request for URI \"%s\"", uri));
+            LOGGER.debug(String.format(
+                    "Starting of processing of request for URI \"%s\"", uri));
             int endAction = uri.lastIndexOf('.');
             String actionName;
             if (endAction >= 0) {
@@ -79,7 +81,7 @@ public class ActionFilter implements Filter {
             } else {
                 actionName = uri;
             }
-            logger.debug(actionName);
+            LOGGER.debug(actionName);
             if (!actionName.equals("/authorized_user/subscribe")) {
                 HttpSession session = ((HttpServletRequest) request).getSession(true);
                 if (session.getAttribute("priceId") != null) {
@@ -96,12 +98,15 @@ public class ActionFilter implements Filter {
                 httpRequest.setAttribute("action", action);
                 chain.doFilter(request, response);
             } catch (InstantiationException | IllegalAccessException | NullPointerException e) {
-                logger.error("It is impossible to create action handler object", e);
-                httpRequest.setAttribute("error", String.format("Запрошенный адрес %s не может быть обработан сервером", uri));
+                LOGGER.error("It is impossible to "
+                        + "create action handler object", e);
+                httpRequest.setAttribute("error", String.format(
+                        "Запрошенный адрес %s не может "
+                                + "быть обработан сервером", uri));
                 httpRequest.getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
             }
         } else {
-            logger.error("It is impossible to use HTTP filter");
+            LOGGER.error("It is impossible to use HTTP filter");
             request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
         }
     }

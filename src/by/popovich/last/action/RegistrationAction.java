@@ -7,6 +7,7 @@ import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.UserInfoService;
 import by.popovich.last.service.UserService;
 import by.popovich.last.validator.Validator;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class RegistrationAction extends Action {
-    private static Logger logger = Logger.getLogger(LoginAction.class);
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(LoginAction.class);
 
     private static ArrayList<MenuItem> menu = new ArrayList<>();
 
@@ -105,29 +109,32 @@ public class RegistrationAction extends Action {
                             session.setAttribute("menu", menu);
                             return new Forward("/index.html");
                         } catch (PersistentException e) {
-                            logger.info("Error of adding user info");
+                            LOGGER.info("Error of adding user info");
                             request.setAttribute("message",
                                     "Ошибка добавления информации"
                                             + " о пользователе");
                         }
                     } catch (PersistentException exception) {
                         request.setAttribute("message",
-                                "Пользователь с таким логином уже существует!");
-                        logger.info("User with such login exists!");
+                                "Пользователь с таким логином или"
+                                        + " номером телефона уже существует!");
+                        LOGGER.info("Пользователь с таким логином или "
+                                + "номером телефона уже существует!");
                     }
                 } else {
-                    request.setAttribute("message", "Пароли не совпадают!");
-                    logger.info("Passwords are not equal!");
-                    logger.info(String.format("user \"%s\" unsuccessfully tried "
+                    request.setAttribute("message",
+                            "Пароли не совпадают!");
+                    LOGGER.info("Пароли не совпадают!");
+                    LOGGER.info(String.format("user \"%s\" unsuccessfully tried "
                                     + "to sign up from %s (%s:%s)", login,
                             request.getRemoteAddr(), request.getRemoteHost(),
                             request.getRemotePort()));
                 }
             } else {
                 request.setAttribute("message",
-                        "Не полностью заполнены необходимые поля");
-                logger.info("Fields are not filled!");
-                logger.info(String.format("user \"%s\" unsuccessfully "
+                        "Не полностью заполнены необходимые поля!");
+                LOGGER.info("Не полностью заполнены необходимые поля!");
+                LOGGER.info(String.format("user \"%s\" unsuccessfully "
                                 + "tried to sign up from %s (%s:%s)", login,
                         request.getRemoteAddr(), request.getRemoteHost(),
                         request.getRemotePort()));

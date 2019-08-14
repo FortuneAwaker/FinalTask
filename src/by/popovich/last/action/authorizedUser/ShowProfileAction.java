@@ -8,6 +8,8 @@ import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
 import by.popovich.last.service.SubscriptionService;
 import by.popovich.last.service.UserInfoService;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +21,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class ShowProfileAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(ShowProfileAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
@@ -42,6 +49,7 @@ public class ShowProfileAction extends AuthorizedUserAction {
             String encode = Base64.getEncoder().encodeToString(image);
             request.setAttribute("image", encode);
         }
+        LOGGER.info("Профиль загружен.");
         return new Forward("/authorized_user/profile.jsp", false);
     }
 }

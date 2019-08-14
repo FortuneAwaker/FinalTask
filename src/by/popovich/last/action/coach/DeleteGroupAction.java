@@ -9,6 +9,8 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.GroupService;
 import by.popovich.last.service.SubscriptionService;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +20,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class DeleteGroupAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(DeleteGroupAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
@@ -50,14 +57,15 @@ public class DeleteGroupAction extends AuthorizedUserAction {
                         service.delete(sub.getIdentity());
                     }
                     groupService.delete(groupIdNumber);
+                    LOGGER.info("Группа была удалена!");
                     request.setAttribute("message", "Группа была удалена!");
                 }
             } else  {
-                request.setAttribute("message", "Недопустимое действие");
+                request.setAttribute("message", "Недопустимое действие!");
                 return new Forward("/index.jsp", false);
             }
         } else {
-            request.setAttribute("message", "Недопустимая для действия роль");
+            request.setAttribute("message", "Недопустимая для действия роль!");
             return new Forward("/index.jsp", false);
         }
         return new Forward("/index.jsp", false);

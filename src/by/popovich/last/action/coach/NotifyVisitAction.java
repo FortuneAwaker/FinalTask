@@ -9,6 +9,8 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.GroupService;
 import by.popovich.last.service.SubscriptionService;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,11 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
 public class NotifyVisitAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(NotifyVisitAction.class);
+
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession session = request.getSession();
@@ -49,8 +56,10 @@ public class NotifyVisitAction extends AuthorizedUserAction {
                     if (sub.getLeftVisits() > 0) {
                         sub.setLeftVisits(sub.getLeftVisits() - 1);
                         service.save(sub);
+                        LOGGER.info("Посещение отмечено.");
                         request.setAttribute("message", "Посещение отмечено.");
                     } else {
+                        LOGGER.info("Посещений не осталось!");
                         request.setAttribute("message", "Посещений не осталось!");
                     }
                 }

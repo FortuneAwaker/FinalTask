@@ -2,12 +2,12 @@ package by.popovich.last.action.authorizedUser;
 
 import by.popovich.last.action.AuthorizedUserAction;
 import by.popovich.last.action.Forward;
-import by.popovich.last.action.LoginAction;
 import by.popovich.last.entity.Person;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.UserInfoService;
 import by.popovich.last.validator.Validator;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -21,7 +21,10 @@ import java.io.InputStream;
 import java.util.Locale;
 
 public class SaveProfileAction extends AuthorizedUserAction {
-    private static Logger logger = Logger.getLogger(LoginAction.class);
+    /**
+     * Logger.
+     */
+    private static Logger LOGGER = LogManager.getLogger(SaveProfileAction.class);
 
     @Override
     public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
@@ -58,18 +61,21 @@ public class SaveProfileAction extends AuthorizedUserAction {
                             patro, 4, 15)
                     && validator.validateNumber(
                             phoneString, 7, 12))) {
-                request.setAttribute("message", "Некорректные данные");
+                LOGGER.info("Некорректные данные!");
+                request.setAttribute("message", "Некорректные данные!");
                 return null;
             }
             try {
                 Part filePart = request.getPart("avatar");
                 if (filePart != null) {
-                    logger.info(filePart.getName() + filePart.getSize()
+                    LOGGER.info(filePart.getName() + filePart.getSize()
                             + filePart.getContentType());
                     is = filePart.getInputStream();
                 }
             } catch (IOException | ServletException e) {
-                request.setAttribute("message", "Ошибка обработки картинки");
+                LOGGER.info("Ошибка обработки картинки!");
+                request.setAttribute(
+                        "message", "Ошибка обработки картинки!");
             }
             Long phone = null;
             if (phoneString != null && !phoneString.isEmpty()) {
@@ -89,18 +95,23 @@ public class SaveProfileAction extends AuthorizedUserAction {
                     person.setPatronymic(patro);
                     infoService.updateInfo(person, is);
                     session.setAttribute("userInfo", person);
-                    request.setAttribute("message", "Изменения сохранены!");
+                    LOGGER.info("Изменения сохранены!");
+                    request.setAttribute(
+                            "message", "Изменения сохранены!");
                     return new Forward("/index.html");
                 } catch (PersistentException e) {
-                    logger.info("Error of adding user info");
+                    LOGGER.info("Ошибка добавления информации о пользователе! "
+                            + "Возможно, выбран неверный "
+                            + "формат картинки.");
                     request.setAttribute("message",
-                            "Ошибка добавления информации"
-                                    + " о пользователе");
+                            "Ошибка добавления информации о пользователе! "
+                                    + "Возможно, выбран неверный "
+                                    + "формат картинки.");
                 }
             } else {
                 request.setAttribute("message",
-                        "Не полностью заполнены необходимые поля");
-                logger.info("Fields are not filled!");
+                        "Не полностью заполнены необходимые поля!");
+                LOGGER.info("Не полностью заполнены необходимые поля!");
             }
         }
         return null;
