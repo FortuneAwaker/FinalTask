@@ -5,18 +5,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="properties.club"/>
 
-<u:html title="Редактировать расценку" validator="validator-of-registration.js"
+
+<fmt:message key="name_of_exercise" var="name"/>
+<fmt:message key="string_pattern_title" var="string_pattern"/>
+<fmt:message key="edit_word" var="edit"/>
+<fmt:message key="editing_exercise" var="editing"/>
+
+
+<u:html title="${editing}" validator="validator-of-registration.js"
         message="${message}">
-    <h3 align="center" style="margin-bottom: 15px;
-            color: purple; font-family: 'Montserrat', cursive">Редактирование упражнения
-    </h3>
-    <form action="/admin/editExercise.html?exerciseId=${idOfExerciseToEdit}" method="post"
-          onsubmit="return validateRegistrationInfo(this)">
-        <label for="nameOfExercise">Name of exercise</label>
+    <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">${editing}
+    </h2>
+    <form action="/admin/editExercise.html?exerciseId=${idOfExerciseToEdit}"
+          method="post">
+        <label for="nameOfExercise">${name}</label>
         <input type="text" id="nameOfExercise" name="nameOfExercise"
                required
-               title="Only Latin letters, minimum 3 maximum 25"
-               pattern="[A-Z][a-z]+" maxlength="25" minlength="3">
-        <BUTTON type="submit">Редактировать упражнение!</BUTTON>
+               title="${string_pattern}"
+               pattern="[A-Z][a-z]+" maxlength="15" minlength="3">
+        <BUTTON type="submit">${edit}!</BUTTON>
     </form>
 </u:html>

@@ -5,10 +5,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="properties.club"/>
 
-<u:html title="Группы">
-    <h2 align="center">Группы по запросу:</h2>
+<fmt:message key="groups_word" var="groups"/>
+<fmt:message key="list_is_empty" var="list_is_empty"/>
+
+
+<u:html title="${groups}">
+    <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">${groups}
+    </h2>
     <c:choose>
-        <c:when test="${groupsByExercise != null}">
+        <c:when test="${not empty groupsByExercise}">
             <c:forEach var="group" items="${groupsByExercise}">
                 <div class="post_ex">
                     <h3 align="center" style="margin-bottom: 15px;
@@ -32,7 +38,7 @@
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <h3>Список пуст!</h3>
+            <h3>${list_is_empty}!</h3>
         </c:otherwise>
     </c:choose>
 </u:html>

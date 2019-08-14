@@ -7,8 +7,9 @@
 
 <fmt:message key="requested_page" var="requested_page"/>
 <fmt:message key="not_found" var="not_found"/>
+<fmt:message key="unexpected_error" var="error_word"/>
 
-<u:html title="Ошибка">
+<u:html title="${error_word}">
     <c:choose>
         <c:when test="${not empty error}">
             <H2>${error}</H2>

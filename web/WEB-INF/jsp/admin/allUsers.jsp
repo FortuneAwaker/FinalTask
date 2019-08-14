@@ -14,11 +14,14 @@
 <fmt:message key="phone_word" var="phone"/>
 <fmt:message key="action" var="actionWord"/>
 <fmt:message key="role_word" var="role"/>
+<fmt:message key="users_word" var="users_word"/>
+<fmt:message key="change_role" var="change_role"/>
+<fmt:message key="delete_word" var="delete"/>
 
-<u:html title="Пользователи">
-    <h1 align="center" style="margin-bottom: 30px;
+<u:html title="${users_word}">
+    <h2 align="center" style="margin-bottom: 30px;
             color: purple; font-family: 'Montserrat', cursive">${users}
-    </h1>
+    </h2>
     <table border="1" width="100%" cellpadding="15" class="table">
         <thead>
         <th>${login}</th>
@@ -52,10 +55,9 @@
                             value="+${ user.phone }"/></td>
                 <td class="table-cell">
                     <a style="font-size: 12px"
-                            href="/admin/changeRole.html?userId=${user.identity}">Изменить
-                        роль</a><br><br>
+                            href="/admin/changeRole.html?userId=${user.identity}">${change_role}</a><br><br>
                     <a style="font-size: 12px"
-                            href="/admin/deleteUser.html?userId=${user.identity}">Удалить</a>
+                            href="/admin/deleteUser.html?userId=${user.identity}">${delete}</a>
                 </td>
             </tr>
         </c:forEach>

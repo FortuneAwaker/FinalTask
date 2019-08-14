@@ -13,13 +13,16 @@
 <fmt:message key="action" var="actionWord"/>
 <fmt:message key="subscribe_login" var="to_see_login"/>
 <fmt:message key="subscribe_word" var="subscribe"/>
+<fmt:message key="you_ve_chosen_group" var="you_ve_chosen"/>
+<fmt:message key="choose_price" var="choose_price_"/>
+<fmt:message key="choose_group" var="choose_group_"/>
 
-<u:html title="Подписка">
+<u:html title="${subscribe}">
     <c:choose>
         <c:when test="${sessionScope.pricesOfGroup != null}">
-            <h1 align="center">Вы выбрали группу с типом
-                упражнения: ${wantedExercise.typeOfExercises}. Выберите цену,
-                чтобы оформить подписку</h1>
+            <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">${you_ve_chosen}:
+                    ${wantedExercise.typeOfExercises}. ${choose_price_}</h2>
             <table border="1" width="100%" cellpadding="15" class="table">
                 <thead>
                 <th>${exercisesKey}</th>
@@ -56,7 +59,8 @@
             </table>
         </c:when>
         <c:when test="${sessionScope.groupsOfPrices != null}">
-            <h1 align="center">Выберите группу для указанной цены.</h1>
+            <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">${choose_group_}.</h2>
             <c:forEach var="group" items="${groupsOfPrices}">
                 <div class="post_ex">
                     <h3 align="center" style="margin-bottom: 15px;

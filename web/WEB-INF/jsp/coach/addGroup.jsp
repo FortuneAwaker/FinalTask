@@ -5,26 +5,30 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="properties.club"/>
 
-<u:html title="Добавить группу" validator="validator-of-registration.js"
+<fmt:message key="add_group" var="add_group"/>
+<fmt:message key="adding_group" var="adding_group"/>
+<fmt:message key="number_pattern_title" var="number_pattern"/>
+<fmt:message key="number_of_clients" var="number_of_clients"/>
+
+
+<u:html title="${adding_group}"
         message="${message}">
-    <h3 align="center" style="margin-bottom: 15px;
-            color: purple; font-family: 'Montserrat', cursive">Создание новой
-        группы
-    </h3>
-    <form action="/coach/addGroup.html" method="post"
-          onsubmit="return validateRegistrationInfo(this)">
+    <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">${adding_group}
+    </h2>
+    <form action="/coach/addGroup.html" method="post">
         <c:forEach var="exercise" items="${exercisesToChoose}">
             <label for="chosenExercise" style="background: yellow;
 text-align: center">${exercise.typeOfExercises}</label>
             <input type="radio" name="chosenExercise" align="left"
                    id="chosenExercise" value="${exercise.identity}" required>
         </c:forEach>
-        <label for="numberOfClients">Number of clients</label>
+        <label for="numberOfClients">${number_of_clients}</label>
         <input type="text" id="numberOfClients" name="numberOfClients"
                required
                pattern="[0-9]+"
-               title="Only numbers, maximum 3"
+               title="${number_pattern} 3"
                maxlength="3" minlength="1">
-        <BUTTON type="submit">Добавить группу!</BUTTON>
+        <BUTTON type="submit">${add_group}!</BUTTON>
     </form>
 </u:html>

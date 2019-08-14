@@ -4,7 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <fmt:setBundle basename="properties.club"/>
 
-<tag:html title="Главная" message="${message}">
+<fmt:message key="main_page" var="main"/>
+
+<tag:html title="${main}" message="${message}">
     <body>
     <h1 style="text-align: center; color: purple"><fmt:message key="hello_on_main_page"/></h1>
     <div class="post">

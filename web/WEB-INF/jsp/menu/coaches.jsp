@@ -5,7 +5,11 @@
         <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
         <fmt:setBundle basename="properties.club"/>
 
-        <tag:html title="Тренеры">
+        <fmt:message key="coaches_word" var="coaches"/>
+
+        <tag:html title="${coaches}">
+            <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">${coaches}</h2>
             <c:forEach items="${listOfCoaches}" var="coach">
                 <div class="post">
                 <div class="post_img">

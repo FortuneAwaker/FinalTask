@@ -5,19 +5,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="properties.club"/>
 
-<u:html title="Редактировать группу" validator="validator-of-registration.js"
+<fmt:message key="edit_group" var="edit"/>
+<fmt:message key="number_of_clients" var="number_of_clients"/>
+<fmt:message key="number_pattern_title" var="number_pattern"/>
+<fmt:message key="editing_group" var="editing"/>
+
+
+<u:html title="${editing}"
         message="${message}">
-    <h3 align="center" style="margin-bottom: 15px;
-            color: purple; font-family: 'Montserrat', cursive">Редактирование группы
-    </h3>
-    <form action="/coach/editGroup.html?groupId=${idOfGroupToEdit}" method="post"
-          onsubmit="return validateRegistrationInfo(this)">
-        <label for="numberOfClients">Number of clients</label>
+    <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">${editing}
+    </h2>
+    <form action="/coach/editGroup.html?groupId=${idOfGroupToEdit}" method="post">
+        <label for="numberOfClients">${number_of_clients}</label>
         <input type="number" id="numberOfClients" name="numberOfClients"
                required
                pattern="[0-9]+"
-               title="Only numbers, maximum 3"
+               title="${number_pattern} 3"
                maxlength="3" minlength="1">
-        <BUTTON type="submit">Редактировать группу!</BUTTON>
+        <BUTTON type="submit">${edit}!</BUTTON>
     </form>
 </u:html>

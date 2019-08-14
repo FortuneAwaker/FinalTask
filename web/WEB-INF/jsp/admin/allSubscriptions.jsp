@@ -5,10 +5,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="properties.club"/>
 
-<u:html title="Подписки">
-    <h2 align="center">Подписки:</h2>
+<fmt:message key="subscription_word" var="subs"/>
+<fmt:message key="list_is_empty" var="list_is_empty"/>
+<fmt:message key="info_about_user" var="info"/>
+
+
+<u:html title="${subs}">
+    <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">${subs}:</h2>
     <c:choose>
-        <c:when test="${allSubs != null}">
+        <c:when test="${not empty allSubs}">
             <c:forEach var="subscription" items="${allSubs}">
                 <div class="post_ex">
                     <h3 align="center" style="margin-bottom: 15px;
@@ -39,14 +45,14 @@
                     </div>
                     <div class="post_reference">
                             <a href="/admin/allUsers.html?clientId=${subscription.clientId}">
-                                Информация о пользователе.
+                                ${info}.
                             </a>
                     </div>
                 </div>
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <h3>Список подписок пуст!</h3>
+            <h3>${list_is_empty}!</h3>
         </c:otherwise>
     </c:choose>
 

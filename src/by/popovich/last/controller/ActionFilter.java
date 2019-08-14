@@ -67,9 +67,9 @@ public class ActionFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        request.setCharacterEncoding("UTF-8");
         if(request instanceof HttpServletRequest) {
             HttpServletRequest httpRequest = (HttpServletRequest)request;
-            String contextPath = httpRequest.getContextPath();
             String uri = httpRequest.getRequestURI();
             logger.debug(String.format("Starting of processing of request for URI \"%s\"", uri));
             int endAction = uri.lastIndexOf('.');

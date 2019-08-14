@@ -7,14 +7,16 @@
 
 <fmt:message key="subscribe_login" var="to_see_login"/>
 <fmt:message key="subscribe_word" var="subscribe"/>
+<fmt:message key="all_groups_word" var="all_groups"/>
+<fmt:message key="list_is_empty" var="list_is_empty"/>
 
-<u:html title="Группы">
+<u:html title="${all_groups}">
     <h2 align="center" style="margin-bottom: 15px;
-            color: purple; font-family: 'Montserrat', cursive">Мои группы
+            color: purple; font-family: 'Montserrat', cursive">${all_groups}
     </h2>
     <c:choose>
-        <c:when test="${allGroups == null}">
-            <h3 align="center">Список пуст!</h3>
+        <c:when test="${!(not empty allGroups)}">
+            <h3 align="center">${list_is_empty}!</h3>
         </c:when>
         <c:otherwise>
             <c:forEach var="group" items="${allGroups}">

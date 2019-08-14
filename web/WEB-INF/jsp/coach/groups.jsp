@@ -7,14 +7,21 @@
 
 <fmt:message key="subscribe_login" var="to_see_login"/>
 <fmt:message key="subscribe_word" var="subscribe"/>
+<fmt:message key="groups_word" var="groups_word"/>
+<fmt:message key="list_is_empty" var="list_is_empty"/>
+<fmt:message key="add_group" var="add_group"/>
+<fmt:message key="go_to_clients" var="go_to_clients"/>
+<fmt:message key="edit_group" var="edit"/>
+<fmt:message key="delete_group" var="delete"/>
 
-<u:html title="Группы">
+
+<u:html title="${groups_word}">
     <h2 align="center" style="margin-bottom: 15px;
-            color: purple; font-family: 'Montserrat', cursive">Мои группы
+            color: purple; font-family: 'Montserrat', cursive">${groups_word}
     </h2>
     <c:choose>
-        <c:when test="${listOfGroups == null}">
-            <h3 align="center">Список пуст!</h3>
+        <c:when test="${!(not empty listOfGroups)}">
+            <h3 align="center">${list_is_empty}!</h3>
         </c:when>
         <c:otherwise>
             <c:choose>
@@ -49,8 +56,7 @@
                 </c:when>
                 <c:otherwise>
                     <h2 align="center"><a
-                            href="/coach/addGroup.html?todo=false">Добавить
-                        группу</a></h2>
+                            href="/coach/addGroup.html?todo=false">${add_group}</a></h2>
                     <c:forEach var="group" items="${listOfGroups}">
                         <div class="post_ex">
                             <h3 align="center" style="margin-bottom: 15px;
@@ -63,17 +69,17 @@
                             </div>
                             <div class="post_reference">
                                 <a href="/coach/membersOfGroup.html?groupId=${group.identity}">
-                                    Перейти к участникам группы
+                                    ${go_to_clients}
                                 </a>
                             </div>
                             <div class="post_reference">
                                 <a href="/coach/editGroup.html?todo=false&groupId=${group.identity}">
-                                    Редактировать группу
+                                    ${edit}
                                 </a>
                             </div>
                             <div class="post_reference">
                                 <a href="/coach/deleteGroup.html?groupId=${group.identity}">
-                                    Удалить группу
+                                    ${delete}
                                 </a>
                             </div>
                         </div>

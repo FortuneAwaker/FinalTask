@@ -4,8 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="properties.club"/>
 
-<u:html title="Вход в систему" message="${message}">
-    <H2><fmt:message key="enter_word"/></H2>
+<fmt:message key="enter_word" var="enter"/>
+
+<u:html title="${enter}" message="${message}">
+    <H2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive"><fmt:message key="enter_word"/></H2>
     <c:url value="/login.html" var="loginUrl"/>
     <FORM action="${loginUrl}" method="post">
         <LABEL for="login"><fmt:message key="username_word"/>:</LABEL>

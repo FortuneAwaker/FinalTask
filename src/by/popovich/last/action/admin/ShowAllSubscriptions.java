@@ -2,10 +2,13 @@ package by.popovich.last.action.admin;
 
 import by.popovich.last.action.AuthorizedUserAction;
 import by.popovich.last.action.Forward;
+import by.popovich.last.entity.Exercise;
 import by.popovich.last.entity.Role;
 import by.popovich.last.entity.Subscription;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
+import by.popovich.last.service.ExerciseService;
+import by.popovich.last.service.GroupService;
 import by.popovich.last.service.SubscriptionService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +34,16 @@ public class ShowAllSubscriptions extends AuthorizedUserAction {
                 Locale locale = new Locale(lang);
                 Config.set(request, Config.FMT_LOCALE, locale);
                 SubscriptionService service = serviceFactory.getService(SubscriptionService.class);
+                ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);
+                GroupService groupService = serviceFactory.getService(GroupService.class);
                 List<Subscription> subs = service.readAll();
+                for (Subscription sub: subs
+                     ) {
+                    Exercise exercise = exerciseService.readById(
+                            groupService.readById(sub.getIdOfGroup()).getTypeOfExercisesId()
+                    );
+                    sub.setTypeOfExercise(exercise.getTypeOfExercises());
+                }
                 if (subs != null) {
                     session.setAttribute("allSubs", subs);
                     return new Forward("/admin/allSubscriptions.jsp", false);

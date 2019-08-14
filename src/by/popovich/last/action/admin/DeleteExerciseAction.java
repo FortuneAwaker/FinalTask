@@ -37,8 +37,12 @@ public class DeleteExerciseAction extends AuthorizedUserAction {
             Integer exerciseIdNumber = Integer.parseInt(exerciseIdFromRequest);
             if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
                 ExerciseService service = serviceFactory.getService(ExerciseService.class);
-                service.delete(exerciseIdNumber);
-                request.setAttribute("message", "Упражнение удалено!");
+                try {
+                    service.delete(exerciseIdNumber);
+                    request.setAttribute("message", "Упражнение удалено!");
+                } catch (PersistentException e) {
+                    request.setAttribute("message", "Невозможно удалить, существуют связи!");
+                }
             } else {
                 request.setAttribute("message", "Недопустимая для действия роль");
                 return new Forward("/index.jsp", false);

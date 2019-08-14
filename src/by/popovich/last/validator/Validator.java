@@ -18,7 +18,7 @@ public class Validator {
         if (data.length() < minLength || data.length() > maxLength) {
             return false;
         }
-        return Pattern.matches("[A-Za-z]+", data);
+        return Pattern.matches("[A-Za-z\\s]+", data);
     }
 
     public boolean validateNumber(final String data,

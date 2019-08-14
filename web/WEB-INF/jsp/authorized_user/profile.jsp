@@ -5,8 +5,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="properties.club"/>
 
-<u:html title="Подписки">
-    <h2 align="center">Профиль</h2>
+<fmt:message key="change_password" var="change_pass"/>
+<fmt:message key="profile_word" var="profile"/>
+<fmt:message key="edit_profile" var="edit_profile"/>
+<fmt:message key="profile_not_found" var="not_found"/>
+<fmt:message key="role_word" var="role"/>
+
+<u:html title="${profile}">
+    <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">${profile}</h2>
     <c:choose>
         <c:when test="${sessionScope.authorizedUser != null}">
             <div class="post_ex">
@@ -27,22 +34,22 @@
                     <fmt:message key="phone_word"/>: ${userInfo.phone}
                 </div>
                 <div class="post_reference">
-                    Role: ${authorizedUser.role.name}
+                    ${role}: ${authorizedUser.role.name}
                 </div>
                 <div class="post_reference">
                     <a href="/authorized_user/saveProfile.html?todo=false">
-                        Редактировать профиль.
+                        ${edit_profile}.
                     </a>
                 </div>
                 <div class="post_reference">
                     <a href="/authorized_user/changePassword.html?todo=false">
-                        Изменить пароль.
+                        ${change_pass}.
                     </a>
                 </div>
             </div>
         </c:when>
         <c:otherwise>
-            <h3 align="center">Профиль не найден!</h3>
+            <h3 align="center">${not_found}!</h3>
         </c:otherwise>
     </c:choose>
 </u:html>

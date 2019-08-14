@@ -5,11 +5,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="properties.club"/>
 
-<u:html title="Подписки">
-    <h2 align="center">Подписки</h2>
+<fmt:message key="list_is_empty" var="list_is_empty"/>
+<fmt:message key="subscription_word" var="subscribtion_word"/>
+<fmt:message key="mark_visit" var="mark_visit"/>
+<fmt:message key="delete_subscription" var="delete_subscription"/>
+
+
+<u:html title="${subscribtion_word}">
+    <h2 align="center" style="margin-bottom: 15px;
+            color: purple; font-family: 'Montserrat', cursive">${subscribtion_word}</h2>
     <c:choose>
         <c:when test="${subscriptionsList == null}">
-            <h3 align="center">Список пуст!</h3>
+            <h3 align="center">${list_is_empty}!</h3>
         </c:when>
         <c:otherwise>
             <c:forEach var="sub" items="${subscriptionsList}">
@@ -39,12 +46,12 @@
                     </div>
                     <div class="post_reference">
                         <a href="/coach/notifyVisit.html?subId=${sub.identity}">
-                            Отметить посещение.
+                            ${mark_visit}.
                         </a>
                     </div>
                     <div class="post_reference">
                         <a href="/coach/deleteSubscribe.html?subId=${sub.identity}">
-                            Удалить подписку.
+                            ${delete_subscription}.
                         </a>
                     </div>
                 </div>
