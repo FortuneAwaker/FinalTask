@@ -10,6 +10,7 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
+import by.popovich.last.validator.Validator;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -56,6 +57,12 @@ public class AddGroupAction extends AuthorizedUserAction {
             String numberOfClientsString = request.getParameter("numberOfClients");
             if (numberOfClientsString != null
                     && exerciseId != null) {
+                Validator validator = new Validator();
+                if (!(validator.validateNumber(
+                        numberOfClientsString, 1, 3))) {
+                    request.setAttribute("message", "Некорректные данные");
+                    return null;
+                }
                 ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);
                 GroupService service = serviceFactory.getService(GroupService.class);
                 Exercise exercise = exerciseService.readById(Integer.parseInt(exerciseId));

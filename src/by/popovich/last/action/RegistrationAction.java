@@ -68,17 +68,17 @@ public class RegistrationAction extends Action {
                     && patro != null && phone != null) {
                 Validator validator = new Validator();
                 if (!(validator.validateStringData(name,
-                        4, 25)
+                        4, 15)
                         && validator.validateStringData(
-                        surname, 4, 25)
+                        surname, 4, 15)
                         && validator.validateStringData(
-                        patro, 4, 25)
+                        patro, 4, 15)
                         && validator.validateNumber(
                         phoneString, 7, 12)
                         && validator.validateLoginOrPassword(
-                                password, 6, 25)
+                                password, 6, 15)
                         && validator.validateLoginOrPassword(
-                                login, 6, 25))) {
+                                login, 6, 15))) {
                     request.setAttribute("message", "Некорректные данные");
                     return null;
                 }

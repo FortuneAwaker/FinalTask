@@ -50,7 +50,9 @@ public class DeleteUserAction extends AuthorizedUserAction {
                 List<Group> groups = gs.readGroupsByCoach(userId);
                 for (Group g: groups
                 ) {
-                    gs.delete(g.getIdentity());
+                    if (subService.readByGroupId(g.getIdentity()) == null) {
+                        gs.delete(g.getIdentity());
+                    }
                 }
                 List<Subscription> subs = subService.readSubscriptionsByClientId(userId);
                 for (Subscription s: subs

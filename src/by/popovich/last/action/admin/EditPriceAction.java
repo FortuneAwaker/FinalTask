@@ -7,6 +7,7 @@ import by.popovich.last.entity.Role;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.PriceService;
+import by.popovich.last.validator.Validator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,6 +50,16 @@ public class EditPriceAction extends AuthorizedUserAction {
                     if (numberOfVisitsString != null
                             && numberOfDaysString != null
                             && amountOfMoneyString != null) {
+                        Validator validator = new Validator();
+                        if (!(validator.validateNumber(
+                                numberOfDaysString, 1, 3)
+                                && validator.validateNumber(
+                                amountOfMoneyString, 1, 6)
+                                && validator.validateNumber(
+                                numberOfVisitsString, 1, 3))) {
+                            request.setAttribute("message", "Некорректные данные");
+                            return null;
+                        }
                         Integer numberOfVisits = Integer.parseInt(numberOfVisitsString);
                         Integer numberOfDays = Integer.parseInt(numberOfDaysString);
                         Integer amountOfMoney = Integer.parseInt(amountOfMoneyString);

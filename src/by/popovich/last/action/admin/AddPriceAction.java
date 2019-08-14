@@ -7,6 +7,7 @@ import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
 import by.popovich.last.service.PriceService;
+import by.popovich.last.validator.Validator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,7 +51,17 @@ public class AddPriceAction extends AuthorizedUserAction {
             String numberOfDaysString = request.getParameter("numberOfDays");
             String numberOfMoneyString = request.getParameter("money");
             if (numberOfDaysString != null && numberOfMoneyString != null
-                    && exerciseId != null && numberOfMoneyString != null) {
+                    && exerciseId != null && numberOfVisitsString != null) {
+                Validator validator = new Validator();
+                if (!(validator.validateNumber(
+                        numberOfDaysString, 1, 3)
+                && validator.validateNumber(
+                        numberOfMoneyString, 1, 6)
+                && validator.validateNumber(
+                        numberOfVisitsString, 1, 3))) {
+                    request.setAttribute("message", "Некорректные данные");
+                    return null;
+                }
                 ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);
                 PriceService service = serviceFactory.getService(PriceService.class);
                 Exercise exercise = exerciseService.readById(Integer.parseInt(exerciseId));

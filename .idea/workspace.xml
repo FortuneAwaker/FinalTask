@@ -7,8 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1d330e0-7fb5-4f7a-8b8d-ea9d454c395d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/controller/ActionFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/controller/ActionFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/controller/ActionFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/controller/ActionFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/RegistrationAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/RegistrationAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/AddExerciseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/admin/AddExerciseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/AddPriceAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/admin/AddPriceAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/DeleteUserAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/admin/DeleteUserAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/EditExerciseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/admin/EditExerciseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/EditPriceAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/admin/EditPriceAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ChangePasswordAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ChangePasswordAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/SaveProfileAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/SaveProfileAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/coach/AddGroupAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/coach/AddGroupAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/coach/EditGroupAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/action/coach/EditGroupAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/validator/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/popovich/last/validator/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/changePassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/changePassword.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/SaveProfileAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/SaveProfileAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/addExercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/addExercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/editExercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/editExercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/editPrice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/editPrice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/changePassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/changePassword.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,123 +88,7 @@
     </checked>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/allUsers.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="54" column="80" lean-forward="true" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="80" />
-              <folding>
-                <element signature="e#1304#1326#0#HTML" expanded="true" />
-                <element signature="e#1443#1465#0#HTML" expanded="true" />
-                <element signature="e#1581#1603#0#HTML" expanded="true" />
-                <element signature="e#1719#1741#0#HTML" expanded="true" />
-                <element signature="e#1859#1881#0#HTML" expanded="true" />
-                <element signature="e#2002#2024#0#HTML" expanded="true" />
-                <element signature="e#2309#2332#0#HTML" expanded="true" />
-                <element signature="e#2484#2507#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/DeleteUserAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="53" column="17" lean-forward="true" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/dao/mysql/UserDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="117" selection-start-line="117" selection-end-line="117" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/DeletePriceAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/ChangeRoleAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="47" column="35" lean-forward="true" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/controller/ActionFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="19" column="65" selection-start-line="19" selection-end-line="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/allGroups.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/coach/groups.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/ShowAllUsers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="53" column="46" lean-forward="true" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/ShowAllSubscriptions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -212,24 +111,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/editProfile.jsp" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/controller/DispatcherServlet.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/controller/ImageServlet.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/profile.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/menu/coaches.jsp" />
         <option value="$PROJECT_DIR$/web/js/validator-of-registration.js" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/editExercise.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/addPrice.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/editPrice.jsp" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/LogoutAction.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/validator/Validator.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/SaveProfileAction.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/action/RegistrationAction.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/changePassword.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/coach/addGroup.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/coach/editGroup.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/addExercise.jsp" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ShowSubscribtionsAction.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/SubscribeAction.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/coach/DeleteGroupAction.java" />
@@ -240,14 +126,12 @@
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/admin/DeleteExerciseAction.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/admin/DeletePriceAction.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ShowProfileAction.java" />
-        <option value="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ChangePasswordAction.java" />
         <option value="$PROJECT_DIR$/resources/properties/club.properties" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/LoginAction.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/ChangeLanguageAction.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ShowGroupsByExercise.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/admin/ShowAllSubscriptions.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/coach/groups.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/coach/membersOfGroup.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/groupsByExercise.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/allSubscriptions.jsp" />
         <option value="$PROJECT_DIR$/resources/properties/club_be.properties" />
@@ -263,6 +147,21 @@
         <option value="$PROJECT_DIR$/src/by/popovich/last/controller/ActionFilter.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/admin/ChangeRoleAction.java" />
         <option value="$PROJECT_DIR$/src/by/popovich/last/action/admin/DeleteUserAction.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/coach/AddGroupAction.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/coach/EditGroupAction.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/RegistrationAction.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/SaveProfileAction.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ChangePasswordAction.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/changePassword.jsp" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/admin/AddPriceAction.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/admin/EditPriceAction.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/admin/EditExerciseAction.java" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/action/admin/AddExerciseAction.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/addExercise.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/editExercise.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/editPrice.jsp" />
+        <option value="$PROJECT_DIR$/src/by/popovich/last/validator/Validator.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/coach/membersOfGroup.jsp" />
       </list>
     </option>
   </component>
@@ -365,14 +264,7 @@
               <item name="Task05Final_Database" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="last" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Task05Final_Database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Task05Final_Database" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="last" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="validator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Task05Final_Database" type="b2602c69:ProjectViewProjectNode" />
@@ -449,7 +341,7 @@
     <property name="DatabaseDriversLRU" value="mysql&#10;mariadb" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565735016399" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565785793043" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/javax.servlet.jsp.jstl-1.2.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -647,12 +539,12 @@
       <workItem from="1565038358800" duration="44500000" />
       <workItem from="1565363927620" duration="6949000" />
       <workItem from="1565622534202" duration="10126000" />
-      <workItem from="1565708022748" duration="21110000" />
+      <workItem from="1565708022748" duration="23105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="348819000" />
+    <option name="totallyTimeSpent" value="350814000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -713,87 +605,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/coach/DeleteGroupAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/coach/DeleteSubscriptionAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="23" column="60" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/coach/EditGroupAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/coach/NotifyVisitAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="23" column="60" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/coach/ShowGroupsOfCoach.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="23" column="60" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/coach/ShowMembersOfGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/menu/ShowExercisesAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/menu/ShowTicketsAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/AddExerciseAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/AddPriceAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/DeleteExerciseAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/EditExerciseAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -808,40 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/RegistrationAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="44" column="68" selection-start-line="44" selection-start-column="68" selection-end-line="44" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/EditPriceAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/SaveProfileAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1061">
-          <caret line="82" column="20" lean-forward="true" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ChangePasswordAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="76" column="8" lean-forward="true" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -896,13 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="33" column="21" lean-forward="true" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/coach/membersOfGroup.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="52" column="15" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -988,20 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="50" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/addExercise.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/ShowAllGroups.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -1073,9 +833,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/DeleteUserAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/allUsers.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
+        <state relative-caret-position="440">
           <caret line="54" column="80" lean-forward="true" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="80" />
           <folding>
             <element signature="e#1304#1326#0#HTML" expanded="true" />
@@ -1090,6 +860,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/RegistrationAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="80" column="44" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/coach/EditGroupAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="56" column="25" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/SaveProfileAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/popovich/last/dao/mysql/UserDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1097,13 +898,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/DeleteUserAction.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/changePassword.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="53" column="17" lean-forward="true" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+        <state relative-caret-position="357">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ChangePasswordAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/coach/AddGroupAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/AddPriceAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/addExercise.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="66" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/editExercise.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/addPrice.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/editPrice.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/EditExerciseAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/5_fill_tables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/coach/membersOfGroup.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/validator/Validator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/AddExerciseAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="47" column="25" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/popovich/last/action/admin/EditPriceAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="56" column="51" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="51" />
         </state>
       </provider>
     </entry>

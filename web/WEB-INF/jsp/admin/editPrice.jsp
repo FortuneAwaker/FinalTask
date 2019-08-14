@@ -27,8 +27,8 @@
         <label for="money">Amount of money</label>
         <input type="text" id="money" name="money"
                required pattern="[0-9]+"
-               title="Only numbers, maximum 3"
-               maxlength="3" minlength="1">
+               title="Only numbers, maximum 6"
+               maxlength="6" minlength="1">
         <BUTTON type="submit">Редактировать цену!</BUTTON>
     </form>
 </u:html>

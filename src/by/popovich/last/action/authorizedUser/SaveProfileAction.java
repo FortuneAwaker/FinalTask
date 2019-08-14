@@ -51,11 +51,11 @@ public class SaveProfileAction extends AuthorizedUserAction {
             InputStream is = null;
             Validator validator = new Validator();
             if (!(validator.validateStringData(name,
-                    4, 25)
+                    4, 15)
                     && validator.validateStringData(
-                            surname, 4, 25)
+                            surname, 4, 15)
                     && validator.validateStringData(
-                            patro, 4, 25)
+                            patro, 4, 15)
                     && validator.validateNumber(
                             phoneString, 7, 12))) {
                 request.setAttribute("message", "Некорректные данные");

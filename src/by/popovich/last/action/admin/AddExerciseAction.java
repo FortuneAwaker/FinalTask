@@ -7,6 +7,7 @@ import by.popovich.last.entity.Role;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
+import by.popovich.last.validator.Validator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,6 +43,12 @@ public class AddExerciseAction extends AuthorizedUserAction {
         if (!todo.equals("false")) {
             String nameOfExerciseString = request.getParameter("nameOfExercise");
             if (nameOfExerciseString != null) {
+                Validator validator = new Validator();
+                if (!(validator.validateStringData(nameOfExerciseString,
+                        3, 15))) {
+                    request.setAttribute("message", "Некорректные данные");
+                    return null;
+                }
                 ExerciseService service = serviceFactory.getService(ExerciseService.class);
                 Exercise exerciseToAdd = new Exercise();
                 exerciseToAdd.setTypeOfExercises(nameOfExerciseString);

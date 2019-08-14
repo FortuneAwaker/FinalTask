@@ -49,7 +49,7 @@ public class ChangePasswordAction extends AuthorizedUserAction {
             if (password != null && repeatPassword != null) {
                 Validator validator = new Validator();
                 if (!validator.validateLoginOrPassword(password,
-                        6, 25)) {
+                        6, 15)) {
                     request.setAttribute("message", "Некорректные данные");
                     return null;
                 }

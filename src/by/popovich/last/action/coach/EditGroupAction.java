@@ -9,6 +9,7 @@ import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
+import by.popovich.last.validator.Validator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,6 +49,12 @@ public class EditGroupAction extends AuthorizedUserAction {
                 if (currentUser.getRole().equals(Role.COACH)) {
                     String numberOfClientsString = request.getParameter("numberOfClients");
                     if (numberOfClientsString != null) {
+                        Validator validator = new Validator();
+                        if (!(validator.validateNumber(
+                                numberOfClientsString, 1, 3))) {
+                            request.setAttribute("message", "Некорректные данные");
+                            return null;
+                        }
                         Integer numberOfClients = Integer.parseInt(numberOfClientsString);
                         GroupService service = serviceFactory.getService(GroupService.class);
                         Group groupToEdit = service.readById(groupIdNumber);

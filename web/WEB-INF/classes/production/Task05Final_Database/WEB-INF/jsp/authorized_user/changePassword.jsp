@@ -13,13 +13,13 @@
         <label for="password"><fmt:message key="password_word"/>:</label>
         <input type="password" id="password" name="password" required
                pattern="[A-Za-z0-9]+"
-               title="Only Latin letters and numbers, minimum 6 maximum 25"
-               maxlength="25" minlength="6">
+               title="Only Latin letters and numbers, minimum 6 maximum 15"
+               maxlength="15" minlength="6">
         <label for="repeat"><fmt:message key="repeat_password_word"/>:</label>
         <input type="password" id="repeat" name="repeat" required
                pattern="[A-Za-z0-9]+"
-               title="Only Latin letters and numbers, minimum 6 maximum 25"
-               maxlength="25" minlength="6">
+               title="Only Latin letters and numbers, minimum 6 maximum 15"
+               maxlength="15" minlength="6">
         <BUTTON type="submit"><fmt:message key="to_signup"/>!</BUTTON>
     </form>
 </u:html>
