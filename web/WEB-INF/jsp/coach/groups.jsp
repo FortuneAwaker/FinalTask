@@ -20,12 +20,12 @@
             color: purple; font-family: 'Montserrat', cursive">${groups_word}
     </h2>
     <c:choose>
-        <c:when test="${!(not empty listOfGroups)}">
-            <h3 align="center">${list_is_empty}!</h3>
-        </c:when>
-        <c:otherwise>
+        <c:when test="${coachIdFromRequest != null}">
             <c:choose>
-                <c:when test="${coachIdFromRequest != null}">
+                <c:when test="${!(not empty listOfGroups)}">
+                    <h3 align="center">${list_is_empty}!</h3>
+                </c:when>
+                <c:otherwise>
                     <c:forEach var="group" items="${listOfGroups}">
                         <div class="post_ex">
                             <h3 align="center" style="margin-bottom: 15px;
@@ -53,10 +53,17 @@
                             </div>
                         </div>
                     </c:forEach>
+                </c:otherwise>
+            </c:choose>
+        </c:when>
+        <c:otherwise>
+            <h2 align="center"><a
+                    href="/coach/addGroup.html?todo=false">${add_group}</a></h2>
+            <c:choose>
+                <c:when test="${!(not empty listOfGroups)}">
+                    <h3 align="center">${list_is_empty}!</h3>
                 </c:when>
                 <c:otherwise>
-                    <h2 align="center"><a
-                            href="/coach/addGroup.html?todo=false">${add_group}</a></h2>
                     <c:forEach var="group" items="${listOfGroups}">
                         <div class="post_ex">
                             <h3 align="center" style="margin-bottom: 15px;
@@ -69,17 +76,17 @@
                             </div>
                             <div class="post_reference">
                                 <a href="/coach/membersOfGroup.html?groupId=${group.identity}">
-                                    ${go_to_clients}
+                                        ${go_to_clients}
                                 </a>
                             </div>
                             <div class="post_reference">
                                 <a href="/coach/editGroup.html?todo=false&groupId=${group.identity}">
-                                    ${edit}
+                                        ${edit}
                                 </a>
                             </div>
                             <div class="post_reference">
                                 <a href="/coach/deleteGroup.html?groupId=${group.identity}">
-                                    ${delete}
+                                        ${delete}
                                 </a>
                             </div>
                         </div>

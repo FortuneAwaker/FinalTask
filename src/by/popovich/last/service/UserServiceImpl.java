@@ -71,7 +71,9 @@ public class UserServiceImpl extends ServiceImpl implements UserService {
             dao.update(user);
         } else {
             if(user.getPassword() != null) {
-                user.setPassword(md5(user.getPassword()));
+                if (user.getPassword().length() > 15) {
+                    user.setPassword(md5(user.getPassword()));
+                }
             } else {
                 user.setPassword(md5(new String()));
             }
