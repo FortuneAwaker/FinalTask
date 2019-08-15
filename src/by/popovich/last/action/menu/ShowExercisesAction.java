@@ -15,6 +15,9 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Show exercises action class.
+ */
 public class ShowExercisesAction extends Action {
     /**
      * Logger for creation notes to some appender.
@@ -22,8 +25,18 @@ public class ShowExercisesAction extends Action {
     private static final Logger LOGGER
             = LogManager.getLogger(ShowExercisesAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -33,7 +46,8 @@ public class ShowExercisesAction extends Action {
         request.setAttribute("lang", lang);
         Locale locale = new Locale(lang);
         Config.set(request, Config.FMT_LOCALE, locale);
-        ExerciseService service = serviceFactory.getService(ExerciseService.class);
+        ExerciseService service = serviceFactory
+                .getService(ExerciseService.class);
         List<Exercise> exercises = service.readAll();
         if (exercises != null) {
             if (request.getAttribute("listOfExercises") == null) {
@@ -41,6 +55,7 @@ public class ShowExercisesAction extends Action {
                 LOGGER.info("Список упражнений был успешно показан!");
             }
         }
-        return new Forward("/menu/exercises.jsp", false);
+        return new Forward("/menu/exercises.jsp",
+                false);
     }
 }

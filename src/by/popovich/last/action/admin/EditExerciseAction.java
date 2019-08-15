@@ -17,14 +17,34 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
+/**
+ * Edit exercise action class.
+ */
 public class EditExerciseAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
     private static final Logger LOGGER = LogManager.getLogger(EditExerciseAction.class);
-
+    /**
+     * Three.
+     */
+    private final int three = 3;
+    /**
+     * Fifteen.
+     */
+    private final int fifteen = 15;
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -45,41 +65,54 @@ public class EditExerciseAction extends AuthorizedUserAction {
         }
         String exerciseIdFromRequest = request.getParameter("exerciseId");
         if (exerciseIdFromRequest != null) {
-            session.setAttribute("idOfExerciseToEdit", exerciseIdFromRequest);
+            session.setAttribute("idOfExerciseToEdit",
+                    exerciseIdFromRequest);
         }
         if (!todo.equals("false")) {
             if (exerciseIdFromRequest != null) {
-                Integer exerciseIdNumber = Integer.parseInt(exerciseIdFromRequest);
+                Integer exerciseIdNumber = Integer
+                        .parseInt(exerciseIdFromRequest);
                 if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
-                    String nameOfExerciseString = request.getParameter("nameOfExercise");
+                    String nameOfExerciseString = request
+                            .getParameter("nameOfExercise");
                     if (nameOfExerciseString != null) {
                         Validator validator = new Validator();
                         if (!(validator.validateStringData(nameOfExerciseString,
-                                3, 15))) {
+                                three, fifteen))) {
                             LOGGER.info("Некорректные данные!");
-                            request.setAttribute("message", "Некорректные данные!");
+                            request.setAttribute("message",
+                                    "Некорректные данные!");
                             return null;
                         }
-                        ExerciseService service = serviceFactory.getService(ExerciseService.class);
-                        Exercise exerciseToEdit = service.readById(exerciseIdNumber);
+                        ExerciseService service = serviceFactory
+                                .getService(ExerciseService.class);
+                        Exercise exerciseToEdit = service
+                                .readById(exerciseIdNumber);
                         exerciseToEdit.setTypeOfExercises(nameOfExerciseString);
                         service.save(exerciseToEdit);
                         LOGGER.info("Упражнение было изменено!");
-                        request.setAttribute("message", "Упражнение было изменено!");
-                        return new Forward("/index.jsp", false);
+                        request.setAttribute("message",
+                                "Упражнение было изменено!");
+                        return new Forward("/index.jsp",
+                                false);
                     } else {
                         LOGGER.info("Недопустимое действие!");
-                        request.setAttribute("message", "Недопустимое действие!");
-                        return new Forward("/index.jsp", false);
+                        request.setAttribute("message",
+                                "Недопустимое действие!");
+                        return new Forward("/index.jsp",
+                                false);
                     }
                 } else {
                     LOGGER.info("Недопустимая для действия роль!");
-                    request.setAttribute("message", "Недопустимая для действия роль!");
-                    return new Forward("/index.jsp", false);
+                    request.setAttribute("message",
+                            "Недопустимая для действия роль!");
+                    return new Forward("/index.jsp",
+                            false);
                 }
             } else {
                 LOGGER.info("Недопустимое действие!");
-                request.setAttribute("message", "Недопустимое действие!");
+                request.setAttribute("message",
+                        "Недопустимое действие!");
             }
         }
         return null;

@@ -17,14 +17,40 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
+/**
+ * Edit price action class.
+ */
 public class EditPriceAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static final Logger LOGGER = LogManager.getLogger(EditPriceAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(EditPriceAction.class);
+    /**
+     * One.
+     */
+    private final int one = 1;
+    /**
+     * Three.
+     */
+    private final int three = 3;
+    /**
+     * Six.
+     */
+    private final int six = 6;
 
+    /**
+     * Execute action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -36,7 +62,8 @@ public class EditPriceAction extends AuthorizedUserAction {
         Config.set(request, Config.FMT_LOCALE, locale);
         User currentUser = (User) session.getAttribute("authorizedUser");
         if (currentUser == null) {
-            request.setAttribute("message", "Войдите в аккаунт!");
+            request.setAttribute("message",
+                    "Войдите в аккаунт!");
             return new Forward("/index.jsp", false);
         }
         String todo = request.getParameter("todo");
@@ -51,27 +78,35 @@ public class EditPriceAction extends AuthorizedUserAction {
             if (priceIdFromRequest != null) {
                 Integer priceIdNumber = Integer.parseInt(priceIdFromRequest);
                 if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
-                    String numberOfVisitsString = request.getParameter("numberOfVisits");
-                    String numberOfDaysString = request.getParameter("numberOfDays");
-                    String amountOfMoneyString = request.getParameter("money");
+                    String numberOfVisitsString = request
+                            .getParameter("numberOfVisits");
+                    String numberOfDaysString = request
+                            .getParameter("numberOfDays");
+                    String amountOfMoneyString = request
+                            .getParameter("money");
                     if (numberOfVisitsString != null
                             && numberOfDaysString != null
                             && amountOfMoneyString != null) {
                         Validator validator = new Validator();
                         if (!(validator.validateNumber(
-                                numberOfDaysString, 1, 3)
+                                numberOfDaysString, one, three)
                                 && validator.validateNumber(
-                                amountOfMoneyString, 1, 6)
+                                amountOfMoneyString, one, six)
                                 && validator.validateNumber(
-                                numberOfVisitsString, 1, 3))) {
+                                numberOfVisitsString, one, three))) {
                             LOGGER.info("Некорректные данные!");
-                            request.setAttribute("message", "Некорректные данные!");
+                            request.setAttribute("message",
+                                    "Некорректные данные!");
                             return null;
                         }
-                        Integer numberOfVisits = Integer.parseInt(numberOfVisitsString);
-                        Integer numberOfDays = Integer.parseInt(numberOfDaysString);
-                        Integer amountOfMoney = Integer.parseInt(amountOfMoneyString);
-                        PriceService service = serviceFactory.getService(PriceService.class);
+                        Integer numberOfVisits = Integer
+                                .parseInt(numberOfVisitsString);
+                        Integer numberOfDays = Integer
+                                .parseInt(numberOfDaysString);
+                        Integer amountOfMoney = Integer
+                                .parseInt(amountOfMoneyString);
+                        PriceService service = serviceFactory
+                                .getService(PriceService.class);
                         Price priceToEdit = service.readById(priceIdNumber);
                         if (numberOfDays <= 0 && numberOfVisits <= 0
                                 && amountOfMoney <= 0) {
@@ -84,22 +119,29 @@ public class EditPriceAction extends AuthorizedUserAction {
                             priceToEdit.setPrice(amountOfMoney);
                             service.save(priceToEdit);
                             LOGGER.info("Расценка была изменена!");
-                            request.setAttribute("message", "Расценка была изменена!");
-                            return new Forward("/index.jsp", false);
+                            request.setAttribute("message",
+                                    "Расценка была изменена!");
+                            return new Forward("/index.jsp",
+                                    false);
                         }
                     } else {
                         LOGGER.info("Недопустимое действие!");
-                        request.setAttribute("message", "Недопустимое действие!");
-                        return new Forward("/index.jsp", false);
+                        request.setAttribute("message",
+                                "Недопустимое действие!");
+                        return new Forward("/index.jsp",
+                                false);
                     }
                 } else {
                     LOGGER.info("Недопустимая для действия роль!");
-                    request.setAttribute("message", "Недопустимая для действия роль!");
-                    return new Forward("/index.jsp", false);
+                    request.setAttribute("message",
+                            "Недопустимая для действия роль!");
+                    return new Forward("/index.jsp",
+                            false);
                 }
             } else {
                 LOGGER.info("Недопустимое действие!");
-                request.setAttribute("message", "Недопустимое действие!");
+                request.setAttribute("message",
+                        "Недопустимое действие!");
             }
         }
         return null;

@@ -15,14 +15,28 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
+/**
+ * Change role action class.
+ */
 public class ChangeRoleAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static final Logger LOGGER = LogManager.getLogger(ChangeRoleAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(ChangeRoleAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
         String lang = (String) session.getAttribute("lang");
@@ -42,7 +56,8 @@ public class ChangeRoleAction extends AuthorizedUserAction {
         if (userIdString != null) {
             Integer userId = Integer.parseInt(userIdString);
             if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
-                UserService service = serviceFactory.getService(UserService.class);
+                UserService service = serviceFactory
+                        .getService(UserService.class);
                 User user = service.readByIdentity(userId);
                 if (user.getRole().equals(Role.CLIENT)) {
                     user.setRole(Role.COACH);
@@ -58,8 +73,10 @@ public class ChangeRoleAction extends AuthorizedUserAction {
                 request.setAttribute("message", "Роль изменена!");
             } else {
                 LOGGER.info("Недопустимая для действия роль");
-                request.setAttribute("message", "Недопустимая для действия роль");
-                return new Forward("/index.jsp", false);
+                request.setAttribute("message",
+                        "Недопустимая для действия роль");
+                return new Forward("/index.jsp",
+                        false);
             }
         } else {
             LOGGER.info("Недопустимое действие");

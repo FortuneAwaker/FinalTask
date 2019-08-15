@@ -2,7 +2,10 @@ package by.popovich.last.action.coach;
 
 import by.popovich.last.action.AuthorizedUserAction;
 import by.popovich.last.action.Forward;
-import by.popovich.last.entity.*;
+import by.popovich.last.entity.Group;
+import by.popovich.last.entity.Role;
+import by.popovich.last.entity.Subscription;
+import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
@@ -15,18 +18,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Show members of group action.
+ */
 public class ShowMembersOfGroup extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static Logger LOGGER = LogManager.getLogger(ShowMembersOfGroup.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(ShowMembersOfGroup.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
         String lang = (String) session.getAttribute("lang");
@@ -47,16 +63,22 @@ public class ShowMembersOfGroup extends AuthorizedUserAction {
             Integer groupIdNumber = Integer.parseInt(groupIdFromRequest);
             if (currentUser.getRole().equals(Role.COACH)
                     || currentUser.getRole().equals(Role.ADMINISTRATOR)) {
-                GroupService groupService = serviceFactory.getService(GroupService.class);
+                GroupService groupService = serviceFactory
+                        .getService(GroupService.class);
                 Group group = groupService.readById(groupIdNumber);
                 if (group.getCoachID().equals(currentUser.getIdentity())) {
-                    SubscriptionService service = serviceFactory.getService(SubscriptionService.class);
-                    List<Subscription> subs = service.readByGroupId(groupIdNumber);
-                    ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);
-                    UserInfoService infoService = serviceFactory.getService(UserInfoService.class);
-                    for (Subscription sub: subs
-                         ) {
-                        sub.setUserInfo(infoService.readById(sub.getClientId()));
+                    SubscriptionService service = serviceFactory
+                            .getService(SubscriptionService.class);
+                    List<Subscription> subs = service
+                            .readByGroupId(groupIdNumber);
+                    ExerciseService exerciseService = serviceFactory
+                            .getService(ExerciseService.class);
+                    UserInfoService infoService = serviceFactory
+                            .getService(UserInfoService.class);
+                    for (Subscription sub : subs
+                    ) {
+                        sub.setUserInfo(infoService.readById(
+                                sub.getClientId()));
                         sub.setTypeOfExercise(
                                 exerciseService.readById(
                                         groupService.readById(
@@ -66,14 +88,20 @@ public class ShowMembersOfGroup extends AuthorizedUserAction {
                     }
                     session.setAttribute("subscriptionsList", subs);
                     LOGGER.info("Посетители группы были показаны!");
-                    return new Forward("/coach/membersOfGroup.jsp", false);
+                    return new Forward(
+                            "/coach/membersOfGroup.jsp",
+                            false);
                 } else {
-                    request.setAttribute("message", "Недопустимое действие!");
-                    return new Forward("/index.jsp", false);
+                    request.setAttribute("message",
+                            "Недопустимое действие!");
+                    return new Forward("/index.jsp",
+                            false);
                 }
             } else {
-                request.setAttribute("message", "Недопустимая для действия роль!");
-                return new Forward("/index.jsp", false);
+                request.setAttribute("message",
+                        "Недопустимая для действия роль!");
+                return new Forward("/index.jsp",
+                        false);
             }
         }
         return new Forward("/index.jsp", false);

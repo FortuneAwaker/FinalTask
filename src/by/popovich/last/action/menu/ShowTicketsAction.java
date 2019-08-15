@@ -3,7 +3,6 @@ package by.popovich.last.action.menu;
 import by.popovich.last.action.Action;
 import by.popovich.last.action.Forward;
 import by.popovich.last.entity.Exercise;
-import by.popovich.last.entity.Group;
 import by.popovich.last.entity.Price;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
@@ -19,6 +18,9 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Show tickets action class.
+ */
 public class ShowTicketsAction extends Action {
     /**
      * Logger for creation notes to some appender.
@@ -26,8 +28,18 @@ public class ShowTicketsAction extends Action {
     private static final Logger LOGGER
             = LogManager.getLogger(ShowTicketsAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -40,7 +52,8 @@ public class ShowTicketsAction extends Action {
         Integer groupId = (Integer) session.getAttribute("groupId");
         List<Price> prices;
         if (groupId == null) {
-            PriceService service = serviceFactory.getService(PriceService.class);
+            PriceService service = serviceFactory
+                    .getService(PriceService.class);
             prices = service.readAll();
             ExerciseService exerciseService = serviceFactory
                     .getService(ExerciseService.class);
@@ -56,15 +69,18 @@ public class ShowTicketsAction extends Action {
                 }
             }
         } else {
-            GroupService groupService = serviceFactory.getService(GroupService.class);
-            PriceService priceService = serviceFactory.getService(PriceService.class);
+            GroupService groupService = serviceFactory
+                    .getService(GroupService.class);
+            PriceService priceService = serviceFactory
+                    .getService(PriceService.class);
             ExerciseService exerciseService = serviceFactory
                     .getService(ExerciseService.class);
-            Exercise exercise = exerciseService.readById(groupService.readById(groupId).getTypeOfExercisesId());
+            Exercise exercise = exerciseService.readById(
+                    groupService.readById(groupId).getTypeOfExercisesId());
             prices = priceService.readByExerciseTypeId(
                     exercise.getIdentity());
-            for (Price price: prices
-                 ) {
+            for (Price price : prices
+            ) {
                 price.setNameOfExercise(exercise.getTypeOfExercises());
             }
         }

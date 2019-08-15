@@ -17,14 +17,31 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.List;
 import java.util.Locale;
+
 import org.apache.log4j.LogManager;
 
+/**
+ * Show subscriptions language class.
+ */
 public class ShowSubscribtionsAction extends AuthorizedUserAction {
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager
+            .getLogger(ShowSubscribtionsAction.class);
 
-    private static Logger LOGGER = LogManager.getLogger(ShowSubscribtionsAction.class);
-
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
         String lang = (String) session.getAttribute("lang");
@@ -42,17 +59,21 @@ public class ShowSubscribtionsAction extends AuthorizedUserAction {
         }
         if (currentUser.getRole().equals(Role.CLIENT)) {
             int clientId = currentUser.getIdentity();
-            SubscriptionService service = serviceFactory.getService(SubscriptionService.class);
-            GroupService groupService = serviceFactory.getService(GroupService.class);
-            ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);
-            List<Subscription> subscriptions = service.readSubscriptionsByClientId(clientId);
-            for (Subscription subscription: subscriptions
-                 ) {
+            SubscriptionService service = serviceFactory
+                    .getService(SubscriptionService.class);
+            GroupService groupService = serviceFactory
+                    .getService(GroupService.class);
+            ExerciseService exerciseService = serviceFactory
+                    .getService(ExerciseService.class);
+            List<Subscription> subscriptions = service
+                    .readSubscriptionsByClientId(clientId);
+            for (Subscription subscription : subscriptions
+            ) {
                 subscription.setTypeOfExercise(
                         exerciseService.readById(
                                 groupService.readById(
                                         subscription.getIdOfGroup())
-                        .getTypeOfExercisesId())
+                                        .getTypeOfExercisesId())
                                 .getTypeOfExercises()
                 );
                 subscription.setCoachId(groupService.readById(
@@ -64,7 +85,8 @@ public class ShowSubscribtionsAction extends AuthorizedUserAction {
                     "/authorized_user/mySubscriptions.jsp",
                     false);
         } else {
-            request.setAttribute("message", "Недопустимая для действия роль");
+            request.setAttribute("message",
+                    "Недопустимая для действия роль");
             return new Forward("/index.jsp", false);
         }
     }

@@ -7,9 +7,7 @@ import by.popovich.last.service.ServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -34,29 +32,69 @@ abstract public class Action {
      */
     protected ServiceFactory serviceFactory;
 
+    /**
+     * Getter.
+     *
+     * @return roles.
+     */
     public Set<Role> getRoles() {
         return roles;
     }
 
+    /**
+     * Getter.
+     *
+     * @return authorized user.
+     */
     public User getAuthorizedUser() {
         return authorizedUser;
     }
 
-    public void setAuthorizedUser(User authorizedUser) {
-        this.authorizedUser = authorizedUser;
+    /**
+     * Setter.
+     *
+     * @param aU for user.
+     */
+    public void setAuthorizedUser(final User aU) {
+        this.authorizedUser = aU;
     }
 
+    /**
+     * Getter.
+     *
+     * @return name of action.
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * Setter.
+     *
+     * @param n name of action.
+     */
+    public void setName(final String n) {
+        this.name = n;
     }
 
-    public void setServiceFactory(ServiceFactory serviceFactory) {
-        this.serviceFactory = serviceFactory;
+    /**
+     * Service factory that contains interfaces and their realizations.
+     *
+     * @param sF factory.
+     */
+    public void setServiceFactory(final ServiceFactory sF) {
+        this.serviceFactory = sF;
     }
 
-    abstract public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException;
+    /**
+     * Executes action from uri.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return uri to go.
+     * @throws PersistentException if error in DB handling.
+     */
+    abstract public Forward executeAction(HttpServletRequest request,
+                                          HttpServletResponse response)
+            throws PersistentException;
 }

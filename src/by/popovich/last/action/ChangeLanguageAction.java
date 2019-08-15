@@ -1,6 +1,5 @@
 package by.popovich.last.action;
 
-import by.popovich.last.controller.DispatcherServlet;
 import by.popovich.last.entity.Role;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
@@ -11,19 +10,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Action - changing locale for resource bundle.
+ */
 public class ChangeLanguageAction extends Action {
     /**
      * Logger.
      */
-    private static final Logger LOGGER = LogManager.getLogger(ChangeLanguageAction.class);
-
+    private static final Logger LOGGER = LogManager.getLogger(
+            ChangeLanguageAction.class);
+    /**
+     * Map for storing elements of menu of current user.
+     */
     private static Map<Role, List<MenuItem>> menu = new ConcurrentHashMap<>();
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return uri to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
         String lang = request.getParameter("lang");
@@ -35,7 +55,7 @@ public class ChangeLanguageAction extends Action {
         session.setAttribute("lang", lang);
         Config.set(request, Config.FMT_LOCALE, locale);
         LOGGER.info("Язык был установлен как " + lang);
-        User currentUser = (User)session.getAttribute("authorizedUser");
+        User currentUser = (User) session.getAttribute("authorizedUser");
         if (currentUser != null) {
             Locale.setDefault(locale);
             ResourceBundle bundle = ResourceBundle.getBundle("properties.club");
@@ -63,7 +83,7 @@ public class ChangeLanguageAction extends Action {
 
             )));
 
-            session.setAttribute("menu" , menu.get(currentUser.getRole()));
+            session.setAttribute("menu", menu.get(currentUser.getRole()));
         }
         return new Forward("/index.html");
     }

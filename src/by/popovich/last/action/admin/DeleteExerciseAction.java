@@ -16,14 +16,28 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
+/**
+ * Delete exercise action class.
+ */
 public class DeleteExerciseAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static final Logger LOGGER = LogManager.getLogger(DeleteExerciseAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(DeleteExerciseAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
         String lang = (String) session.getAttribute("lang");
@@ -43,29 +57,37 @@ public class DeleteExerciseAction extends AuthorizedUserAction {
         if (exerciseIdFromRequest != null) {
             Integer exerciseIdNumber = Integer.parseInt(exerciseIdFromRequest);
             if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
-                ExerciseService service = serviceFactory.getService(ExerciseService.class);
-                PriceService ps = serviceFactory.getService(PriceService.class);
+                ExerciseService service = serviceFactory
+                        .getService(ExerciseService.class);
+                PriceService ps = serviceFactory
+                        .getService(PriceService.class);
                 if (ps.readById(exerciseIdNumber) == null) {
                     try {
                         service.delete(exerciseIdNumber);
                         LOGGER.info("Упражнение удалено!");
-                        request.setAttribute("message", "Упражнение удалено!");
+                        request.setAttribute("message",
+                                "Упражнение удалено!");
                     } catch (PersistentException e) {
                         LOGGER.info("Невозможно удалить, существуют связи!");
-                        request.setAttribute("message", "Невозможно удалить, существуют связи!");
+                        request.setAttribute("message",
+                                "Невозможно удалить, существуют связи!");
                     }
                 } else {
                     LOGGER.info("Невозможно удалить, существуют связи!");
-                    request.setAttribute("message", "Невозможно удалить, существуют связи!");
+                    request.setAttribute("message",
+                            "Невозможно удалить, существуют связи!");
                 }
             } else {
                 LOGGER.info("Недопустимая для действия роль");
-                request.setAttribute("message", "Недопустимая для действия роль");
-                return new Forward("/index.jsp", false);
+                request.setAttribute("message",
+                        "Недопустимая для действия роль");
+                return new Forward("/index.jsp",
+                        false);
             }
         } else {
             LOGGER.info("Недопустимое действие");
-            request.setAttribute("message", "Недопустимое действие");
+            request.setAttribute("message",
+                    "Недопустимое действие");
         }
         return new Forward("/index.jsp", false);
     }

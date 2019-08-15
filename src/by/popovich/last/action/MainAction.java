@@ -8,17 +8,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
-import java.util.List;
 import java.util.Locale;
 
+/**
+ * Action for main page.
+ */
 public class MainAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static Logger LOGGER = LogManager.getLogger(LoginAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(LoginAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return uri to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {

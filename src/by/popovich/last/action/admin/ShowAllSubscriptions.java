@@ -20,14 +20,28 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Show all subscriptions action class.
+ */
 public class ShowAllSubscriptions extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static final Logger LOGGER = LogManager.getLogger(ShowAllSubscriptions.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(ShowAllSubscriptions.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         User currentUser = (User) session.getAttribute("authorizedUser");
         if (currentUser != null) {
@@ -40,33 +54,43 @@ public class ShowAllSubscriptions extends AuthorizedUserAction {
                 request.setAttribute("lang", lang);
                 Locale locale = new Locale(lang);
                 Config.set(request, Config.FMT_LOCALE, locale);
-                SubscriptionService service = serviceFactory.getService(SubscriptionService.class);
-                ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);
-                GroupService groupService = serviceFactory.getService(GroupService.class);
+                SubscriptionService service = serviceFactory
+                        .getService(SubscriptionService.class);
+                ExerciseService exerciseService = serviceFactory
+                        .getService(ExerciseService.class);
+                GroupService groupService = serviceFactory
+                        .getService(GroupService.class);
                 List<Subscription> subs = service.readAll();
-                for (Subscription sub: subs
-                     ) {
+                for (Subscription sub : subs
+                ) {
                     sub.setCoachId(
-                            groupService.readById(sub.getIdOfGroup()).getCoachID());
+                            groupService.readById(sub.getIdOfGroup())
+                                    .getCoachID());
                     Exercise exercise = exerciseService.readById(
-                            groupService.readById(sub.getIdOfGroup()).getTypeOfExercisesId()
+                            groupService.readById(sub.getIdOfGroup())
+                                    .getTypeOfExercisesId()
                     );
                     sub.setTypeOfExercise(exercise.getTypeOfExercises());
                 }
                 if (subs != null) {
                     session.setAttribute("allSubs", subs);
-                    return new Forward("/admin/allSubscriptions.jsp", false);
+                    return new Forward(
+                            "/admin/allSubscriptions.jsp",
+                            false);
                 } else {
                     LOGGER.info("Подписки не найдены!");
-                    request.setAttribute("message", "Подписки не найдены!");
+                    request.setAttribute("message",
+                            "Подписки не найдены!");
                 }
             } else {
                 LOGGER.info("Нужны права администратора!");
-                request.setAttribute("message", "Нужны права администратора!");
+                request.setAttribute("message",
+                        "Нужны права администратора!");
             }
         } else {
             LOGGER.info("Нужно войти, чтобы просматривать эту страницу!");
-            request.setAttribute("message", "Нужно войти, чтобы просматривать эту страницу!");
+            request.setAttribute("message",
+                    "Нужно войти, чтобы просматривать эту страницу!");
             return new Forward("/index.html");
         }
 

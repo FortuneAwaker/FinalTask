@@ -15,14 +15,36 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
+/**
+ * Change password action class.
+ */
 public class ChangePasswordAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static Logger LOGGER = LogManager.getLogger(ChangePasswordAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(ChangePasswordAction.class);
+    /**
+     * Six.
+     */
+    private final int six = 6;
+    /**
+     * Fifteen.
+     */
+    private final int fifteen = 15;
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -47,15 +69,18 @@ public class ChangePasswordAction extends AuthorizedUserAction {
             if (password != null && repeatPassword != null) {
                 Validator validator = new Validator();
                 if (!validator.validateLoginOrPassword(password,
-                        6, 15)) {
+                        six, fifteen)) {
                     LOGGER.info("Некорректные данные!");
-                    request.setAttribute("message", "Некорректные данные!");
+                    request.setAttribute("message",
+                            "Некорректные данные!");
                     return null;
                 }
                 if (password.equals(repeatPassword)) {
-                    UserService service = serviceFactory.getService(UserService.class);
+                    UserService service = serviceFactory
+                            .getService(UserService.class);
                     try {
-                        User user = service.readByIdentity(currentUser.getIdentity());
+                        User user = service.readByIdentity(
+                                currentUser.getIdentity());
                         user.setPassword(password);
                         service.save(user);
                         session.setAttribute("authorizedUser", user);
@@ -66,7 +91,8 @@ public class ChangePasswordAction extends AuthorizedUserAction {
                                 "Ошибка смены пароля!");
                     }
                 } else {
-                    request.setAttribute("message", "Пароли не совпадают!");
+                    request.setAttribute("message",
+                            "Пароли не совпадают!");
                     LOGGER.info("Пароли не совпадают!");
                 }
             } else {

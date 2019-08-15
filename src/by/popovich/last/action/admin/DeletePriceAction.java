@@ -15,14 +15,28 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
+/**
+ * Delete price action class.
+ */
 public class DeletePriceAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static final Logger LOGGER = LogManager.getLogger(DeletePriceAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(DeletePriceAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
         String lang = (String) session.getAttribute("lang");
@@ -42,14 +56,17 @@ public class DeletePriceAction extends AuthorizedUserAction {
         if (priceIdFromRequest != null) {
             Integer priceIdNumber = Integer.parseInt(priceIdFromRequest);
             if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
-                PriceService service = serviceFactory.getService(PriceService.class);
+                PriceService service = serviceFactory
+                        .getService(PriceService.class);
                 service.delete(priceIdNumber);
                 LOGGER.info("Расценка удалена!");
                 request.setAttribute("message", "Расценка удалена!");
             } else {
                 LOGGER.info("Недопустимая для действия роль!");
-                request.setAttribute("message", "Недопустимая для действия роль!");
-                return new Forward("/index.jsp", false);
+                request.setAttribute("message",
+                        "Недопустимая для действия роль!");
+                return new Forward("/index.jsp",
+                        false);
             }
         } else {
             LOGGER.info("Недопустимое действие!");

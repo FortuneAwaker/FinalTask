@@ -3,7 +3,12 @@ package by.popovich.last.action.authorizedUser;
 import by.popovich.last.action.AuthorizedUserAction;
 import by.popovich.last.action.Forward;
 import by.popovich.last.controller.DispatcherServlet;
-import by.popovich.last.entity.*;
+import by.popovich.last.entity.Exercise;
+import by.popovich.last.entity.Group;
+import by.popovich.last.entity.Price;
+import by.popovich.last.entity.Role;
+import by.popovich.last.entity.Subscription;
+import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
 import by.popovich.last.service.GroupService;
@@ -20,11 +25,31 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Subscribe action class.
+ */
 public class SubscribeAction extends AuthorizedUserAction {
-    private static Logger LOGGER = LogManager.getLogger(DispatcherServlet.class);
-
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager
+            .getLogger(DispatcherServlet.class);
+    /**
+     * Millisec in day.
+     */
+    private final long millisecInDay = 86400000;
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
         String lang = (String) session.getAttribute("lang");
@@ -45,7 +70,8 @@ public class SubscribeAction extends AuthorizedUserAction {
             String groupId = request.getParameter("groupId");
             LOGGER.info("groupId = " + groupId + ", priceId = " + priceId);
             if (priceId == null && groupId != null) {
-                GroupService service = serviceFactory.getService(GroupService.class);
+                GroupService service = serviceFactory
+                        .getService(GroupService.class);
                 Integer groupIdNumber = Integer.parseInt(groupId);
                 session.setAttribute("groupId", groupIdNumber);
                 request.setAttribute("groupId", groupIdNumber);
@@ -53,112 +79,151 @@ public class SubscribeAction extends AuthorizedUserAction {
                         session.getAttribute("priceId");
                 if (priceIdFromSession == null) {
                     Group group = service.readById(groupIdNumber);
-                    PriceService priceService = serviceFactory.getService(PriceService.class);
-                    ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);
-                    Exercise exercise = exerciseService.readById(group.getTypeOfExercisesId());
-                    List<Price> pricesOfGroup = priceService.readByExerciseTypeId(exercise.getIdentity());
+                    PriceService priceService = serviceFactory
+                            .getService(PriceService.class);
+                    ExerciseService exerciseService = serviceFactory
+                            .getService(ExerciseService.class);
+                    Exercise exercise = exerciseService
+                            .readById(group.getTypeOfExercisesId());
+                    List<Price> pricesOfGroup = priceService
+                            .readByExerciseTypeId(exercise.getIdentity());
                     if (pricesOfGroup != null) {
                         session.setAttribute("pricesOfGroup", pricesOfGroup);
                     }
                     if (exercise != null) {
                         session.setAttribute("wantedExercise", exercise);
                     }
-                    return new Forward("/authorized_user/subscribe.jsp", false);
+                    return new Forward(
+                            "/authorized_user/subscribe.jsp",
+                            false);
                 } else {
                     Group group = service.readById(groupIdNumber);
                     if (group.getCurrentClients() < group.getMaxClients()) {
                         try {
-                            subscribe(priceIdFromSession, groupIdNumber, currentUser.getIdentity());
+                            subscribe(priceIdFromSession, groupIdNumber,
+                                    currentUser.getIdentity());
                             service.addVisitor(groupIdNumber);
-                            if (session.getAttribute("pricesOfGroup") != null) {
+                            if (session
+                                    .getAttribute("pricesOfGroup") != null) {
                                 session.removeAttribute("pricesOfGroup");
                                 session.removeAttribute("wantedExercise");
                             }
-                            if (session.getAttribute("groupsOfPrice") != null) {
+                            if (session
+                                    .getAttribute("groupsOfPrice") != null) {
                                 session.removeAttribute("groupsOfPrice");
                             }
                             LOGGER.info("Подписка оформлена успешно!");
-                            request.setAttribute("message", "Подписка оформлена успешно!");
+                            request.setAttribute("message",
+                                    "Подписка оформлена успешно!");
                         } catch (PersistentException e) {
-                            request.setAttribute("message", "Вы уже состоите в этой группе!");
+                            request.setAttribute("message",
+                                    "Вы уже состоите в этой группе!");
                         }
                     } else {
-                        request.setAttribute("message", "Группа уже укомплектована!");
+                        request.setAttribute("message",
+                                "Группа уже укомплектована!");
                     }
                 }
             } else if (priceId != null && groupId == null) {
-                GroupService service = serviceFactory.getService(GroupService.class);
+                GroupService service = serviceFactory
+                        .getService(GroupService.class);
                 Integer priceIdNumber = Integer.parseInt(priceId);
                 session.setAttribute("priceId", priceIdNumber);
                 request.setAttribute("priceId", priceIdNumber);
                 Integer groupIdFromSession = (Integer)
                         session.getAttribute("groupId");
                 if (groupIdFromSession == null) {
-                    PriceService priceService = serviceFactory.getService(PriceService.class);
-                    ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);
+                    PriceService priceService = serviceFactory
+                            .getService(PriceService.class);
+                    ExerciseService exerciseService = serviceFactory
+                            .getService(ExerciseService.class);
                     Price price = priceService.readById(priceIdNumber);
-                    List<Group> groupsOfPrices = service.readGroupsByTypeId(price.getTypeOfExercise());
-                    Exercise exercise = exerciseService.readById(price.getTypeOfExercise());
+                    List<Group> groupsOfPrices = service
+                            .readGroupsByTypeId(price.getTypeOfExercise());
+                    Exercise exercise = exerciseService
+                            .readById(price.getTypeOfExercise());
                     if (groupsOfPrices != null) {
-                        session.setAttribute("groupsOfPrices", groupsOfPrices);
+                        session.setAttribute("groupsOfPrices",
+                                groupsOfPrices);
                     }
                     if (exercise != null) {
                         session.setAttribute("wantedExercise", exercise);
                     }
-                    return new Forward("/authorized_user/subscribe.jsp", false);
+                    return new Forward(
+                            "/authorized_user/subscribe.jsp",
+                            false);
                 } else {
                     Group group = service.readById(groupIdFromSession);
                     if (group.getCurrentClients() < group.getMaxClients()) {
                         try {
-                            subscribe(priceIdNumber, groupIdFromSession, currentUser.getIdentity());
+                            subscribe(priceIdNumber, groupIdFromSession,
+                                    currentUser.getIdentity());
                             service.addVisitor(groupIdFromSession);
-                            if (session.getAttribute("groupsOfPrice") != null) {
+                            if (session
+                                    .getAttribute("groupsOfPrice") != null) {
                                 session.removeAttribute("groupsOfPrice");
                             }
-                            if (session.getAttribute("pricesOfGroup") != null) {
+                            if (session
+                                    .getAttribute("pricesOfGroup") != null) {
                                 session.removeAttribute("pricesOfGroup");
                                 session.removeAttribute("wantedExercise");
                             }
                             LOGGER.info("Подписка оформлена успешно!");
-                            request.setAttribute("message", "Подписка оформлена успешно!");
+                            request.setAttribute("message",
+                                    "Подписка оформлена успешно!");
                         } catch (PersistentException e) {
-                            request.setAttribute("message", "Вы уже состоите в этой группе!");
+                            request.setAttribute("message",
+                                    "Вы уже состоите в этой группе!");
                             return null;
                         }
                     } else {
-                        request.setAttribute("message", "Группа уже укомплектована!");
+                        request.setAttribute("message",
+                                "Группа уже укомплектована!");
                         return null;
                     }
                 }
             }
         } else {
-            request.setAttribute("message", "Недопустимая для действия роль");
+            request.setAttribute("message",
+                    "Недопустимая для действия роль");
             return new Forward("/index.jsp", false);
         }
         return new Forward("/index.jsp", false);
     }
 
-    private void subscribe(final Integer priceId, final Integer groupId, final Integer clientId)
+    /**
+     * Subscribe method.
+     * @param priceId id of price.
+     * @param groupId id of group.
+     * @param clientId id of client.
+     * @throws PersistentException if error in DB handling.
+     */
+    private void subscribe(final Integer priceId, final Integer groupId,
+                           final Integer clientId)
             throws PersistentException {
-        SubscriptionService service = serviceFactory.getService(SubscriptionService.class);
-        List<Subscription> subscriptionsOfGroup = service.readByGroupId(groupId);
+        SubscriptionService service = serviceFactory
+                .getService(SubscriptionService.class);
+        List<Subscription> subscriptionsOfGroup = service
+                .readByGroupId(groupId);
         boolean exist = false;
-        for (Subscription sub: subscriptionsOfGroup
-             ) {
+        for (Subscription sub : subscriptionsOfGroup
+        ) {
             if (sub.getClientId() == clientId) {
                 exist = true;
                 break;
             }
         }
         if (!exist) {
-            PriceService priceService = serviceFactory.getService(PriceService.class);
+            PriceService priceService = serviceFactory
+                    .getService(PriceService.class);
             Price price = priceService.readById(priceId);
             Subscription subscription = new Subscription();
             subscription.setClientId(clientId);
             subscription.setIdOfGroup(groupId);
             subscription.setLeftVisits(price.getNumberOfVisits());
             java.util.Date today = new java.util.Date();
-            long milliseconds = today.getTime() + 86400000 * price.getNumberOfDays();
+            long milliseconds = today.getTime()
+                    + millisecInDay * price.getNumberOfDays();
             Date date = new Date(milliseconds);
             subscription.setLastDay(date);
             subscription.setPayment(price.getPrice());

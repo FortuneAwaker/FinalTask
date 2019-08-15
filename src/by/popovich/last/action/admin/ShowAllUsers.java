@@ -4,10 +4,8 @@ import by.popovich.last.action.AuthorizedUserAction;
 import by.popovich.last.action.Forward;
 import by.popovich.last.entity.Person;
 import by.popovich.last.entity.Role;
-import by.popovich.last.entity.Subscription;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
-import by.popovich.last.service.SubscriptionService;
 import by.popovich.last.service.UserInfoService;
 import by.popovich.last.service.UserService;
 import org.apache.logging.log4j.LogManager;
@@ -21,14 +19,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Show all users action class.
+ */
 public class ShowAllUsers extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static final Logger LOGGER = LogManager.getLogger(ShowAllUsers.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(ShowAllUsers.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         User currentUser = (User) session.getAttribute("authorizedUser");
         if (currentUser != null) {
@@ -41,8 +53,10 @@ public class ShowAllUsers extends AuthorizedUserAction {
                 request.setAttribute("lang", lang);
                 Locale locale = new Locale(lang);
                 Config.set(request, Config.FMT_LOCALE, locale);
-                UserService service = serviceFactory.getService(UserService.class);
-                UserInfoService infoService = serviceFactory.getService(UserInfoService.class);
+                UserService service = serviceFactory
+                        .getService(UserService.class);
+                UserInfoService infoService = serviceFactory
+                        .getService(UserInfoService.class);
                 List<Person> allUsers = new ArrayList<>();
                 String clientId = request.getParameter("clientId");
                 if (clientId != null) {
@@ -54,8 +68,8 @@ public class ShowAllUsers extends AuthorizedUserAction {
                     allUsers.add(person);
                 } else {
                     allUsers = infoService.readAll();
-                    for (Person p: allUsers
-                         ) {
+                    for (Person p : allUsers
+                    ) {
                         User u = service.readByIdentity(p.getIdentity());
                         p.setRole(u.getRole());
                         p.setLogin(u.getLogin());
@@ -63,18 +77,22 @@ public class ShowAllUsers extends AuthorizedUserAction {
                 }
                 if (allUsers != null) {
                     session.setAttribute("allUsers", allUsers);
-                    return new Forward("/admin/allUsers.jsp", false);
+                    return new Forward("/admin/allUsers.jsp",
+                            false);
                 } else {
                     LOGGER.info("Пользователи не найдены!");
-                    request.setAttribute("message", "Пользователи не найдены!");
+                    request.setAttribute("message",
+                            "Пользователи не найдены!");
                 }
             } else {
                 LOGGER.info("Нужны права администратора!");
-                request.setAttribute("message", "Нужны права администратора!");
+                request.setAttribute("message",
+                        "Нужны права администратора!");
             }
         } else {
             LOGGER.info("Нужно войти, чтобы просматривать эту страницу!");
-            request.setAttribute("message", "Нужно войти, чтобы просматривать эту страницу!");
+            request.setAttribute("message",
+                    "Нужно войти, чтобы просматривать эту страницу!");
             return new Forward("/index.html");
         }
 

@@ -13,14 +13,28 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
+/**
+ * Log out action class.
+ */
 public class LogoutAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static Logger LOGGER = LogManager.getLogger(LogoutAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(LogoutAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -31,7 +45,8 @@ public class LogoutAction extends AuthorizedUserAction {
         Locale locale = new Locale(lang);
         Config.set(request, Config.FMT_LOCALE, locale);
         User currentUser = (User) session.getAttribute("authorizedUser");
-        LOGGER.info(String.format("User \"%s\" is logged out", currentUser.getLogin()));
+        LOGGER.info(String.format("User \"%s\" is logged out",
+                currentUser.getLogin()));
         request.getSession(false).invalidate();
         return new Forward("/index.html");
     }

@@ -1,7 +1,5 @@
 package by.popovich.last.entity;
 
-import java.util.Objects;
-
 /**
  * Class for description of existing exercises.
  *
@@ -12,37 +10,6 @@ public class Exercise extends Entity {
      * String value for the name of exercise.
      */
     private String typeOfExercises;
-
-    /**
-     * Overrode method equals.
-     *
-     * @param o comparing object.
-     * @return true if equals and false otherwise.
-     */
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        if (!super.equals(o)) {
-            return false;
-        }
-        Exercise exercise = (Exercise) o;
-        return Objects.equals(typeOfExercises, exercise.typeOfExercises);
-    }
-
-    /**
-     * Overrode method hashCode.
-     *
-     * @return hash code.
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), typeOfExercises);
-    }
 
     /**
      * Getter for type of exercises.

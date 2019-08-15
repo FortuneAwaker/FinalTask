@@ -14,61 +14,110 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * User DAO impl.
+ */
 public class UserDaoImpl extends BaseDaoImpl implements UserDao {
-    private static Logger LOGGER = LogManager.getLogger(UserDaoImpl.class);
+    /**
+     * Three.
+     */
+    private final int three = 3;
+    /**
+     * Four.
+     */
+    private final int four = 4;
+    /**
+     * Five.
+     */
+    private final int five = 5;
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager
+      .getLogger(UserDaoImpl.class);
+    /**
+     * Create sql.
+     */
+    private static final String CREATE_USER = "INSERT INTO `users` "
+      + "(`login`, `password`, `role`) VALUES (?, ?, ?)";
+    /**
+     * Read by id sql.
+     */
+    private static final String READ_BY_ID = "SELECT *"
+      + " FROM `users` WHERE `id` = ?";
+    /**
+     * Update sql.
+     */
+    private static final String UPDATE_USER_PARAMETERS = "UPDATE `users` SET "
+      + "`login` = ?, `password` = ?, `role` = ? WHERE `id` = ?";
+    /**
+     * Delete sql.
+     */
+    private static final String DELETE_USER_BY_ID = "DELETE FROM "
+      + "`users` WHERE `id` = ?";
+    /**
+     * By login and password sql.
+     */
+    private static final String USER_BY_LOGIN_AND_PASSWORD = "SELECT *"
+      + " FROM `users` WHERE `login` = ? AND `password` = ?";
 
-    private final String CREATE_USER = "INSERT INTO `users` "
-            + "(`login`, `password`, `role`) VALUES (?, ?, ?)";
+    /**
+     * Read all sql.
+     */
+    private static final String READ_ALL_TABLE = "SELECT *"
+      + " FROM `users` ORDER BY `login`";
 
-    private final String READ_BY_ID = "SELECT *"
-            + " FROM `users` WHERE `id` = ?";
-
-    private final String UPDATE_USER_PARAMETERS = "UPDATE `users` SET "
-            + "`login` = ?, `password` = ?, `role` = ? WHERE `id` = ?";
-
-    private final String DELETE_USER_BY_ID = "DELETE FROM "
-            + "`users` WHERE `id` = ?";
-
-    private final String USER_BY_LOGIN_AND_PASSWORD = "SELECT *"
-            + " FROM `users` WHERE `login` = ? AND `password` = ?";
-
-    private final String READ_ALL_TABLE = "SELECT *"
-            + " FROM `users` ORDER BY `login`";
-
+    /**
+     * Create.
+     *
+     * @param user user
+     * @return id of user.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Integer create(User user) throws PersistentException {
+    public Integer create(final User user) throws PersistentException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            statement = connection.prepareStatement(CREATE_USER, Statement.RETURN_GENERATED_KEYS);
+            statement = connection.prepareStatement(
+              CREATE_USER, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getPassword());
-            statement.setInt(3, user.getRole().getIdentity());
+            statement.setInt(three, user.getRole().getIdentity());
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 LOGGER.info("User was created!");
                 return resultSet.getInt(1);
             } else {
-                LOGGER.error("There is no autoincremented index after trying to" +
-                        "" +
-                        " add record into table `users`");
+                LOGGER.error(
+                  "There is no autoincremented index after trying to"
+                    + ""
+                    + " add record into table `users`");
                 throw new PersistentException();
             }
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             throw new PersistentException(e);
         } finally {
             try {
                 resultSet.close();
-            } catch(SQLException | NullPointerException e) {}
+            } catch (SQLException | NullPointerException e) {
+            }
             try {
                 statement.close();
-            } catch(SQLException | NullPointerException e) {}
+            } catch (SQLException | NullPointerException e) {
+            }
         }
     }
 
+    /**
+     * Read by id.
+     * @param identity id.
+     * @return user.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public User read(Integer identity) throws PersistentException {
+    public User read(final Integer identity) throws PersistentException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
@@ -76,7 +125,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
             statement.setInt(1, identity);
             resultSet = statement.executeQuery();
             User user = null;
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 user = new User();
                 user.setIdentity(identity);
                 user.setLogin(resultSet.getString("login"));
@@ -84,36 +133,50 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
                 user.setRole(Role.getByIdentity(resultSet.getInt("role")));
             }
             return user;
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             throw new PersistentException(e);
         } finally {
             try {
                 resultSet.close();
-            } catch(SQLException | NullPointerException ignored) {}
+            } catch (SQLException | NullPointerException ignored) {
+            }
             try {
                 statement.close();
-            } catch(SQLException | NullPointerException ignored) {}
+            } catch (SQLException | NullPointerException ignored) {
+            }
         }
     }
 
+    /**
+     * Update.
+     *
+     * @param user user.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public void update(User user) throws PersistentException {
+    public void update(final User user) throws PersistentException {
         try (PreparedStatement statement = connection
-                .prepareStatement(UPDATE_USER_PARAMETERS)) {
+          .prepareStatement(UPDATE_USER_PARAMETERS)) {
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getPassword());
-            statement.setInt(3, user.getRole().getIdentity());
-            statement.setInt(4, user.getIdentity());
+            statement.setInt(three, user.getRole().getIdentity());
+            statement.setInt(four, user.getIdentity());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new PersistentException(e);
         }
     }
 
+    /**
+     * Delete by id.
+     *
+     * @param identity id.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public void delete(Integer identity) throws PersistentException {
+    public void delete(final Integer identity) throws PersistentException {
         try (PreparedStatement statement
-                     = connection.prepareStatement(DELETE_USER_BY_ID)) {
+               = connection.prepareStatement(DELETE_USER_BY_ID)) {
             statement.setInt(1, identity);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -121,8 +184,17 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
         }
     }
 
+    /**
+     * Read by login adn password.
+     *
+     * @param login    login.
+     * @param password password.
+     * @return user.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public User read(String login, String password) throws PersistentException {
+    public User read(final String login,
+                     final String password) throws PersistentException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
@@ -131,31 +203,39 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
             statement.setString(2, password);
             resultSet = statement.executeQuery();
             User user = null;
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 user = new User();
                 user.setIdentity(resultSet.getInt("id"));
                 user.setLogin(login);
                 user.setPassword(password);
                 user.setRole(Role.getByIdentity(resultSet
-                        .getInt("role")));
+                  .getInt("role")));
             }
             return user;
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             throw new PersistentException(e);
         } finally {
             try {
                 resultSet.close();
-            } catch(SQLException | NullPointerException ignored) {}
+            } catch (SQLException | NullPointerException ignored) {
+            }
             try {
                 statement.close();
-            } catch(SQLException | NullPointerException ignored) {}
+            } catch (SQLException | NullPointerException ignored) {
+            }
         }
     }
 
+    /**
+     * Read all.
+     *
+     * @return list of users.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
     public List<User> readAll() throws PersistentException {
         try (PreparedStatement statement = connection
-                .prepareStatement(READ_ALL_TABLE);
+          .prepareStatement(READ_ALL_TABLE);
              ResultSet resultSet = statement.executeQuery()) {
             List<User> users = new ArrayList<>();
             User user = null;
@@ -165,7 +245,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
                 user.setLogin(resultSet.getString("login"));
                 user.setPassword(resultSet.getString("password"));
                 user.setRole(Role.getByIdentity(
-                        resultSet.getInt("role")));
+                  resultSet.getInt("role")));
                 users.add(user);
             }
             return users;

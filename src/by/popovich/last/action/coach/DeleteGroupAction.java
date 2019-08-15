@@ -19,14 +19,28 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Delete group action class.
+ */
 public class DeleteGroupAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static Logger LOGGER = LogManager.getLogger(DeleteGroupAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(DeleteGroupAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
         String lang = (String) session.getAttribute("lang");
@@ -47,25 +61,32 @@ public class DeleteGroupAction extends AuthorizedUserAction {
             Integer groupIdNumber = Integer.parseInt(groupIdFromRequest);
             if (currentUser.getRole().equals(Role.COACH)
                     || currentUser.getRole().equals(Role.ADMINISTRATOR)) {
-                GroupService groupService = serviceFactory.getService(GroupService.class);
+                GroupService groupService = serviceFactory
+                        .getService(GroupService.class);
                 Group group = groupService.readById(groupIdNumber);
                 if (group.getCoachID().equals(currentUser.getIdentity())) {
-                    SubscriptionService service = serviceFactory.getService(SubscriptionService.class);
-                    List<Subscription> subs = service.readByGroupId(groupIdNumber);
-                    for (Subscription sub: subs
-                         ) {
+                    SubscriptionService service = serviceFactory
+                            .getService(SubscriptionService.class);
+                    List<Subscription> subs = service
+                            .readByGroupId(groupIdNumber);
+                    for (Subscription sub : subs
+                    ) {
                         service.delete(sub.getIdentity());
                     }
                     groupService.delete(groupIdNumber);
                     LOGGER.info("Группа была удалена!");
-                    request.setAttribute("message", "Группа была удалена!");
+                    request.setAttribute("message",
+                            "Группа была удалена!");
                 }
-            } else  {
-                request.setAttribute("message", "Недопустимое действие!");
-                return new Forward("/index.jsp", false);
+            } else {
+                request.setAttribute("message",
+                        "Недопустимое действие!");
+                return new Forward("/index.jsp",
+                        false);
             }
         } else {
-            request.setAttribute("message", "Недопустимая для действия роль!");
+            request.setAttribute("message",
+                    "Недопустимая для действия роль!");
             return new Forward("/index.jsp", false);
         }
         return new Forward("/index.jsp", false);

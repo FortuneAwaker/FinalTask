@@ -18,14 +18,28 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
+/**
+ * Notify visit action class.
+ */
 public class NotifyVisitAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static Logger LOGGER = LogManager.getLogger(NotifyVisitAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(NotifyVisitAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
         String lang = (String) session.getAttribute("lang");
@@ -45,31 +59,39 @@ public class NotifyVisitAction extends AuthorizedUserAction {
         }
         if (subIdFromRequest != null) {
             Integer subIdNumber = Integer.parseInt(subIdFromRequest);
-            SubscriptionService service = serviceFactory.getService(SubscriptionService.class);
+            SubscriptionService service = serviceFactory
+                    .getService(SubscriptionService.class);
             Subscription sub = service.readById(subIdNumber);
             groupId = sub.getIdOfGroup();
             if (currentUser.getRole().equals(Role.COACH)
                     || currentUser.getRole().equals(Role.ADMINISTRATOR)) {
-                GroupService groupService = serviceFactory.getService(GroupService.class);
+                GroupService groupService = serviceFactory
+                        .getService(GroupService.class);
                 Group group = groupService.readById(groupId);
                 if (group.getCoachID().equals(currentUser.getIdentity())) {
                     if (sub.getLeftVisits() > 0) {
                         sub.setLeftVisits(sub.getLeftVisits() - 1);
                         service.save(sub);
                         LOGGER.info("Посещение отмечено.");
-                        request.setAttribute("message", "Посещение отмечено.");
+                        request.setAttribute("message",
+                                "Посещение отмечено.");
                     } else {
                         LOGGER.info("Посещений не осталось!");
-                        request.setAttribute("message", "Посещений не осталось!");
+                        request.setAttribute("message",
+                                "Посещений не осталось!");
                     }
                 }
             } else {
-                request.setAttribute("message", "Недопустимое действие");
-                return new Forward("/index.jsp", false);
+                request.setAttribute("message",
+                        "Недопустимое действие");
+                return new Forward("/index.jsp",
+                        false);
             }
         } else {
-            request.setAttribute("message", "Недопустимая для действия роль");
-            return new Forward("/index.jsp", false);
+            request.setAttribute("message",
+                    "Недопустимая для действия роль");
+            return new Forward("/index.jsp",
+                    false);
         }
         return new Forward("/coach/membersOfGroup.html?groupId=" + groupId);
 

@@ -18,17 +18,50 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * Actoin to register new user.
+ */
 public class RegistrationAction extends Action {
+    /**
+     * Four.
+     */
+    private final int four = 4;
+    /**
+     * Fifteen.
+     */
+    private final int fifteen = 15;
+    /**
+     * Six.
+     */
+    private final int six = 6;
+    /**
+     * Seven.
+     */
+    private final int seven = 7;
+    /**
+     * Twelve.
+     */
+    private final int twelve = 12;
     /**
      * Logger.
      */
-    private static Logger LOGGER = LogManager.getLogger(LoginAction.class);
-
+    private static final Logger LOGGER = LogManager
+            .getLogger(LoginAction.class);
+    /**
+     * Menu items of current user.
+     */
     private static ArrayList<MenuItem> menu = new ArrayList<>();
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request,
-                                 HttpServletResponse response) {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response) {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -45,12 +78,12 @@ public class RegistrationAction extends Action {
         if (!todo.equals("false")) {
             if (menu.isEmpty()) {
                 Locale.setDefault(locale);
-                ResourceBundle bundle = ResourceBundle.getBundle("properties.club");
-//                menu.add(new MenuItem("/authorized_user/groups.html",
-//                        bundle.getString("my_groups_word")));
+                ResourceBundle bundle = ResourceBundle
+                        .getBundle("properties.club");
                 menu.add(new MenuItem("/authorized_user/profile.html",
                         bundle.getString("profile_word")));
-                menu.add(new MenuItem("/authorized_user/mySubscriptions.html",
+                menu.add(new MenuItem(
+                        "/authorized_user/mySubscriptions.html",
                         bundle.getString("my_subscriptions")));
             }
             String login = request.getParameter("login");
@@ -72,18 +105,19 @@ public class RegistrationAction extends Action {
                     && patro != null && phone != null) {
                 Validator validator = new Validator();
                 if (!(validator.validateStringData(name,
-                        4, 15)
+                        four, fifteen)
                         && validator.validateStringData(
-                        surname, 4, 15)
+                        surname, four, fifteen)
                         && validator.validateStringData(
-                        patro, 4, 15)
+                        patro, four, fifteen)
                         && validator.validateNumber(
-                        phoneString, 7, 12)
+                        phoneString, seven, twelve)
                         && validator.validateLoginOrPassword(
-                                password, 6, 15)
+                        password, six, fifteen)
                         && validator.validateLoginOrPassword(
-                                login, 6, 15))) {
-                    request.setAttribute("message", "Некорректные данные");
+                        login, six, fifteen))) {
+                    request.setAttribute("message",
+                            "Некорректные данные");
                     return null;
                 }
                 if (password.equals(repeatPassword)) {
@@ -104,7 +138,8 @@ public class RegistrationAction extends Action {
                         try {
                             infoService.addInfo(person);
                             session.setAttribute("userInfo", person);
-                            session.setAttribute("authorizedUser", newUser);
+                            session.setAttribute("authorizedUser",
+                                    newUser);
                             session.removeAttribute("menu");
                             session.setAttribute("menu", menu);
                             return new Forward("/index.html");
@@ -125,7 +160,8 @@ public class RegistrationAction extends Action {
                     request.setAttribute("message",
                             "Пароли не совпадают!");
                     LOGGER.info("Пароли не совпадают!");
-                    LOGGER.info(String.format("user \"%s\" unsuccessfully tried "
+                    LOGGER.info(String.format(
+                            "user \"%s\" unsuccessfully tried "
                                     + "to sign up from %s (%s:%s)", login,
                             request.getRemoteAddr(), request.getRemoteHost(),
                             request.getRemotePort()));

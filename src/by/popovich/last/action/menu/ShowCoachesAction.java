@@ -20,6 +20,9 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Show coaches action class.
+ */
 public class ShowCoachesAction extends Action {
     /**
      * Logger for creation notes to some appender.
@@ -27,8 +30,18 @@ public class ShowCoachesAction extends Action {
     private static final Logger LOGGER
             = LogManager.getLogger(ShowCoachesAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String coachIdStr = request.getParameter("coachId");
         String lang = (String) session.getAttribute("lang");
@@ -40,16 +53,18 @@ public class ShowCoachesAction extends Action {
         Locale locale = new Locale(lang);
         Config.set(request, Config.FMT_LOCALE, locale);
         UserService service = serviceFactory.getService(UserService.class);
-        UserInfoService infoService = serviceFactory.getService((UserInfoService.class));
+        UserInfoService infoService = serviceFactory
+                .getService((UserInfoService.class));
         List<Person> coaches = new ArrayList<>();
         if (coachIdStr == null) {
             for (User user : service.readAll()
             ) {
                 if (user.getRole().equals(Role.COACH)) {
-                    Person coach  = infoService.readById(user.getIdentity());
-                    byte [] image = infoService.readImage(coach.getIdentity());
+                    Person coach = infoService.readById(user.getIdentity());
+                    byte[] image = infoService.readImage(coach.getIdentity());
                     if (image != null) {
-                        String encode = Base64.getEncoder().encodeToString(image);
+                        String encode = Base64.getEncoder()
+                                .encodeToString(image);
                         coach.setAvatar(encode);
                     }
                     coaches.add(coach);
@@ -59,10 +74,10 @@ public class ShowCoachesAction extends Action {
             Integer coachId = Integer.parseInt(coachIdStr);
             if (service.readByIdentity(coachId)
                     .getRole().equals(Role.COACH)
-            || service.readByIdentity(coachId)
+                    || service.readByIdentity(coachId)
                     .getRole().equals(Role.ADMINISTRATOR)) {
                 Person coach = infoService.readById(coachId);
-                byte [] image = infoService.readImage(coachId);
+                byte[] image = infoService.readImage(coachId);
                 if (image != null) {
                     String encode = Base64.getEncoder().encodeToString(image);
                     coach.setAvatar(encode);

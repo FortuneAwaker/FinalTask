@@ -1,36 +1,42 @@
 package by.popovich.last.entity;
 
 import java.io.Serializable;
-import java.util.Objects;
 
+/**
+ * Abstract entity.
+ */
 abstract public class Entity implements Serializable {
+    /**
+     * Id.
+     */
     private Integer identity;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Entity entity = (Entity) o;
-        return Objects.equals(identity, entity.identity);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(identity);
-    }
-
+    /**
+     * Getter.
+     *
+     * @return id.
+     */
     public Integer getIdentity() {
         return identity;
     }
 
-    public void setIdentity(Integer identity) {
-        this.identity = identity;
+    /**
+     * Setter.
+     *
+     * @param id id.
+     */
+    public void setIdentity(final Integer id) {
+        this.identity = id;
     }
 
+    /**
+     * To string.
+     * @return string.
+     */
     @Override
     public String toString() {
-        return "Entity{" +
-                "identity=" + identity +
-                '}';
+        return "Entity{"
+          + "identity=" + identity
+          + '}';
     }
 }

@@ -16,14 +16,28 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Show groups by exercise action class.
+ */
 public class ShowGroupsByExercise extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static Logger LOGGER = LogManager.getLogger(ShowGroupsByExercise.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(ShowGroupsByExercise.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         User currentUser = (User) session.getAttribute("authorizedUser");
         if (currentUser != null) {
@@ -36,13 +50,16 @@ public class ShowGroupsByExercise extends AuthorizedUserAction {
             Locale locale = new Locale(lang);
             Config.set(request, Config.FMT_LOCALE, locale);
             String exercise = request.getParameter("exercise");
-            GroupService service = serviceFactory.getService(GroupService.class);
+            GroupService service = serviceFactory
+                    .getService(GroupService.class);
             List<Group> groups = service.readGroupsByTypeName(exercise);
             if (groups != null) {
                 session.setAttribute("exerciseName", exercise);
                 session.setAttribute("groupsByExercise", groups);
                 LOGGER.info("Группы по упражнению были показаны.");
-                return new Forward("/authorized_user/groupsByExercise.jsp", false);
+                return new Forward(
+                        "/authorized_user/groupsByExercise.jsp",
+                        false);
             } else {
                 LOGGER.info("Группы не найдены!");
                 request.setAttribute("message", "Группы не найдены!");
@@ -50,7 +67,7 @@ public class ShowGroupsByExercise extends AuthorizedUserAction {
         } else {
             request.setAttribute("message",
                     "Нужно войти, чтобы просматривать эту страницу!");
-            return new Forward("/index.html");
+            return new Forward("/index.jsp", false);
         }
         return new Forward("/index.html");
     }

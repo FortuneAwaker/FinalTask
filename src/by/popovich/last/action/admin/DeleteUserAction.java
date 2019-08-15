@@ -7,7 +7,10 @@ import by.popovich.last.entity.Role;
 import by.popovich.last.entity.Subscription;
 import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
-import by.popovich.last.service.*;
+import by.popovich.last.service.GroupService;
+import by.popovich.last.service.SubscriptionService;
+import by.popovich.last.service.UserInfoService;
+import by.popovich.last.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,14 +22,27 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Delete user action class.
+ */
 public class DeleteUserAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
     private static final Logger LOGGER = LogManager.getLogger(DeleteUserAction.class);
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession();
         Locale locale;
         String lang = (String) session.getAttribute("lang");
@@ -46,20 +62,25 @@ public class DeleteUserAction extends AuthorizedUserAction {
         if (userIdString != null) {
             Integer userId = Integer.parseInt(userIdString);
             if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
-                UserService service = serviceFactory.getService(UserService.class);
-                UserInfoService info = serviceFactory.getService(UserInfoService.class);
-                SubscriptionService subService = serviceFactory.getService(SubscriptionService.class);
-                GroupService gs = serviceFactory.getService(GroupService.class);
+                UserService service = serviceFactory
+                        .getService(UserService.class);
+                UserInfoService info = serviceFactory
+                        .getService(UserInfoService.class);
+                SubscriptionService subService = serviceFactory
+                        .getService(SubscriptionService.class);
+                GroupService gs = serviceFactory
+                        .getService(GroupService.class);
                 info.delete(userId);
                 List<Group> groups = gs.readGroupsByCoach(userId);
-                for (Group g: groups
+                for (Group g : groups
                 ) {
                     if (subService.readByGroupId(g.getIdentity()) == null) {
                         gs.delete(g.getIdentity());
                     }
                 }
-                List<Subscription> subs = subService.readSubscriptionsByClientId(userId);
-                for (Subscription s: subs
+                List<Subscription> subs = subService
+                        .readSubscriptionsByClientId(userId);
+                for (Subscription s : subs
                 ) {
                     subService.delete(s.getIdentity());
                 }
@@ -68,8 +89,10 @@ public class DeleteUserAction extends AuthorizedUserAction {
                 request.setAttribute("message", "Пользователь удалён!");
             } else {
                 LOGGER.info("Недопустимая для действия роль!");
-                request.setAttribute("message", "Недопустимая для действия роль!");
-                return new Forward("/index.jsp", false);
+                request.setAttribute("message",
+                        "Недопустимая для действия роль!");
+                return new Forward("/index.jsp",
+                        false);
             }
         } else {
             LOGGER.info("Недопустимое действие!");

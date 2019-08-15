@@ -5,14 +5,6 @@ public class User extends Entity {
     private String password;
     private Role role;
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -20,13 +12,36 @@ public class User extends Entity {
     public void setPassword(String password) {
         this.password = password;
     }
-
+    /**
+     * Getter.
+     * @return role.
+     */
     public Role getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    /**
+     * Setter
+     * @param r role.
+     */
+    public void setRole(final Role r) {
+        this.role = r;
+    }
+
+    /**
+     * Getter.
+     * @return login.
+     */
+    public String getLogin() {
+        return login;
+    }
+
+    /**
+     * Setter.
+     * @param l login.
+     */
+    public void setLogin(final String l) {
+        this.login = l;
     }
 
     @Override

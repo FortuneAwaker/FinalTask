@@ -19,6 +19,9 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
+/**
+ * Connection that is pooled to deque.
+ */
 public class PooledConnection implements Connection, Comparable<PooledConnection> {
     private Connection connection;
 

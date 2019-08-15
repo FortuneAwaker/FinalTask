@@ -14,40 +14,86 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * User info DAO.
+ */
 public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
-    private static Logger LOGGER = LogManager.getLogger(UserDaoImpl.class);
+    /**
+     * Three.
+     */
+    private final int three = 3;
+    /**
+     * Four.
+     */
+    private final int four = 4;
+    /**
+     * Five.
+     */
+    private final int five = 5;
+    /**
+     * Six.
+     */
+    private final int six = 6;
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager
+      .getLogger(UserDaoImpl.class);
+    /**
+     * Add sql.
+     */
+    private static final String ADD_USER_INFO = "INSERT INTO `user_info` "
+      + "(`user_id`, `surname`, `name`, `patronymic`, `phone`)"
+      + " VALUES (?, ?, ?, ?, ?)";
+    /**
+     * Read by id sql.
+     */
+    private static final String READ_BY_ID = "SELECT *"
+      + " FROM `user_info` WHERE `user_id` = ?";
+    /**
+     * Update sql.
+     */
+    private static final String UPDATE_USER_PARAMETERS
+      = "UPDATE `user_info` SET "
+      + "`surname` = ?, `name` = ?, "
+      + "  `patronymic` = ?,`phone` = ?,`avatar` = ? WHERE `user_id` = ?";
 
-    private final String ADD_USER_INFO = "INSERT INTO `user_info` "
-            + "(`user_id`, `surname`, `name`, `patronymic`, `phone`)"
-            + " VALUES (?, ?, ?, ?, ?)";
+    /**
+     * Delete by id sq.
+     */
+    private static final String DELETE_USER_BY_ID = "DELETE FROM "
+      + "`user_info` WHERE `user_id` = ?";
 
-    private final String READ_BY_ID = "SELECT *"
-            + " FROM `user_info` WHERE `user_id` = ?";
+    /**
+     * Read all sql.
+     */
+    private static final String READ_ALL_TABLE = "SELECT * FROM `user_info`";
+    /**
+     * Read image sql.
+     */
+    private static final String READ_IMAGE_BY_USER_ID
+      = "SELECT `avatar` FROM `user_info`"
+      + " WHERE `user_id` = ?";
 
-    private final String UPDATE_USER_PARAMETERS = "UPDATE `user_info` SET "
-            + "`surname` = ?, `name` = ?, "
-            + "  `patronymic` = ?,`phone` = ?,`avatar` = ? WHERE `user_id` = ?";
-
-    private final String DELETE_USER_BY_ID = "DELETE FROM "
-            + "`user_info` WHERE `user_id` = ?";
-
-    private final String READ_ALL_TABLE = "SELECT * FROM `user_info`";
-
-    private final String READ_IMAGE_BY_USER_ID = "SELECT `avatar` FROM `user_info`"
-            + " WHERE `user_id` = ?";
-
+    /**
+     * Create.
+     *
+     * @param person user info.
+     * @return id of user.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Integer create(Person person) throws PersistentException {
+    public Integer create(final Person person) throws PersistentException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
             statement = connection.prepareStatement(ADD_USER_INFO,
-                    Statement.RETURN_GENERATED_KEYS);
+              Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, person.getIdentity());
             statement.setString(2, person.getSurname());
-            statement.setString(3, person.getName());
-            statement.setString(4, person.getPatronymic());
-            statement.setLong(5, person.getPhone());
+            statement.setString(three, person.getName());
+            statement.setString(four, person.getPatronymic());
+            statement.setLong(five, person.getPhone());
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
             return person.getIdentity();
@@ -65,8 +111,15 @@ public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
         }
     }
 
+    /**
+     * Read by id.
+     *
+     * @param identity id.
+     * @return user info.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Person read(Integer identity) throws PersistentException {
+    public Person read(final Integer identity) throws PersistentException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
@@ -97,31 +150,51 @@ public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
         }
     }
 
+    /**
+     * Update, is not supported.
+     *
+     * @param entity instance.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public void update(Person entity) throws PersistentException {
+    public void update(final Person entity) throws PersistentException {
 
     }
 
+    /**
+     * Update.
+     *
+     * @param person user info.
+     * @param is     image.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public void update(Person person, InputStream is) throws PersistentException {
+    public void update(final Person person,
+                       final InputStream is) throws PersistentException {
         try (PreparedStatement statement = connection
-                .prepareStatement(UPDATE_USER_PARAMETERS)) {
+          .prepareStatement(UPDATE_USER_PARAMETERS)) {
             statement.setString(1, person.getSurname());
             statement.setString(2, person.getName());
-            statement.setString(3, person.getPatronymic());
-            statement.setLong(4, person.getPhone());
-            statement.setObject(5, is);
-            statement.setInt(6, person.getIdentity());
+            statement.setString(three, person.getPatronymic());
+            statement.setLong(four, person.getPhone());
+            statement.setObject(five, is);
+            statement.setInt(six, person.getIdentity());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new PersistentException(e);
         }
     }
 
+    /**
+     * Delete by id.
+     *
+     * @param identity id.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public void delete(Integer identity) throws PersistentException {
+    public void delete(final Integer identity) throws PersistentException {
         try (PreparedStatement statement
-                     = connection.prepareStatement(DELETE_USER_BY_ID)) {
+               = connection.prepareStatement(DELETE_USER_BY_ID)) {
             statement.setInt(1, identity);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -129,10 +202,16 @@ public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
         }
     }
 
+    /**
+     * Read all.
+     *
+     * @return list of user info.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
     public List<Person> read() throws PersistentException {
         try (PreparedStatement statement = connection
-                .prepareStatement(READ_ALL_TABLE);
+          .prepareStatement(READ_ALL_TABLE);
              ResultSet resultSet = statement.executeQuery()) {
             List<Person> persons = new ArrayList<>();
             Person person = null;
@@ -151,14 +230,21 @@ public class UserInfoDaoImpl extends BaseDaoImpl implements UserInfoDao {
         }
     }
 
+    /**
+     * Read image.
+     *
+     * @param userId id of user.
+     * @return byte array.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public byte[] readImage(Integer userId) throws PersistentException {
+    public byte[] readImage(final Integer userId) throws PersistentException {
         try (PreparedStatement statement
-                     = connection.prepareStatement(READ_IMAGE_BY_USER_ID)) {
+               = connection.prepareStatement(READ_IMAGE_BY_USER_ID)) {
             statement.setInt(1, userId);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                byte byteArray[] = resultSet.getBytes(1);
+                byte[] byteArray = resultSet.getBytes(1);
                 return byteArray;
             }
             return null;

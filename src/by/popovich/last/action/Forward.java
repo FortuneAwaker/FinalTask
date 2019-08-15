@@ -32,11 +32,11 @@ public class Forward {
     }
 
     /**
-     * Constructor with only forward(redirect is true by default)
-     * @param forward is forward or redirect.
+     * Constructor with only forward(redirect is true by default).
+     * @param f is forward or redirect.
      */
-    public Forward(String forward) {
-        this(forward, true);
+    public Forward(final String f) {
+        this(f, true);
     }
 
     /**
@@ -67,10 +67,14 @@ public class Forward {
      * "Setter" for boolean field.
      * @param isRedirect value to set.
      */
-    public void setRedirect(boolean isRedirect) {
+    public void setRedirect(final boolean isRedirect) {
         this.redirect = redirect;
     }
 
+    /**
+     * Getter.
+     * @return attributes.
+     */
     public Map<String, Object> getAttributes() {
         return attributes;
     }

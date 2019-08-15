@@ -1,25 +1,56 @@
 package by.popovich.last.entity;
 
+/**
+ * Roles.
+ */
 public enum Role {
+    /**
+     * Admin.
+     */
     ADMINISTRATOR("администратор"),
+    /**
+     * Coach.
+     */
     COACH("тренер"),
+    /**
+     * Client.
+     */
     CLIENT("клиент");
+    /**
+     * Name.
+     */
+    private String roleName;
 
-    private String name;
-
-    private Role(String name) {
-        this.name = name;
+    /**
+     * Constructor.
+     * @param name name
+     */
+    Role(final String name) {
+        this.roleName = name;
     }
 
+    /**
+     * Getter.
+     * @return name.
+     */
     public String getName() {
-        return name;
+        return roleName;
     }
 
+    /**
+     * Getter.
+     * @return id.
+     */
     public Integer getIdentity() {
         return ordinal();
     }
 
-    public static Role getByIdentity(Integer identity) {
+    /**
+     * Getter.
+     * @param identity id.
+     * @return Role.
+     */
+    public static Role getByIdentity(final Integer identity) {
         return Role.values()[identity];
     }
 }

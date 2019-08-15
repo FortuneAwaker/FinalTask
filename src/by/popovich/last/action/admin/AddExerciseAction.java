@@ -17,14 +17,36 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.util.Locale;
 
+/**
+ * Action class for adding new exercise to DB.
+ */
 public class AddExerciseAction extends AuthorizedUserAction {
+    /**
+     * Three.
+     */
+    private final int three = 3;
+    /**
+     * Fifteen.
+     */
+    private final int fifteen = 15;
     /**
      * Logger.
      */
-    private static final Logger LOGGER = LogManager.getLogger(AddExerciseAction.class);
+    private static final Logger LOGGER = LogManager.getLogger(
+            AddExerciseAction.class);
 
+    /**
+     * Executes action from website.
+     *
+     * @param request  HttpServletRequest
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -45,30 +67,37 @@ public class AddExerciseAction extends AuthorizedUserAction {
         }
         if (!currentUser.getRole().equals(Role.ADMINISTRATOR)) {
             LOGGER.info("Недопустимая для действия роль");
-            request.setAttribute("message", "Недопустимая для действия роль");
+            request.setAttribute("message",
+                    "Недопустимая для действия роль");
             return new Forward("/index.jsp", false);
         }
         if (!todo.equals("false")) {
-            String nameOfExerciseString = request.getParameter("nameOfExercise");
+            String nameOfExerciseString = request
+                    .getParameter("nameOfExercise");
             if (nameOfExerciseString != null) {
                 Validator validator = new Validator();
                 if (!(validator.validateStringData(nameOfExerciseString,
-                        3, 15))) {
+                        three, fifteen))) {
                     LOGGER.info("Некорректные данные");
-                    request.setAttribute("message", "Некорректные данные");
+                    request.setAttribute("message",
+                            "Некорректные данные");
                     return null;
                 }
-                ExerciseService service = serviceFactory.getService(ExerciseService.class);
+                ExerciseService service = serviceFactory
+                        .getService(ExerciseService.class);
                 Exercise exerciseToAdd = new Exercise();
                 exerciseToAdd.setTypeOfExercises(nameOfExerciseString);
                 try {
                     service.save(exerciseToAdd);
                     LOGGER.info("Новое упражнение было добавлено!");
-                    request.setAttribute("message", "Новое упражнение было добавлено!");
-                    return new Forward("/index.jsp", false);
+                    request.setAttribute("message",
+                            "Новое упражнение было добавлено!");
+                    return new Forward("/index.jsp",
+                            false);
                 } catch (PersistentException e) {
                     LOGGER.info("Ошибка создания упражнения!");
-                    request.setAttribute("message", "Ошибка создания упражнения!");
+                    request.setAttribute("message",
+                            "Ошибка создания упражнения!");
                 }
             } else {
                 request.setAttribute("message", "Недопустимое действие");

@@ -2,10 +2,12 @@ package by.popovich.last.action.admin;
 
 import by.popovich.last.action.AuthorizedUserAction;
 import by.popovich.last.action.Forward;
-import by.popovich.last.entity.*;
+import by.popovich.last.entity.Exercise;
+import by.popovich.last.entity.Price;
+import by.popovich.last.entity.Role;
+import by.popovich.last.entity.User;
 import by.popovich.last.exception.PersistentException;
 import by.popovich.last.service.ExerciseService;
-import by.popovich.last.service.GroupService;
 import by.popovich.last.service.PriceService;
 import by.popovich.last.validator.Validator;
 import org.apache.logging.log4j.LogManager;
@@ -18,14 +20,39 @@ import javax.servlet.jsp.jstl.core.Config;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Add price action class.
+ */
 public class AddPriceAction extends AuthorizedUserAction {
+    /**
+     * One.
+     */
+    private final int one = 1;
+    /**
+     * Three.
+     */
+    private final int three = 3;
+    /**
+     * Six.
+     */
+    private final int six = 6;
     /**
      * Logger.
      */
-    private static final Logger LOGGER = LogManager.getLogger(AddPriceAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(AddPriceAction.class);
 
+    /**
+     * Executes action.
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -45,29 +72,35 @@ public class AddPriceAction extends AuthorizedUserAction {
             todo = "true";
         }
         if (currentUser.getRole().equals(Role.ADMINISTRATOR)) {
-            ExerciseService service = serviceFactory.getService(ExerciseService.class);
+            ExerciseService service = serviceFactory
+                    .getService(ExerciseService.class);
             List<Exercise> exercises = service.readAll();
             session.setAttribute("exercisesToChoose", exercises);
         } else {
-            request.setAttribute("message", "Недопустимая для действия роль");
+            request.setAttribute("message",
+                    "Недопустимая для действия роль");
             return new Forward("/index.jsp", false);
         }
         if (!todo.equals("false")) {
             String exerciseId = request.getParameter("chosenExercise");
-            String numberOfVisitsString = request.getParameter("numberOfVisits");
-            String numberOfDaysString = request.getParameter("numberOfDays");
-            String numberOfMoneyString = request.getParameter("money");
+            String numberOfVisitsString = request.getParameter(
+                    "numberOfVisits");
+            String numberOfDaysString = request.getParameter(
+                    "numberOfDays");
+            String numberOfMoneyString = request.getParameter(
+                    "money");
             if (numberOfDaysString != null && numberOfMoneyString != null
                     && exerciseId != null && numberOfVisitsString != null) {
                 Validator validator = new Validator();
                 if (!(validator.validateNumber(
-                        numberOfDaysString, 1, 3)
-                && validator.validateNumber(
-                        numberOfMoneyString, 1, 6)
-                && validator.validateNumber(
-                        numberOfVisitsString, 1, 3))) {
+                        numberOfDaysString, one, three)
+                        && validator.validateNumber(
+                        numberOfMoneyString, one, three)
+                        && validator.validateNumber(
+                        numberOfVisitsString, one, three))) {
                     LOGGER.info("Некорректные данные");
-                    request.setAttribute("message", "Некорректные данные");
+                    request.setAttribute(
+                            "message", "Некорректные данные");
                     return null;
                 }
                 ExerciseService exerciseService = serviceFactory.getService(ExerciseService.class);

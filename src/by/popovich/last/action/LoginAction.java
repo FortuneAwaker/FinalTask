@@ -14,19 +14,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Action to log in.
+ */
 public class LoginAction extends Action {
     /**
      * Logger.
      */
-    private static Logger LOGGER = LogManager.getLogger(LoginAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(LoginAction.class);
 
+    /**
+     * Elements of menu of current user.
+     */
     private static Map<Role, List<MenuItem>> menu = new ConcurrentHashMap<>();
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return uri to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -69,21 +91,34 @@ public class LoginAction extends Action {
             String login = request.getParameter("login");
             String password = request.getParameter("password");
             if (login != null && password != null) {
-                UserService service = serviceFactory.getService(UserService.class);
+                UserService service = serviceFactory.getService(
+                        UserService.class);
                 User user = service.readByLoginAndPassword(login, password);
                 if (user != null) {
                     if (user.getIdentity() != null) {
-                        UserInfoService infoService = serviceFactory.getService(UserInfoService.class);
-                        Person userInfo = infoService.readById(user.getIdentity());
+                        UserInfoService infoService = serviceFactory
+                                .getService(UserInfoService.class);
+                        Person userInfo = infoService.readById(
+                                user.getIdentity());
                         session.setAttribute("userInfo", userInfo);
                     }
                     session.setAttribute("authorizedUser", user);
                     session.setAttribute("menu", menu.get(user.getRole()));
-                    LOGGER.info(String.format("user \"%s\" is logged in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
+                    LOGGER.info(String
+                            .format("user \"%s\" is logged in from %s (%s:%s)",
+                                    login, request.getRemoteAddr(),
+                                    request.getRemoteHost(),
+                                    request.getRemotePort()));
                     return new Forward("/index.html");
                 } else {
-                    request.setAttribute("message", "Имя пользователя или пароль не опознанны");
-                    LOGGER.info(String.format("user \"%s\" unsuccessfully tried to log in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
+                    request.setAttribute("message",
+                            "Имя пользователя или пароль не опознанны");
+                    LOGGER.info(String.format(
+                            "user \"%s\" unsuccessfully tried to"
+                                    + " log in from %s (%s:%s)",
+                            login, request.getRemoteAddr(),
+                            request.getRemoteHost(),
+                            request.getRemotePort()));
                 }
             }
         }

@@ -20,14 +20,44 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
 
+/**
+ * Save profile action class.
+ */
 public class SaveProfileAction extends AuthorizedUserAction {
     /**
      * Logger.
      */
-    private static Logger LOGGER = LogManager.getLogger(SaveProfileAction.class);
+    private static final Logger LOGGER = LogManager
+            .getLogger(SaveProfileAction.class);
+    /**
+     * Four.
+     */
+    private final int four = 4;
+    /**
+     * Fifteen.
+     */
+    private final int fifteen = 15;
+    /**
+     * Seven.
+     */
+    private final int seven = 7;
+    /**
+     * Twelve.
+     */
+    private final int twelve = 12;
 
+    /**
+     * Executes action.
+     *
+     * @param request  HttpServletRequest.
+     * @param response HttpServletResponse
+     * @return url to go.
+     * @throws PersistentException if error in DB handling.
+     */
     @Override
-    public Forward executeAction(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+    public Forward executeAction(final HttpServletRequest request,
+                                 final HttpServletResponse response)
+            throws PersistentException {
         HttpSession session = request.getSession(true);
         String lang = (String) session.getAttribute("lang");
         if (lang == null) {
@@ -54,13 +84,13 @@ public class SaveProfileAction extends AuthorizedUserAction {
             InputStream is = null;
             Validator validator = new Validator();
             if (!(validator.validateStringData(name,
-                    4, 15)
+                    four, fifteen)
                     && validator.validateStringData(
-                            surname, 4, 15)
+                    surname, four, fifteen)
                     && validator.validateStringData(
-                            patro, 4, 15)
+                    patro, four, fifteen)
                     && validator.validateNumber(
-                            phoneString, 7, 12))) {
+                    phoneString, seven, twelve))) {
                 LOGGER.info("Некорректные данные!");
                 request.setAttribute("message", "Некорректные данные!");
                 return null;
