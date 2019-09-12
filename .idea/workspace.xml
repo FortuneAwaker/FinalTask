@@ -1,135 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SportClub" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b51b894c-1faa-4791-afba-c6b370a551d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab7d69a1-d73a-4010-9e85-e2d511ef6953.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab7d69a1-d73a-4010-9e85-e2d511ef6953/storage_v2/_src_/schema/library_db.gs7L3Q.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab7d69a1-d73a-4010-9e85-e2d511ef6953/storage_v2/_src_/schema/sport_club.ob5y_w.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_17_bin.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/e/3e8f1763808872cc23ebfd2b00cf8fccd2c0fa9b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c57da80566625bada63d87f6f3dc37e83902d1b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/2/623110801129eb08623f19e8c43be4fdc57c039e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/e/7ec23b04392472e4ca15a7482e3555b5c5f78196" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b88d0859022d5b3e257bc5420f216483680eede2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/7/c72ad0da5927b3efbe9f29b188bbc92ec240891d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task05Final_Database.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/Action.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/ActionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/ActionManagerFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/ActionManagerImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/AuthorizedUserAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/ChangeLanguageAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/Forward.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/LoginAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/MainAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/MenuItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/RegistrationAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/AddExerciseAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/AddPriceAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/ChangeRoleAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/DeleteExerciseAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/DeletePriceAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/DeleteUserAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/EditExerciseAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/EditPriceAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/ShowAllGroups.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/ShowAllSubscriptions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/ShowAllUsers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/admin/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ChangePasswordAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/LogoutAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/SaveProfileAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ShowGroupsByExercise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ShowProfileAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/ShowSubscribtionsAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/SubscribeAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/authorizedUser/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/coach/AddGroupAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/coach/DeleteGroupAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/coach/DeleteSubscriptionAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/coach/EditGroupAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/coach/NotifyVisitAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/coach/ShowGroupsOfCoach.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/coach/ShowMembersOfGroup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/coach/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/menu/ShowCoachesAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/menu/ShowExercisesAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/menu/ShowTicketsAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/menu/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/action/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/controller/ActionFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/controller/DispatcherServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/controller/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/DAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/ExerciseDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/GroupDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/PriceDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/SubscriptionDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/Transaction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/TransactionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/UserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/UserInfoDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/BaseDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/ExerciseDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/GroupDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/PriceDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/SubscriptionDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/TransactionFactoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/TransactionImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/UserDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/UserInfoDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/mysql/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/pool/ConnectionPool.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/pool/PooledConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/dao/pool/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/Entity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/Exercise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/Group.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/Price.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/Subscription.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/entity/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/exception/IncorrectFormDataException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/exception/PersistentException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/ExerciseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/ExerciseServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/GroupService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/GroupServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/PriceService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/PriceServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/ServiceFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/ServiceFactoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/ServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/ServiceInvocationHandlerImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/SubscriptionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/SubscriptionServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/UserInfoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/UserInfoServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/service/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/popovich/last/validator/Validator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/ExerciseDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/ExerciseDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/GroupDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/GroupDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/PriceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/PriceDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/SubscriptionDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/SubscriptionDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserInfoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserInfoDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/log4j-api-2.11.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/log4j-core-2.11.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.17-bin.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/testng-6.14.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/properties/club.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/properties/club.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/properties/club_be.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/properties/club_be.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/properties/club_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/properties/club_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/properties/club_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/properties/club_ru.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/1_drop_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/1_drop_database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/2_create_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/2_create_database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/3_create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/3_create_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/4_init_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/4_init_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/5_fill_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/5_fill_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/META-INF/Task05Final_Database.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/META-INF/Task05Final_Database.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/addExercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/addExercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/addPrice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/addPrice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/allGroups.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/allGroups.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/allSubscriptions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/allSubscriptions.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/allUsers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/allUsers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/editExercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/editExercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/editPrice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/admin/editPrice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/changePassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/changePassword.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/groupsByExercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/groupsByExercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/mySubscriptions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/mySubscriptions.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/saveProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/saveProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/subscribe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/authorized_user/subscribe.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/coach/addGroup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/coach/addGroup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/coach/editGroup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/coach/editGroup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/coach/groups.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/coach/groups.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/coach/membersOfGroup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/coach/membersOfGroup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/mainPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/mainPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/menu/coaches.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/menu/coaches.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/menu/exercises.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/menu/exercises.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/menu/prices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/menu/prices.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/jsp/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/tags/footer.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/tags/footer.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/tags/headerLine.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/tags/headerLine.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/tags/html.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/tags/html.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/ActionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/ActionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/ActionManagerFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/ActionManagerFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/ActionManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/ActionManagerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/AuthorizedUserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/AuthorizedUserAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/ChangeLanguageAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/ChangeLanguageAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/Forward.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/Forward.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/LoginAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/LoginAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/MainAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/MainAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/MenuItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/MenuItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/RegistrationAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/RegistrationAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/AddExerciseAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/AddExerciseAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/AddPriceAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/AddPriceAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/ChangeRoleAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/ChangeRoleAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/DeleteExerciseAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/DeleteExerciseAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/DeletePriceAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/DeletePriceAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/DeleteUserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/DeleteUserAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/EditExerciseAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/EditExerciseAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/EditPriceAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/EditPriceAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/ShowAllGroups.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/ShowAllGroups.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/ShowAllSubscriptions.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/ShowAllSubscriptions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/ShowAllUsers.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/admin/ShowAllUsers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/ChangePasswordAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/ChangePasswordAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/LogoutAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/LogoutAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/SaveProfileAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/SaveProfileAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/ShowGroupsByExercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/ShowGroupsByExercise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/ShowProfileAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/ShowProfileAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/ShowSubscribtionsAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/ShowSubscribtionsAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/SubscribeAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/authorizedUser/SubscribeAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/AddGroupAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/AddGroupAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/DeleteGroupAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/DeleteGroupAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/DeleteSubscriptionAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/DeleteSubscriptionAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/EditGroupAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/EditGroupAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/NotifyVisitAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/NotifyVisitAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/ShowGroupsOfCoach.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/ShowGroupsOfCoach.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/ShowMembersOfGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/coach/ShowMembersOfGroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/menu/ShowCoachesAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/menu/ShowCoachesAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/menu/ShowExercisesAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/menu/ShowExercisesAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/menu/ShowTicketsAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/action/menu/ShowTicketsAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/controller/ActionFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/controller/ActionFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/controller/DispatcherServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/controller/DispatcherServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/DAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/DAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/ExerciseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/ExerciseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/GroupDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/GroupDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/PriceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/PriceDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/SubscriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/SubscriptionDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/TransactionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/TransactionFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/UserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/BaseDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/BaseDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/ExerciseDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/ExerciseDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/GroupDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/GroupDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/PriceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/PriceDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/SubscriptionDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/SubscriptionDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/TransactionFactoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/TransactionFactoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/TransactionImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/TransactionImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserInfoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/mysql/UserInfoDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/pool/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/pool/ConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/pool/PooledConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/dao/pool/PooledConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Exercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Exercise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Group.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Group.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Price.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Price.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Subscription.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/Subscription.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/exception/IncorrectFormDataException.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/exception/IncorrectFormDataException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/exception/PersistentException.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/exception/PersistentException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ExerciseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ExerciseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ExerciseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ExerciseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/GroupService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/GroupService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/GroupServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/GroupServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/PriceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/PriceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/PriceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/PriceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ServiceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ServiceFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ServiceFactoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ServiceFactoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ServiceInvocationHandlerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/ServiceInvocationHandlerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/SubscriptionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/SubscriptionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/SubscriptionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/SubscriptionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserInfoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/service/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/validator/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/by/popovich/last/validator/Validator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/img/bMipYRFqfjI.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/img/bMipYRFqfjI.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/img/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/img/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/img/logo2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/img/logo2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/img/motivation.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/img/motivation.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/img/sportzal.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/img/sportzal.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/js/validator-of-registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/js/validator-of-registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/js/validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/js/validator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/properties/club.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/properties/club.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/properties/club_be.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/properties/club_be.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/properties/club_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/properties/club_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/production/Task05Final_Database/properties/club_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/production/Task05Final_Database/properties/club_ru.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/addExercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/addExercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/addPrice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/addPrice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/allGroups.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/allGroups.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/allSubscriptions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/allSubscriptions.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/allUsers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/allUsers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/editExercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/editExercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/editPrice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/editPrice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/changePassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/authorized_user/changePassword.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/groupsByExercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/authorized_user/groupsByExercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/mySubscriptions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/authorized_user/mySubscriptions.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/authorized_user/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/saveProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/authorized_user/saveProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/authorized_user/subscribe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/authorized_user/subscribe.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/coach/addGroup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/coach/addGroup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/coach/editGroup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/coach/editGroup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/coach/groups.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/coach/groups.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/coach/membersOfGroup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/coach/membersOfGroup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/mainPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/mainPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/menu/coaches.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/menu/coaches.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/menu/exercises.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/menu/exercises.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/menu/prices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/menu/prices.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/tags/footer.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/footer.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/tags/headerLine.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/headerLine.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/tags/html.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/html.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/bMipYRFqfjI.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/bMipYRFqfjI.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/logo2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/logo2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/motivation.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/motivation.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/sportzal.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/sportzal.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/validator-of-registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/validator-of-registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/validator.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -138,8 +208,108 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/popovich/last/action/authorizedUser/ShowGroupsByExercise.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="139" column="28" selection-start-line="139" selection-start-column="28" selection-end-line="139" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/popovich/last/action/LoginAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/popovich/last/action/coach/EditGroupAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/popovich/last/dao/mysql/PriceDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>jar</find>
+      <find>final</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Task05_SportClub" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Task05_SportClub" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Task05_SportClub" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="130" />
@@ -154,7 +324,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,27 +347,40 @@
               <item name="Task05_SportClub" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Task05_SportClub" type="b2602c69:ProjectViewProjectNode" />
               <item name="Task05_SportClub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="last" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568279374907" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/log4j-1.2.16.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Java projects\Maven projects\Task05_SportClub\src\main" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -223,47 +405,187 @@
       <option name="presentableId" value="Default" />
       <updated>1568197913690</updated>
       <workItem from="1568197915717" duration="26000" />
+      <workItem from="1568217680773" duration="3810000" />
+      <workItem from="1568274020406" duration="3060000" />
+      <workItem from="1568277493234" duration="1945000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26000" />
+    <option name="totallyTimeSpent" value="8841000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25973153" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="CheckStyle" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.4305949" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="CheckStyle" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.6388102" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50067115" side_tool="true" weight="0.5694051" />
+      <window_info anchor="bottom" id="Application Servers" order="13" weight="0.3286119" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.3295302" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-325" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/by/popovich/last/AppTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/popovich/last/action/authorizedUser/ShowGroupsByExercise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/popovich/last/action/LoginAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/popovich/last/action/coach/EditGroupAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/popovich/last/dao/mysql/PriceDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="139" column="28" selection-start-line="139" selection-start-column="28" selection-end-line="139" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Task05_SportClub:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Task05_SportClub</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.beust:jcommander:1.72</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
